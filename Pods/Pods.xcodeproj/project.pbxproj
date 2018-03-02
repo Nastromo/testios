@@ -1,0 +1,662 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1559C9EA5C3CF7166EAB64E0C1B35AE6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3917A50EB224EEDBC66971700D698782 /* UIKit.framework */; };
+		3D0D8AE177113A24637DB34266F2DBBA /* Pulsator-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 8C55154C535AE0F2085362A6E584AB8B /* Pulsator-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7A6A764A6E8B2E692ADEC9C855E85B2A /* Pods-Facelocation-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = ADA84D1A335151D29159AC30051F2B14 /* Pods-Facelocation-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A24CAE1B42851F9CDCF04981A000CEC1 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB7751D4D791D1183FB66D3CCA52CD8E /* QuartzCore.framework */; };
+		B21FB79D5878CBE74AEEBEB6DA476CCA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33083C616C9CA8AF16FA7C690BC673C7 /* Foundation.framework */; };
+		BFB632072641BB1A80CAA28D21C1A773 /* Pods-Facelocation-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = AB9262B06FB87CB1ED99BE08C6A3EF34 /* Pods-Facelocation-dummy.m */; };
+		EDAC98E51E58F20FC8B325D57AAD303E /* Pulsator-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = BB561ECAC383139D641C9593FBFEAC91 /* Pulsator-dummy.m */; };
+		EF69F39A059A0A8CC09D7B9C47D28F3E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33083C616C9CA8AF16FA7C690BC673C7 /* Foundation.framework */; };
+		EFEDE232C8E2D37291F06297AB8DF5FB /* Pulsator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509D367BDD3753B75657DBF807091DC5 /* Pulsator.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4196BF078D4602A2F8F22AB447F0941D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DA3A05E4DA61007243DE778E6FD2D1E4;
+			remoteInfo = Pulsator;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		06D4847144D1FC52C6958F4C88840E82 /* Pods-Facelocation-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Facelocation-acknowledgements.markdown"; sourceTree = "<group>"; };
+		0831DDD87ABC3CE185C068DF7D8A85C6 /* GooglePlaces.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = GooglePlaces.bundle; path = Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle; sourceTree = "<group>"; };
+		09BA7E54764CB35CFC7F5D86C9FA39F7 /* GoogleMapsBase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMapsBase.framework; path = Base/Frameworks/GoogleMapsBase.framework; sourceTree = "<group>"; };
+		31FFFD800252587BC70BAF92170A6A57 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		33083C616C9CA8AF16FA7C690BC673C7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		3717A643719D844E3EE33D596CDFA7FA /* Pods-Facelocation-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Facelocation-acknowledgements.plist"; sourceTree = "<group>"; };
+		3917A50EB224EEDBC66971700D698782 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		4271404CD7E6216DD50937D78126B59B /* GoogleMapsCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMapsCore.framework; path = Maps/Frameworks/GoogleMapsCore.framework; sourceTree = "<group>"; };
+		48EAAD74AD9BD25007C6AECBF5A4B9B2 /* Pods_Facelocation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Facelocation.framework; path = "Pods-Facelocation.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		509D367BDD3753B75657DBF807091DC5 /* Pulsator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Pulsator.swift; path = Pulsator/Pulsator.swift; sourceTree = "<group>"; };
+		61CA9CC7F307890438278F1801CBC291 /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMaps.framework; path = Maps/Frameworks/GoogleMaps.framework; sourceTree = "<group>"; };
+		75930423490D82EA53453F0227A7C292 /* Pulsator.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pulsator.xcconfig; sourceTree = "<group>"; };
+		8C55154C535AE0F2085362A6E584AB8B /* Pulsator-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pulsator-umbrella.h"; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9643C6451F1B0B094C63761FCD79EF83 /* Pods-Facelocation.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Facelocation.modulemap"; sourceTree = "<group>"; };
+		976BE719ECA9222FC290A09637CAD6F1 /* GooglePlaces.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GooglePlaces.framework; path = Frameworks/GooglePlaces.framework; sourceTree = "<group>"; };
+		A429FDDF320362B1349E25EA670BD879 /* Pods-Facelocation.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Facelocation.debug.xcconfig"; sourceTree = "<group>"; };
+		A8451E64C07F2F12260AA98845B01086 /* Pulsator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pulsator.framework; path = Pulsator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB9262B06FB87CB1ED99BE08C6A3EF34 /* Pods-Facelocation-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Facelocation-dummy.m"; sourceTree = "<group>"; };
+		ADA84D1A335151D29159AC30051F2B14 /* Pods-Facelocation-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Facelocation-umbrella.h"; sourceTree = "<group>"; };
+		B3EA4F522054A76322A47CAAEAB8FF3A /* Pods-Facelocation-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Facelocation-frameworks.sh"; sourceTree = "<group>"; };
+		BB561ECAC383139D641C9593FBFEAC91 /* Pulsator-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pulsator-dummy.m"; sourceTree = "<group>"; };
+		BF231769FE69C3EF5110C4084BCB392F /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C6F448C528E8A538FCBEC3171439C168 /* Pulsator.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Pulsator.modulemap; sourceTree = "<group>"; };
+		E57B6BE35B25403FF5ED8BA969571FF9 /* Pods-Facelocation-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Facelocation-resources.sh"; sourceTree = "<group>"; };
+		FA5EFEB63D2FA1E3A64AB8D2B97631FF /* Pulsator-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pulsator-prefix.pch"; sourceTree = "<group>"; };
+		FA61489CF6015F3AE0D5EBFFEB4BE7D3 /* Pods-Facelocation.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Facelocation.release.xcconfig"; sourceTree = "<group>"; };
+		FB179B08EB893173E079D8860665D22B /* GoogleMaps.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = GoogleMaps.bundle; path = Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle; sourceTree = "<group>"; };
+		FB7751D4D791D1183FB66D3CCA52CD8E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		207CADAD554764476C609CEA64CE04D7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EF69F39A059A0A8CC09D7B9C47D28F3E /* Foundation.framework in Frameworks */,
+				A24CAE1B42851F9CDCF04981A000CEC1 /* QuartzCore.framework in Frameworks */,
+				1559C9EA5C3CF7166EAB64E0C1B35AE6 /* UIKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		68CEB007649976E7D8C6652B9F1B2107 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B21FB79D5878CBE74AEEBEB6DA476CCA /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0063A501C44ADCF646D9B0DF76AC338F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				FB179B08EB893173E079D8860665D22B /* GoogleMaps.bundle */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		03E4E57E6AFD8185D3325A39330B8CFF /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				5EFECB524FE800CD71A46819EE4FFA21 /* Pods-Facelocation */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		122DA2E5084A4393C29BE363C764795C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				93A319F2C1969B7AA0B17444A3F8BA22 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4969E048B9A6FBDADBA18FB7B7543371 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				585F8014CB326E6BE526620107EE7819 /* Frameworks */,
+			);
+			name = Base;
+			sourceTree = "<group>";
+		};
+		585F8014CB326E6BE526620107EE7819 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				09BA7E54764CB35CFC7F5D86C9FA39F7 /* GoogleMapsBase.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5DD9DED979B99C5F2AE3131AE1A7E485 /* GoogleMaps */ = {
+			isa = PBXGroup;
+			children = (
+				4969E048B9A6FBDADBA18FB7B7543371 /* Base */,
+				AE636B63B0B0E47403DC29A648B02EAE /* Maps */,
+			);
+			name = GoogleMaps;
+			path = GoogleMaps;
+			sourceTree = "<group>";
+		};
+		5EFECB524FE800CD71A46819EE4FFA21 /* Pods-Facelocation */ = {
+			isa = PBXGroup;
+			children = (
+				31FFFD800252587BC70BAF92170A6A57 /* Info.plist */,
+				9643C6451F1B0B094C63761FCD79EF83 /* Pods-Facelocation.modulemap */,
+				06D4847144D1FC52C6958F4C88840E82 /* Pods-Facelocation-acknowledgements.markdown */,
+				3717A643719D844E3EE33D596CDFA7FA /* Pods-Facelocation-acknowledgements.plist */,
+				AB9262B06FB87CB1ED99BE08C6A3EF34 /* Pods-Facelocation-dummy.m */,
+				B3EA4F522054A76322A47CAAEAB8FF3A /* Pods-Facelocation-frameworks.sh */,
+				E57B6BE35B25403FF5ED8BA969571FF9 /* Pods-Facelocation-resources.sh */,
+				ADA84D1A335151D29159AC30051F2B14 /* Pods-Facelocation-umbrella.h */,
+				A429FDDF320362B1349E25EA670BD879 /* Pods-Facelocation.debug.xcconfig */,
+				FA61489CF6015F3AE0D5EBFFEB4BE7D3 /* Pods-Facelocation.release.xcconfig */,
+			);
+			name = "Pods-Facelocation";
+			path = "Target Support Files/Pods-Facelocation";
+			sourceTree = "<group>";
+		};
+		7AB6D7BB2301DCFDEB0ADA1413191729 /* GooglePlaces */ = {
+			isa = PBXGroup;
+			children = (
+				9F9DC4E5F37C6C7C946CE9AE5446C4B3 /* Frameworks */,
+				A2844714BEF67CC21B93C48FD0109738 /* Resources */,
+			);
+			name = GooglePlaces;
+			path = GooglePlaces;
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				122DA2E5084A4393C29BE363C764795C /* Frameworks */,
+				DD3AD7A5224BF2E8846607B9BF8C04D7 /* Pods */,
+				8AECE62E9A1509F4D05FEDB5110009B4 /* Products */,
+				03E4E57E6AFD8185D3325A39330B8CFF /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		8AECE62E9A1509F4D05FEDB5110009B4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				48EAAD74AD9BD25007C6AECBF5A4B9B2 /* Pods_Facelocation.framework */,
+				A8451E64C07F2F12260AA98845B01086 /* Pulsator.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8E3F0341B0D31CB98D503227E69EFDC8 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				BF231769FE69C3EF5110C4084BCB392F /* Info.plist */,
+				C6F448C528E8A538FCBEC3171439C168 /* Pulsator.modulemap */,
+				75930423490D82EA53453F0227A7C292 /* Pulsator.xcconfig */,
+				BB561ECAC383139D641C9593FBFEAC91 /* Pulsator-dummy.m */,
+				FA5EFEB63D2FA1E3A64AB8D2B97631FF /* Pulsator-prefix.pch */,
+				8C55154C535AE0F2085362A6E584AB8B /* Pulsator-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Pulsator";
+			sourceTree = "<group>";
+		};
+		93A319F2C1969B7AA0B17444A3F8BA22 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				33083C616C9CA8AF16FA7C690BC673C7 /* Foundation.framework */,
+				FB7751D4D791D1183FB66D3CCA52CD8E /* QuartzCore.framework */,
+				3917A50EB224EEDBC66971700D698782 /* UIKit.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		9F9DC4E5F37C6C7C946CE9AE5446C4B3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				976BE719ECA9222FC290A09637CAD6F1 /* GooglePlaces.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A12861F4F0A89FAAF2852E5C039A39CA /* Pulsator */ = {
+			isa = PBXGroup;
+			children = (
+				509D367BDD3753B75657DBF807091DC5 /* Pulsator.swift */,
+				8E3F0341B0D31CB98D503227E69EFDC8 /* Support Files */,
+			);
+			name = Pulsator;
+			path = Pulsator;
+			sourceTree = "<group>";
+		};
+		A2844714BEF67CC21B93C48FD0109738 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				0831DDD87ABC3CE185C068DF7D8A85C6 /* GooglePlaces.bundle */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		AE636B63B0B0E47403DC29A648B02EAE /* Maps */ = {
+			isa = PBXGroup;
+			children = (
+				F97D82C8254F75D7D8D60B293FC12A35 /* Frameworks */,
+				0063A501C44ADCF646D9B0DF76AC338F /* Resources */,
+			);
+			name = Maps;
+			sourceTree = "<group>";
+		};
+		DD3AD7A5224BF2E8846607B9BF8C04D7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5DD9DED979B99C5F2AE3131AE1A7E485 /* GoogleMaps */,
+				7AB6D7BB2301DCFDEB0ADA1413191729 /* GooglePlaces */,
+				A12861F4F0A89FAAF2852E5C039A39CA /* Pulsator */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		F97D82C8254F75D7D8D60B293FC12A35 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				61CA9CC7F307890438278F1801CBC291 /* GoogleMaps.framework */,
+				4271404CD7E6216DD50937D78126B59B /* GoogleMapsCore.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		81CECFEFA287F1456A73F9EA33783018 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3D0D8AE177113A24637DB34266F2DBBA /* Pulsator-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B14BE3F9EB815757D810D809DE3AEE47 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7A6A764A6E8B2E692ADEC9C855E85B2A /* Pods-Facelocation-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		C921BFCFFC7E5C2DB9422643B79FCE88 /* Pods-Facelocation */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BB82F13C86C94242205500D6F6FCAA33 /* Build configuration list for PBXNativeTarget "Pods-Facelocation" */;
+			buildPhases = (
+				AB038D600A463AFF4A7023DC2EAD555F /* Sources */,
+				68CEB007649976E7D8C6652B9F1B2107 /* Frameworks */,
+				B14BE3F9EB815757D810D809DE3AEE47 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B3999CCF3DF7B80A0CC711B44ABFBD4F /* PBXTargetDependency */,
+			);
+			name = "Pods-Facelocation";
+			productName = "Pods-Facelocation";
+			productReference = 48EAAD74AD9BD25007C6AECBF5A4B9B2 /* Pods_Facelocation.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		DA3A05E4DA61007243DE778E6FD2D1E4 /* Pulsator */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7CF9BD8AAE55E61C3DDB0C5D47DAB07C /* Build configuration list for PBXNativeTarget "Pulsator" */;
+			buildPhases = (
+				8AC31779DB7560628687A71C1A0EAFC7 /* Sources */,
+				207CADAD554764476C609CEA64CE04D7 /* Frameworks */,
+				81CECFEFA287F1456A73F9EA33783018 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Pulsator;
+			productName = Pulsator;
+			productReference = A8451E64C07F2F12260AA98845B01086 /* Pulsator.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0930;
+				LastUpgradeCheck = 0930;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = 8AECE62E9A1509F4D05FEDB5110009B4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C921BFCFFC7E5C2DB9422643B79FCE88 /* Pods-Facelocation */,
+				DA3A05E4DA61007243DE778E6FD2D1E4 /* Pulsator */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8AC31779DB7560628687A71C1A0EAFC7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EDAC98E51E58F20FC8B325D57AAD303E /* Pulsator-dummy.m in Sources */,
+				EFEDE232C8E2D37291F06297AB8DF5FB /* Pulsator.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AB038D600A463AFF4A7023DC2EAD555F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BFB632072641BB1A80CAA28D21C1A773 /* Pods-Facelocation-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B3999CCF3DF7B80A0CC711B44ABFBD4F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Pulsator;
+			target = DA3A05E4DA61007243DE778E6FD2D1E4 /* Pulsator */;
+			targetProxy = 4196BF078D4602A2F8F22AB447F0941D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		080C52696E376F38394CB92371271A28 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FA61489CF6015F3AE0D5EBFFEB4BE7D3 /* Pods-Facelocation.release.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-Facelocation/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Facelocation/Pods-Facelocation.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_Facelocation;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		13A95306D85E4471AB6BE665B012E60A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		2A55044EEFC67EC01A1BA7CEEBB5D459 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 75930423490D82EA53453F0227A7C292 /* Pulsator.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/Pulsator/Pulsator-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Pulsator/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Pulsator/Pulsator.modulemap";
+				PRODUCT_NAME = Pulsator;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		8E8333274F4AB64785B04AB5B2A37231 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		995BBE450CB4BFCE372D4F25F057DB9C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 75930423490D82EA53453F0227A7C292 /* Pulsator.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/Pulsator/Pulsator-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Pulsator/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Pulsator/Pulsator.modulemap";
+				PRODUCT_NAME = Pulsator;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		EA4B1C3186447EC2611CC12407B35A8A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A429FDDF320362B1349E25EA670BD879 /* Pods-Facelocation.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-Facelocation/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Facelocation/Pods-Facelocation.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_Facelocation;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				13A95306D85E4471AB6BE665B012E60A /* Debug */,
+				8E8333274F4AB64785B04AB5B2A37231 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7CF9BD8AAE55E61C3DDB0C5D47DAB07C /* Build configuration list for PBXNativeTarget "Pulsator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				995BBE450CB4BFCE372D4F25F057DB9C /* Debug */,
+				2A55044EEFC67EC01A1BA7CEEBB5D459 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BB82F13C86C94242205500D6F6FCAA33 /* Build configuration list for PBXNativeTarget "Pods-Facelocation" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EA4B1C3186447EC2611CC12407B35A8A /* Debug */,
+				080C52696E376F38394CB92371271A28 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}

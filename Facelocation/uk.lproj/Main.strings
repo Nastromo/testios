@@ -1,0 +1,90 @@
+
+/* Class = "UITextView"; text = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda."; ObjectID = "0dX-aw-7wP"; */
+"0dX-aw-7wP.text" = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.";
+
+/* Class = "UIButton"; normalTitle = "РЕЄСТРАЦІЯ"; ObjectID = "0uv-0S-jk0"; */
+"0uv-0S-jk0.normalTitle" = "РЕЄСТРАЦІЯ";
+
+/* Class = "UILabel"; text = "Скориставшись цим додатком Ви"; ObjectID = "1CN-t5-7qp"; */
+"1CN-t5-7qp.text" = "Скориставшись цим додатком Ви";
+
+/* Class = "UIButton"; normalTitle = "ЛОКАЛІЗУЙСЯ"; ObjectID = "1cn-dv-RDE"; */
+"1cn-dv-RDE.normalTitle" = "ЛОКАЛІЗУЙСЯ";
+
+/* Class = "UITextField"; placeholder = "ваш пароль"; ObjectID = "1mB-fe-N87"; */
+"1mB-fe-N87.placeholder" = "ваш пароль";
+
+/* Class = "UILabel"; text = "Вітаємо з поверненням! Увійдіть у свій аккаунт"; ObjectID = "2EF-gR-dge"; */
+"2EF-gR-dge.text" = "Вітаємо з поверненням! Увійдіть у свій аккаунт";
+
+/* Class = "UILabel"; text = "FACELOCATION"; ObjectID = "32T-ZF-pej"; */
+"32T-ZF-pej.text" = "FACELOCATION";
+
+/* Class = "UILabel"; text = "Вкажіть e-mail"; ObjectID = "3eO-R0-0ye"; */
+"3eO-R0-0ye.text" = "Вкажіть e-mail";
+
+/* Class = "UIButton"; normalTitle = "ДАЛІ"; ObjectID = "60c-kA-v3C"; */
+"60c-kA-v3C.normalTitle" = "ДАЛІ";
+
+/* Class = "UILabel"; text = "Вкажіть пароль"; ObjectID = "94c-hn-agc"; */
+"94c-hn-agc.text" = "Вкажіть пароль";
+
+/* Class = "UILabel"; text = "ця адреса буде використовуватись для входу"; ObjectID = "FNs-d3-TCK"; */
+"FNs-d3-TCK.text" = "ця адреса буде використовуватись для входу";
+
+/* Class = "UILabel"; text = "FACELOCATION"; ObjectID = "Flz-Rh-ffQ"; */
+"Flz-Rh-ffQ.text" = "FACELOCATION";
+
+/* Class = "UITextField"; placeholder = "ваш e-mail"; ObjectID = "H5e-M7-49d"; */
+"H5e-M7-49d.placeholder" = "ваш e-mail";
+
+/* Class = "UILabel"; text = "FACELOCATION"; ObjectID = "Ic6-pj-qbF"; */
+"Ic6-pj-qbF.text" = "FACELOCATION";
+
+/* Class = "UIButton"; normalTitle = "УВІЙТИ"; ObjectID = "J3U-ja-e9A"; */
+"J3U-ja-e9A.normalTitle" = "УВІЙТИ";
+
+/* Class = "UIButton"; normalTitle = "РЕЄСТРАЦІЯ"; ObjectID = "LWv-hY-Zp1"; */
+"LWv-hY-Zp1.normalTitle" = "РЕЄСТРАЦІЯ";
+
+/* Class = "UILabel"; text = "Вітаємо з поверненням! Увійдіть у свій аккаунт"; ObjectID = "NzL-a2-Pic"; */
+"NzL-a2-Pic.text" = "Вітаємо з поверненням! Увійдіть у свій аккаунт";
+
+/* Class = "UILabel"; text = "Правила надання послуг та користування мобільним додатком"; ObjectID = "Th2-lx-13c"; */
+"Th2-lx-13c.text" = "Правила надання послуг та користування мобільним додатком";
+
+/* Class = "UILabel"; text = "Вітаємо з поверненням! Увійдіть у свій аккаунт"; ObjectID = "Vch-oi-Pod"; */
+"Vch-oi-Pod.text" = "Вітаємо з поверненням! Увійдіть у свій аккаунт";
+
+/* Class = "UIButton"; normalTitle = "НЕ ПОГОДЖУЮСЬ"; ObjectID = "XBR-wJ-VaF"; */
+"XBR-wJ-VaF.normalTitle" = "НЕ ПОГОДЖУЮСЬ";
+
+/* Class = "UITextField"; placeholder = "ваш пароль"; ObjectID = "YzJ-VT-4dx"; */
+"YzJ-VT-4dx.placeholder" = "ваш пароль";
+
+/* Class = "UILabel"; text = "Вкажіть e-mail"; ObjectID = "b1T-Kl-Rns"; */
+"b1T-Kl-Rns.text" = "Вкажіть e-mail";
+
+/* Class = "UILabel"; text = "дозволяє легко планувати події, та заохочувати на них людей"; ObjectID = "c4c-Od-roC"; */
+"c4c-Od-roC.text" = "дозволяє легко планувати події, та заохочувати на них людей";
+
+/* Class = "UILabel"; text = "Вкажіть пароль"; ObjectID = "fQQ-cD-Rij"; */
+"fQQ-cD-Rij.text" = "Вкажіть пароль";
+
+/* Class = "UILabel"; text = "FACELOCATION"; ObjectID = "iXL-pE-SUB"; */
+"iXL-pE-SUB.text" = "FACELOCATION";
+
+/* Class = "UITextField"; placeholder = "ваш email@domain.com"; ObjectID = "mPE-Zg-xQ9"; */
+"mPE-Zg-xQ9.placeholder" = "ваш email@domain.com";
+
+/* Class = "UIBarButtonItem"; title = "Назад"; ObjectID = "oGZ-CQ-gRM"; */
+"oGZ-CQ-gRM.title" = "Назад";
+
+/* Class = "UILabel"; text = "FACELOCATION"; ObjectID = "sVy-WW-93V"; */
+"sVy-WW-93V.text" = "FACELOCATION";
+
+/* Class = "UIButton"; normalTitle = "ПОГОДЖУЮСЬ"; ObjectID = "twq-Hg-Y9h"; */
+"twq-Hg-Y9h.normalTitle" = "ПОГОДЖУЮСЬ";
+
+/* Class = "UILabel"; text = "вигадайте свій надійний пароль"; ObjectID = "wcm-rx-kqy"; */
+"wcm-rx-kqy.text" = "вигадайте свій надійний пароль";
