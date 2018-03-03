@@ -18,5 +18,4 @@ class LoginViewController: UIViewController {
         navigationController?.navigationBar.isTranslucent = false
     }
     
-
 }

@@ -224,15 +224,8 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="logIn:" destination="z2v-qW-wiQ" eventType="touchUpInside" id="aex-KK-1W8"/>
-                                    <segue destination="2py-hY-ux1" kind="show" id="kk2-h1-eYZ"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XL4-VE-Pxk">
-                                <rect key="frame" x="164" y="478" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <segue destination="cua-oZ-Vgm" kind="show" id="0yk-HJ-wfK"/>
+                                    <action selector="logIn:" destination="z2v-qW-wiQ" eventType="touchUpInside" id="odz-I2-H2R"/>
+                                    <segue destination="2py-hY-ux1" kind="show" id="fiz-Zi-c0a"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -243,8 +236,6 @@
                             <constraint firstItem="fQQ-cD-Rij" firstAttribute="leading" secondItem="1mB-fe-N87" secondAttribute="leading" id="3Cb-NM-xx3"/>
                             <constraint firstItem="Vch-oi-Pod" firstAttribute="leading" secondItem="k9c-0L-e3g" secondAttribute="leading" constant="96" id="56h-FD-AR5"/>
                             <constraint firstItem="k9c-0L-e3g" firstAttribute="bottom" secondItem="H5e-M7-49d" secondAttribute="bottom" constant="410" id="5oY-ZF-b7W"/>
-                            <constraint firstItem="XL4-VE-Pxk" firstAttribute="centerX" secondItem="1mB-fe-N87" secondAttribute="centerX" id="6eT-vG-Jq6"/>
-                            <constraint firstItem="k9c-0L-e3g" firstAttribute="bottom" secondItem="XL4-VE-Pxk" secondAttribute="bottom" constant="159" id="8tt-ew-i0o"/>
                             <constraint firstItem="sVy-WW-93V" firstAttribute="top" secondItem="PED-1m-TQS" secondAttribute="bottom" constant="1" id="DfJ-IE-W2m"/>
                             <constraint firstItem="b1T-Kl-Rns" firstAttribute="leading" secondItem="H5e-M7-49d" secondAttribute="leading" id="Fzc-Kl-QNq"/>
                             <constraint firstItem="J3U-ja-e9A" firstAttribute="top" secondItem="1mB-fe-N87" secondAttribute="bottom" constant="8" symbolic="YES" id="II8-R3-fIV"/>
@@ -601,13 +592,21 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Pdo-S9-aSq"/>
                     </view>
+                    <navigationItem key="navigationItem" id="x38-6e-UIa">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="menu" id="HiO-5Z-6b2">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="search" id="Kb3-D3-cv2">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="bq7-hU-yga" id="gtG-hf-JwB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZIU-aZ-8SC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1189.5999999999999" y="805.54722638680664"/>
+            <point key="canvasLocation" x="2282" y="806"/>
         </scene>
         <!--Test View Controller-->
         <scene sceneID="Lbq-0P-Jv3">
@@ -618,7 +617,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kiM-y9-qYe" customClass="GMSMapView">
-                                <rect key="frame" x="0.0" y="64" width="375" height="226"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="270"/>
                                 <color key="backgroundColor" white="0.28740776909722221" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oFL-QY-lEg">
@@ -646,13 +645,15 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nAK-Bt-EY7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1949.5999999999999" y="783.95802098950526"/>
+            <point key="canvasLocation" x="1191" y="806"/>
         </scene>
     </scenes>
     <resources>
         <image name="Oval" width="161" height="161"/>
         <image name="addLocation" width="75" height="75"/>
         <image name="facelogo" width="85" height="70"/>
+        <image name="menu" width="27" height="17"/>
+        <image name="search" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="uwx-c8-0x3"/>

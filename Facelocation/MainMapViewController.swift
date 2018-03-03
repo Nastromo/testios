@@ -7,8 +7,12 @@ class MainMapViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         loadMap()
-
         
+        let imageView = UIImageView()
+        let image = UIImage(named: "facelogo.png")
+        imageView.image = image
+        imageView.contentMode = .scaleAspectFit
+        navigationItem.titleView = imageView
     }
     
     func loadMap() {
