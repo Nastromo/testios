@@ -573,40 +573,141 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bq7-hU-yga" customClass="GMSMapView">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bq7-hU-yga" customClass="GMSMapView">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rbq-kA-vc5">
                                 <rect key="frame" x="280" y="572" width="65" height="65"/>
                                 <state key="normal" title="Button" image="addLocation"/>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J3o-7F-f2w">
+                                <rect key="frame" x="-240" y="0.0" width="240" height="667"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="olx-QV-X4t">
+                                        <rect key="frame" x="20" y="10" width="55" height="55"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="55" id="T3y-tg-fk7"/>
+                                        </constraints>
+                                        <state key="normal" title="Button" image="userIconProfile"/>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Face-location.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I3E-0a-7yu">
+                                        <rect key="frame" x="20" y="599" width="126" height="18"/>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
+                                        <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="сервіс, який об'єднує людей" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sUj-M6-pTa">
+                                        <rect key="frame" x="20" y="625" width="194" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xa5-qQ-mhz">
+                                        <rect key="frame" x="20" y="92" width="82" height="30"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="Ваше ім'я?">
+                                            <color key="titleColor" red="0.33333333329999998" green="0.34509803919999998" blue="0.64705882349999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rB1-hP-NkR">
+                                        <rect key="frame" x="20" y="163" width="121" height="30"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="Знайти локацію">
+                                            <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S22-LU-KqY">
+                                        <rect key="frame" x="20" y="205" width="163" height="30"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="Додати нову локацію">
+                                            <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tbc-ni-CEj">
+                                        <rect key="frame" x="20" y="245" width="136" height="30"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="Служба підримки">
+                                            <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yvL-lF-dkM">
+                                        <rect key="frame" x="20" y="285" width="47" height="30"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="Вийти">
+                                            <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="86O-J3-k6d">
+                                        <rect key="frame" x="20" y="111" width="110" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <state key="normal" title="редагувати данні">
+                                            <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="S22-LU-KqY" firstAttribute="leading" secondItem="tbc-ni-CEj" secondAttribute="leading" id="6d5-1U-6gS"/>
+                                    <constraint firstItem="sUj-M6-pTa" firstAttribute="top" secondItem="I3E-0a-7yu" secondAttribute="bottom" constant="8" symbolic="YES" id="6ot-Hl-mt5"/>
+                                    <constraint firstItem="rB1-hP-NkR" firstAttribute="top" secondItem="xa5-qQ-mhz" secondAttribute="bottom" constant="41" id="7QP-ge-CK1"/>
+                                    <constraint firstItem="I3E-0a-7yu" firstAttribute="leading" secondItem="yvL-lF-dkM" secondAttribute="leading" id="8ML-Pv-QvC"/>
+                                    <constraint firstItem="rB1-hP-NkR" firstAttribute="top" secondItem="86O-J3-k6d" secondAttribute="bottom" constant="22" id="AWY-yt-PaD"/>
+                                    <constraint firstItem="xa5-qQ-mhz" firstAttribute="leading" secondItem="olx-QV-X4t" secondAttribute="leading" id="BHu-rr-yU3"/>
+                                    <constraint firstItem="xa5-qQ-mhz" firstAttribute="top" secondItem="olx-QV-X4t" secondAttribute="bottom" constant="27" id="BXw-NP-uUW"/>
+                                    <constraint firstItem="rB1-hP-NkR" firstAttribute="leading" secondItem="S22-LU-KqY" secondAttribute="leading" id="BvY-7a-Cmi"/>
+                                    <constraint firstItem="I3E-0a-7yu" firstAttribute="leading" secondItem="sUj-M6-pTa" secondAttribute="leading" id="Eu8-Hb-beO"/>
+                                    <constraint firstItem="xa5-qQ-mhz" firstAttribute="leading" secondItem="86O-J3-k6d" secondAttribute="leading" id="KH1-sL-22p"/>
+                                    <constraint firstAttribute="bottom" secondItem="sUj-M6-pTa" secondAttribute="bottom" constant="25" id="MfD-Lu-0Sx"/>
+                                    <constraint firstAttribute="trailing" secondItem="olx-QV-X4t" secondAttribute="trailing" constant="165" id="NO7-3F-bIe"/>
+                                    <constraint firstItem="86O-J3-k6d" firstAttribute="leading" secondItem="rB1-hP-NkR" secondAttribute="leading" id="OMy-9j-eop"/>
+                                    <constraint firstItem="86O-J3-k6d" firstAttribute="top" secondItem="olx-QV-X4t" secondAttribute="bottom" constant="46" id="PxU-eY-alG"/>
+                                    <constraint firstItem="tbc-ni-CEj" firstAttribute="leading" secondItem="yvL-lF-dkM" secondAttribute="leading" id="Y4L-wF-7M9"/>
+                                    <constraint firstAttribute="width" constant="240" id="mQ0-BQ-iKm"/>
+                                    <constraint firstItem="S22-LU-KqY" firstAttribute="top" secondItem="rB1-hP-NkR" secondAttribute="bottom" constant="12" id="q7O-y0-9Gq"/>
+                                    <constraint firstItem="olx-QV-X4t" firstAttribute="leading" secondItem="J3o-7F-f2w" secondAttribute="leading" constant="20" id="r1t-8t-2zE"/>
+                                    <constraint firstItem="tbc-ni-CEj" firstAttribute="top" secondItem="S22-LU-KqY" secondAttribute="bottom" constant="10" id="rOV-Sw-puT"/>
+                                    <constraint firstItem="olx-QV-X4t" firstAttribute="top" secondItem="J3o-7F-f2w" secondAttribute="top" constant="10" id="rkN-qN-bKp"/>
+                                    <constraint firstItem="yvL-lF-dkM" firstAttribute="top" secondItem="tbc-ni-CEj" secondAttribute="bottom" constant="10" id="vNn-Vr-aiH"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Pdo-S9-aSq" firstAttribute="trailing" secondItem="Rbq-kA-vc5" secondAttribute="trailing" constant="30" id="4fb-xy-oI3"/>
-                            <constraint firstItem="Rbq-kA-vc5" firstAttribute="top" secondItem="Pdo-S9-aSq" secondAttribute="top" constant="508" id="Ju6-3e-0bv"/>
-                            <constraint firstItem="Pdo-S9-aSq" firstAttribute="bottom" secondItem="Rbq-kA-vc5" secondAttribute="bottom" constant="30" id="P7o-64-M3I"/>
-                            <constraint firstItem="Rbq-kA-vc5" firstAttribute="leading" secondItem="Pdo-S9-aSq" secondAttribute="leading" constant="280" id="iJh-Sw-Cus"/>
+                            <constraint firstItem="Rbq-kA-vc5" firstAttribute="leading" secondItem="Pdo-S9-aSq" secondAttribute="leading" constant="280" id="0nB-Od-zMu"/>
+                            <constraint firstItem="Pdo-S9-aSq" firstAttribute="trailing" secondItem="Rbq-kA-vc5" secondAttribute="trailing" constant="30" id="1GY-5Z-3lw"/>
+                            <constraint firstItem="bq7-hU-yga" firstAttribute="bottom" secondItem="Pdo-S9-aSq" secondAttribute="bottom" id="Drj-Iv-ySy"/>
+                            <constraint firstItem="Rbq-kA-vc5" firstAttribute="top" secondItem="Pdo-S9-aSq" secondAttribute="top" constant="508" id="EMI-o7-ksx"/>
+                            <constraint firstItem="bq7-hU-yga" firstAttribute="leading" secondItem="1OO-bA-gnI" secondAttribute="leading" id="M9T-17-T98"/>
+                            <constraint firstAttribute="trailing" secondItem="bq7-hU-yga" secondAttribute="trailing" id="YQd-qK-cwg"/>
+                            <constraint firstItem="bq7-hU-yga" firstAttribute="top" secondItem="1OO-bA-gnI" secondAttribute="top" id="cge-oZ-6Yd"/>
+                            <constraint firstItem="J3o-7F-f2w" firstAttribute="leading" secondItem="Pdo-S9-aSq" secondAttribute="leading" constant="-240" id="djH-Yi-IKm"/>
+                            <constraint firstItem="J3o-7F-f2w" firstAttribute="bottom" secondItem="Pdo-S9-aSq" secondAttribute="bottom" id="jRb-yo-61Z"/>
+                            <constraint firstItem="Pdo-S9-aSq" firstAttribute="bottom" secondItem="Rbq-kA-vc5" secondAttribute="bottom" constant="30" id="xkA-rX-Waz"/>
+                            <constraint firstItem="J3o-7F-f2w" firstAttribute="top" secondItem="1OO-bA-gnI" secondAttribute="top" id="zaH-a1-da3"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Pdo-S9-aSq"/>
                     </view>
                     <navigationItem key="navigationItem" id="x38-6e-UIa">
                         <barButtonItem key="leftBarButtonItem" title="Item" image="menu" id="HiO-5Z-6b2">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="showMenu:" destination="2py-hY-ux1" id="iXH-T8-vBZ"/>
+                            </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Item" image="search" id="Kb3-D3-cv2">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="leftMenuConstrait" destination="djH-Yi-IKm" id="r3Q-c7-KDs"/>
                         <outlet property="mapView" destination="bq7-hU-yga" id="gtG-hf-JwB"/>
+                        <outlet property="menuView" destination="J3o-7F-f2w" id="oSX-85-Egn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZIU-aZ-8SC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2282" y="806"/>
+            <point key="canvasLocation" x="2280.8000000000002" y="805.54722638680664"/>
         </scene>
         <!--Test View Controller-->
         <scene sceneID="Lbq-0P-Jv3">
@@ -654,6 +755,7 @@
         <image name="facelogo" width="85" height="70"/>
         <image name="menu" width="27" height="17"/>
         <image name="search" width="25" height="25"/>
+        <image name="userIconProfile" width="55" height="55"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="uwx-c8-0x3"/>
