@@ -697,6 +697,9 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Item" image="search" id="Kb3-D3-cv2">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="searchForPlace:" destination="2py-hY-ux1" id="4P8-n0-jM4"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
