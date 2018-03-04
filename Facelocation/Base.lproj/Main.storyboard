@@ -1253,9 +1253,17 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="55"/>
                                 <color key="backgroundColor" red="0.53725490196078429" green="0.81568627450980391" blue="0.98431372549019602" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MUC-04-vOE">
+                                <rect key="frame" x="166" y="82" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="MUC-04-vOE" firstAttribute="centerX" secondItem="dEh-Rt-Tfz" secondAttribute="centerX" id="93P-IJ-lSj"/>
+                            <constraint firstItem="MUC-04-vOE" firstAttribute="top" secondItem="1hl-KK-RTH" secondAttribute="top" constant="18" id="KMF-5G-kWQ"/>
                             <constraint firstItem="dEh-Rt-Tfz" firstAttribute="leading" secondItem="wWj-Pk-bNy" secondAttribute="leading" id="OMk-bV-hJR"/>
                             <constraint firstItem="dEh-Rt-Tfz" firstAttribute="top" secondItem="1hl-KK-RTH" secondAttribute="top" id="RBP-uo-eqc"/>
                             <constraint firstAttribute="trailing" secondItem="dEh-Rt-Tfz" secondAttribute="trailing" id="i1r-T0-dNQ"/>
