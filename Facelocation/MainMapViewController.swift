@@ -83,6 +83,9 @@ class MainMapViewController: UIViewController, GMSMapViewDelegate, CLLocationMan
         self.present(autoCompleteController, animated: true, completion: nil)
     }
     
+    @IBAction func addNewLocation(_ sender: Any) {
+        navigationController?.navigationBar.shadowImage = UIImage()
+    }
     
     
     

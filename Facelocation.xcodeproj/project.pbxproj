@@ -27,7 +27,11 @@
 		B2114035204843DD0098570E /* OpenSans-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B211402A204843DC0098570E /* OpenSans-SemiBoldItalic.ttf */; };
 		B2114037204955960098570E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2114036204955960098570E /* LoginViewController.swift */; };
 		B211403B20498C150098570E /* MainMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B211403A20498C150098570E /* MainMapViewController.swift */; };
-		B211403D2049C5940098570E /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B211403C2049C5940098570E /* TestViewController.swift */; };
+		B2114E4F204C78A000A4D014 /* LocalizedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2114E4E204C78A000A4D014 /* LocalizedViewController.swift */; };
+		B2114E51204C7C5D00A4D014 /* GradientColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2114E50204C7C5D00A4D014 /* GradientColor.swift */; };
+		B28730A9204C440200EF81E4 /* SupportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28730A8204C440200EF81E4 /* SupportViewController.swift */; };
+		B2CFB763204C30D300927400 /* AddNewLocationMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CFB762204C30D200927400 /* AddNewLocationMapViewController.swift */; };
+		B2CFB765204C367100927400 /* LocationDescViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CFB764204C367100927400 /* LocationDescViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,7 +61,11 @@
 		B2114038204975C60098570E /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Main.strings; sourceTree = "<group>"; };
 		B2114039204975C60098570E /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		B211403A20498C150098570E /* MainMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMapViewController.swift; sourceTree = "<group>"; };
-		B211403C2049C5940098570E /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
+		B2114E4E204C78A000A4D014 /* LocalizedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedViewController.swift; sourceTree = "<group>"; };
+		B2114E50204C7C5D00A4D014 /* GradientColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientColor.swift; sourceTree = "<group>"; };
+		B28730A8204C440200EF81E4 /* SupportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportViewController.swift; sourceTree = "<group>"; };
+		B2CFB762204C30D200927400 /* AddNewLocationMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewLocationMapViewController.swift; sourceTree = "<group>"; };
+		B2CFB764204C367100927400 /* LocationDescViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDescViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,12 +123,16 @@
 				B2113FF9204831260098570E /* StartViewController.swift */,
 				B2114036204955960098570E /* LoginViewController.swift */,
 				B211403A20498C150098570E /* MainMapViewController.swift */,
+				B2CFB762204C30D200927400 /* AddNewLocationMapViewController.swift */,
+				B2CFB764204C367100927400 /* LocationDescViewController.swift */,
+				B28730A8204C440200EF81E4 /* SupportViewController.swift */,
 				B2113FFB204831260098570E /* Main.storyboard */,
-				B211403C2049C5940098570E /* TestViewController.swift */,
 				B2113FFE204831260098570E /* Assets.xcassets */,
 				B2114000204831260098570E /* LaunchScreen.storyboard */,
 				B2114003204831260098570E /* Info.plist */,
 				B211400920483A4A0098570E /* Images.xcassets */,
+				B2114E4E204C78A000A4D014 /* LocalizedViewController.swift */,
+				B2114E50204C7C5D00A4D014 /* GradientColor.swift */,
 			);
 			path = Facelocation;
 			sourceTree = "<group>";
@@ -289,10 +301,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B211403D2049C5940098570E /* TestViewController.swift in Sources */,
+				B2CFB765204C367100927400 /* LocationDescViewController.swift in Sources */,
+				B2114E51204C7C5D00A4D014 /* GradientColor.swift in Sources */,
+				B28730A9204C440200EF81E4 /* SupportViewController.swift in Sources */,
 				B211403B20498C150098570E /* MainMapViewController.swift in Sources */,
 				B2114037204955960098570E /* LoginViewController.swift in Sources */,
+				B2CFB763204C30D300927400 /* AddNewLocationMapViewController.swift in Sources */,
 				B2113FFA204831260098570E /* StartViewController.swift in Sources */,
+				B2114E4F204C78A000A4D014 /* LocalizedViewController.swift in Sources */,
 				B2113FF8204831260098570E /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
