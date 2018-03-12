@@ -11,7 +11,10 @@ class StartViewController: UIViewController {
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationController?.navigationBar.shadowImage = UIImage()
     
-        
+        startPulsator()
+    }
+    
+    func startPulsator(){
         let pulsator = Pulsator()
         pulsator.numPulse = 6
         pulsator.radius = 200
@@ -20,6 +23,5 @@ class StartViewController: UIViewController {
         circle.layer.addSublayer(pulsator)
         pulsator.start()
     }
-    
 }
 

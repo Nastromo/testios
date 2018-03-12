@@ -29,9 +29,13 @@
 		B211403B20498C150098570E /* MainMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B211403A20498C150098570E /* MainMapViewController.swift */; };
 		B2114E4F204C78A000A4D014 /* LocalizedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2114E4E204C78A000A4D014 /* LocalizedViewController.swift */; };
 		B2114E51204C7C5D00A4D014 /* GradientColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2114E50204C7C5D00A4D014 /* GradientColor.swift */; };
+		B284BC3B20568578002F998E /* MenuBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B284BC3A20568578002F998E /* MenuBar.swift */; };
 		B28730A9204C440200EF81E4 /* SupportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28730A8204C440200EF81E4 /* SupportViewController.swift */; };
 		B2CFB763204C30D300927400 /* AddNewLocationMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CFB762204C30D200927400 /* AddNewLocationMapViewController.swift */; };
 		B2CFB765204C367100927400 /* LocationDescViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CFB764204C367100927400 /* LocationDescViewController.swift */; };
+		B2D2055C2056CA3600E0D006 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D2055B2056CA3600E0D006 /* Constants.swift */; };
+		B2D2055E2057182C00E0D006 /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D2055D2057182C00E0D006 /* MenuCell.swift */; };
+		B2D20560205718A400E0D006 /* LocalizedUserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D2055F205718A400E0D006 /* LocalizedUserCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,9 +67,13 @@
 		B211403A20498C150098570E /* MainMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMapViewController.swift; sourceTree = "<group>"; };
 		B2114E4E204C78A000A4D014 /* LocalizedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedViewController.swift; sourceTree = "<group>"; };
 		B2114E50204C7C5D00A4D014 /* GradientColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientColor.swift; sourceTree = "<group>"; };
+		B284BC3A20568578002F998E /* MenuBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBar.swift; sourceTree = "<group>"; };
 		B28730A8204C440200EF81E4 /* SupportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportViewController.swift; sourceTree = "<group>"; };
 		B2CFB762204C30D200927400 /* AddNewLocationMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewLocationMapViewController.swift; sourceTree = "<group>"; };
 		B2CFB764204C367100927400 /* LocationDescViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDescViewController.swift; sourceTree = "<group>"; };
+		B2D2055B2056CA3600E0D006 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		B2D2055D2057182C00E0D006 /* MenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
+		B2D2055F205718A400E0D006 /* LocalizedUserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedUserCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +126,9 @@
 		B2113FF6204831260098570E /* Facelocation */ = {
 			isa = PBXGroup;
 			children = (
+				B2D2055A2056C9D900E0D006 /* Constants */,
+				B2D205572056A4FE00E0D006 /* Helpers */,
+				B284BC3920568535002F998E /* View */,
 				B211401F204843DC0098570E /* Open_Sans */,
 				B2113FF7204831260098570E /* AppDelegate.swift */,
 				B2113FF9204831260098570E /* StartViewController.swift */,
@@ -126,13 +137,12 @@
 				B2CFB762204C30D200927400 /* AddNewLocationMapViewController.swift */,
 				B2CFB764204C367100927400 /* LocationDescViewController.swift */,
 				B28730A8204C440200EF81E4 /* SupportViewController.swift */,
+				B2114E4E204C78A000A4D014 /* LocalizedViewController.swift */,
 				B2113FFB204831260098570E /* Main.storyboard */,
 				B2113FFE204831260098570E /* Assets.xcassets */,
 				B2114000204831260098570E /* LaunchScreen.storyboard */,
 				B2114003204831260098570E /* Info.plist */,
 				B211400920483A4A0098570E /* Images.xcassets */,
-				B2114E4E204C78A000A4D014 /* LocalizedViewController.swift */,
-				B2114E50204C7C5D00A4D014 /* GradientColor.swift */,
 			);
 			path = Facelocation;
 			sourceTree = "<group>";
@@ -153,6 +163,32 @@
 				B211402A204843DC0098570E /* OpenSans-SemiBoldItalic.ttf */,
 			);
 			path = Open_Sans;
+			sourceTree = "<group>";
+		};
+		B284BC3920568535002F998E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B284BC3A20568578002F998E /* MenuBar.swift */,
+				B2D2055D2057182C00E0D006 /* MenuCell.swift */,
+				B2D2055F205718A400E0D006 /* LocalizedUserCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B2D205572056A4FE00E0D006 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				B2114E50204C7C5D00A4D014 /* GradientColor.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		B2D2055A2056C9D900E0D006 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				B2D2055B2056CA3600E0D006 /* Constants.swift */,
+			);
+			path = Constants;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -302,9 +338,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				B2CFB765204C367100927400 /* LocationDescViewController.swift in Sources */,
+				B2D2055C2056CA3600E0D006 /* Constants.swift in Sources */,
+				B2D2055E2057182C00E0D006 /* MenuCell.swift in Sources */,
 				B2114E51204C7C5D00A4D014 /* GradientColor.swift in Sources */,
 				B28730A9204C440200EF81E4 /* SupportViewController.swift in Sources */,
+				B2D20560205718A400E0D006 /* LocalizedUserCell.swift in Sources */,
 				B211403B20498C150098570E /* MainMapViewController.swift in Sources */,
+				B284BC3B20568578002F998E /* MenuBar.swift in Sources */,
 				B2114037204955960098570E /* LoginViewController.swift in Sources */,
 				B2CFB763204C30D300927400 /* AddNewLocationMapViewController.swift in Sources */,
 				B2113FFA204831260098570E /* StartViewController.swift in Sources */,
