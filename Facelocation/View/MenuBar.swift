@@ -13,8 +13,10 @@ class MenuBar: UIView, UICollectionViewDataSource, UICollectionViewDelegate, UIC
     //This collection is a set of tabs in MenuBar
     lazy var tabCollection: UICollectionView = {
         let layot = UICollectionViewFlowLayout()
+        layot.scrollDirection = .horizontal
         let frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 50)
         let tb = UICollectionView(frame: frame, collectionViewLayout: layot)
+        tb.showsHorizontalScrollIndicator = false
         tb.backgroundColor = UIColor.white
         tb.dataSource = self
         tb.delegate = self
@@ -50,7 +52,7 @@ class MenuBar: UIView, UICollectionViewDataSource, UICollectionViewDelegate, UIC
     
     //Cell Width and Height
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: frame.width/5, height: frame.height)
+        return CGSize(width: 80, height: frame.height)
     }
     
     //Inter Cell Spacing

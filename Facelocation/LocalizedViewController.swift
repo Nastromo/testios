@@ -1,44 +1,104 @@
 import UIKit
 
-class LocalizedViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+class LocalizedViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+    //Was testind downloading image from the URL
+    var data: Data? = nil
     
-    
-
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpLocalizedUserList()
         setUpTitleBar()
         setUpMenuBar()
+        setUpgroupChatBtn()
+        
+        //Was testind downloading image from the URL
+        data = downloadImg()
+    }
+    
+    
+    func setUpgroupChatBtn(){
+        let image = UIImage(named: "groupChat.png") as UIImage?
+        let button   = UIButton(type: UIButtonType.system) as UIButton
+        button.frame = CGRect(x: 0, y: 0, width: 65, height: 65)
+        button .setBackgroundImage(image, for: .normal)
+        button.addTarget(self, action: #selector(createGroupChat), for: .touchUpInside)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(button)
+        
+        let descHorizontal = "H:[button(65)]-35-|"
+        let descVertical = "V:[button(65)]-35-|"
+        let viewsDict = ["button": button]
+        
+        let horizontalConstraints = NSLayoutConstraint.constraints(withVisualFormat: descHorizontal,
+                                                                   options: NSLayoutFormatOptions(rawValue: 0),
+                                                                   metrics: nil,
+                                                                   views: viewsDict)
+        
+        let verticalConstraints = NSLayoutConstraint.constraints(withVisualFormat: descVertical,
+                                                                 options: NSLayoutFormatOptions(rawValue: 0),
+                                                                 metrics: nil,
+                                                                 views: viewsDict)
+        
+        self.view.addConstraints(horizontalConstraints)
+        self.view.addConstraints(verticalConstraints)
+    }
+    
+    @objc func createGroupChat(){
+        print("Btn touched")
     }
     
     //Localized User List (Collection View)
     private func setUpLocalizedUserList(){
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-//        layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 20, right: 0)
+        layout.minimumInteritemSpacing = 0
+        layout.minimumLineSpacing = 0
         layout.itemSize = CGSize(width: UIScreen.main.bounds.width, height: 80)
         
-        let myCollectionView:UICollectionView = UICollectionView(frame: self.view.frame, collectionViewLayout: layout)
+        let userListFrame = CGRect(x: 0, y: 160, width: Int(UIScreen.main.bounds.width), height: Int(UIScreen.main.bounds.height) - 160)
+        let myCollectionView:UICollectionView = UICollectionView(frame: userListFrame, collectionViewLayout: layout)
+        
         myCollectionView.dataSource = self
         myCollectionView.delegate = self
-        myCollectionView.register(LocalizedUserCell.self, forCellWithReuseIdentifier: "MyCell")
+        myCollectionView.register(LocalizedUserCell.self, forCellWithReuseIdentifier: "userCell")
         myCollectionView.backgroundColor = UIColor.white
+        
         self.view.addSubview(myCollectionView)
     }
     
     
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 2
+    }
+    
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 100
+        //Lists' Sizes
+        return (section == 0) ? 5 : 4
     }
     
+    //Downloading Image from URL
+    func downloadImg() -> Data{
+        let imageURL = URL(string: "https://tinder.com/static/tinder.png")
+        let data = try? Data(contentsOf: imageURL!)
+        return data!
+    }
+    
+    
+    //Cells content here
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let myCell = collectionView.dequeueReusableCell(withReuseIdentifier: "MyCell", for: indexPath)
-        myCell.backgroundColor = UIColor.red
-        return myCell
-    }
-    
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath)
-    {
-        print("User tapped on item \(indexPath.row)")
+        
+        if indexPath.section == 0 {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "userCell", for: indexPath) as! LocalizedUserCell
+            cell.userAvatar.layer.cornerRadius = cell.userAvatar.frame.size.width / 2;
+            cell.userAvatar.layer.masksToBounds = true;
+            cell.userAvatar.image = UIImage(data: data!)
+            return cell
+        }else{
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "userCell", for: indexPath)
+            
+            return cell
+        }
     }
     
     let menuBar: MenuBar = {
@@ -87,63 +147,4 @@ class LocalizedViewController: UIViewController, UICollectionViewDataSource, UIC
         titleBarLabel.text = titleBarLabel.text?.uppercased()
         titleBar.addSubview(titleBarLabel)
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
 }
