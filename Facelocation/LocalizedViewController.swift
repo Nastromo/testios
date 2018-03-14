@@ -9,14 +9,37 @@ class LocalizedViewController: UIViewController, UICollectionViewDataSource, UIC
         setUpLocalizedUserList()
         setUpTitleBar()
         setUpMenuBar()
-        setUpgroupChatBtn()
+        setUpGroupChatBtn()
+//        setUpHorizontalScreens()
         
         //Was testind downloading image from the URL
         data = downloadImg()
     }
     
+//    func setUpHorizontalScreens(){
+//        let layout = UICollectionViewFlowLayout()
+//        layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+//        layout.minimumInteritemSpacing = 0
+//        layout.minimumLineSpacing = 0
+//        layout.itemSize = CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height - 160)
+//        
+//        let tabSize = CGRect(x: 0, y: 160, width: Int(UIScreen.main.bounds.width), height: Int(UIScreen.main.bounds.height) - 160)
+//        let myCollectionView = UICollectionView(frame: tabSize, collectionViewLayout: layout)
+//        
+//        myCollectionView.dataSource = self
+//        myCollectionView.delegate = self
+//        myCollectionView.register(UserListCell.self, forCellWithReuseIdentifier: "userListCell")
+//        myCollectionView.register(ChatCell.self, forCellWithReuseIdentifier: "chatCell")
+//        myCollectionView.register(AttentionCell.self, forCellWithReuseIdentifier: "attentionCell")
+//        myCollectionView.register(FilesCell.self, forCellWithReuseIdentifier: "filesCell")
+//        myCollectionView.backgroundColor = UIColor.white
+//        
+//        self.view.addSubview(myCollectionView)
+//    }
     
-    func setUpgroupChatBtn(){
+    
+    
+    func setUpGroupChatBtn(){
         let image = UIImage(named: "groupChat.png") as UIImage?
         let button   = UIButton(type: UIButtonType.system) as UIButton
         button.frame = CGRect(x: 0, y: 0, width: 65, height: 65)
@@ -25,8 +48,8 @@ class LocalizedViewController: UIViewController, UICollectionViewDataSource, UIC
         button.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(button)
         
-        let descHorizontal = "H:[button(65)]-35-|"
-        let descVertical = "V:[button(65)]-35-|"
+        let descHorizontal = "H:[button(65)]-25-|"
+        let descVertical = "V:[button(65)]-20-|"
         let viewsDict = ["button": button]
         
         let horizontalConstraints = NSLayoutConstraint.constraints(withVisualFormat: descHorizontal,
@@ -61,6 +84,7 @@ class LocalizedViewController: UIViewController, UICollectionViewDataSource, UIC
         myCollectionView.dataSource = self
         myCollectionView.delegate = self
         myCollectionView.register(LocalizedUserCell.self, forCellWithReuseIdentifier: "userCell")
+        myCollectionView.register(GroupChatCell.self, forCellWithReuseIdentifier: "groupChatCell")
         myCollectionView.backgroundColor = UIColor.white
         
         self.view.addSubview(myCollectionView)
@@ -95,8 +119,7 @@ class LocalizedViewController: UIViewController, UICollectionViewDataSource, UIC
             cell.userAvatar.image = UIImage(data: data!)
             return cell
         }else{
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "userCell", for: indexPath)
-            
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "groupChatCell", for: indexPath) as! GroupChatCell
             return cell
         }
     }

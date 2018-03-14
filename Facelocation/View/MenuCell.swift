@@ -11,7 +11,7 @@ import UIKit
 class MenuCell: UICollectionViewCell {
     let tabLabel: UILabel = {
         let tl = UILabel()
-        tl.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width/5, height: 50)
+        tl.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width/4, height: 50)
         tl.textAlignment = .center
         tl.textColor = Colors.purpleSuperLight
         tl.font = UIFont.boldSystemFont(ofSize: 14)

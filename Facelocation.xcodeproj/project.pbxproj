@@ -36,6 +36,11 @@
 		B2D2055C2056CA3600E0D006 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D2055B2056CA3600E0D006 /* Constants.swift */; };
 		B2D2055E2057182C00E0D006 /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D2055D2057182C00E0D006 /* MenuCell.swift */; };
 		B2D20560205718A400E0D006 /* LocalizedUserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D2055F205718A400E0D006 /* LocalizedUserCell.swift */; };
+		B2D20566205949F900E0D006 /* GroupChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D20565205949F900E0D006 /* GroupChatCell.swift */; };
+		B2D205682059592B00E0D006 /* UserListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D205672059592B00E0D006 /* UserListCell.swift */; };
+		B2D2056A2059593E00E0D006 /* ChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D205692059593E00E0D006 /* ChatCell.swift */; };
+		B2D2056C2059594C00E0D006 /* AttentionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D2056B2059594C00E0D006 /* AttentionCell.swift */; };
+		B2D2056E2059596100E0D006 /* FilesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D2056D2059596100E0D006 /* FilesCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -74,6 +79,11 @@
 		B2D2055B2056CA3600E0D006 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		B2D2055D2057182C00E0D006 /* MenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
 		B2D2055F205718A400E0D006 /* LocalizedUserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedUserCell.swift; sourceTree = "<group>"; };
+		B2D20565205949F900E0D006 /* GroupChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupChatCell.swift; sourceTree = "<group>"; };
+		B2D205672059592B00E0D006 /* UserListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListCell.swift; sourceTree = "<group>"; };
+		B2D205692059593E00E0D006 /* ChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatCell.swift; sourceTree = "<group>"; };
+		B2D2056B2059594C00E0D006 /* AttentionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttentionCell.swift; sourceTree = "<group>"; };
+		B2D2056D2059596100E0D006 /* FilesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilesCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,6 +181,11 @@
 				B284BC3A20568578002F998E /* MenuBar.swift */,
 				B2D2055D2057182C00E0D006 /* MenuCell.swift */,
 				B2D2055F205718A400E0D006 /* LocalizedUserCell.swift */,
+				B2D20565205949F900E0D006 /* GroupChatCell.swift */,
+				B2D205672059592B00E0D006 /* UserListCell.swift */,
+				B2D205692059593E00E0D006 /* ChatCell.swift */,
+				B2D2056B2059594C00E0D006 /* AttentionCell.swift */,
+				B2D2056D2059596100E0D006 /* FilesCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -337,6 +352,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2D205682059592B00E0D006 /* UserListCell.swift in Sources */,
 				B2CFB765204C367100927400 /* LocationDescViewController.swift in Sources */,
 				B2D2055C2056CA3600E0D006 /* Constants.swift in Sources */,
 				B2D2055E2057182C00E0D006 /* MenuCell.swift in Sources */,
@@ -344,10 +360,14 @@
 				B28730A9204C440200EF81E4 /* SupportViewController.swift in Sources */,
 				B2D20560205718A400E0D006 /* LocalizedUserCell.swift in Sources */,
 				B211403B20498C150098570E /* MainMapViewController.swift in Sources */,
+				B2D20566205949F900E0D006 /* GroupChatCell.swift in Sources */,
+				B2D2056A2059593E00E0D006 /* ChatCell.swift in Sources */,
 				B284BC3B20568578002F998E /* MenuBar.swift in Sources */,
 				B2114037204955960098570E /* LoginViewController.swift in Sources */,
+				B2D2056C2059594C00E0D006 /* AttentionCell.swift in Sources */,
 				B2CFB763204C30D300927400 /* AddNewLocationMapViewController.swift in Sources */,
 				B2113FFA204831260098570E /* StartViewController.swift in Sources */,
+				B2D2056E2059596100E0D006 /* FilesCell.swift in Sources */,
 				B2114E4F204C78A000A4D014 /* LocalizedViewController.swift in Sources */,
 				B2113FF8204831260098570E /* AppDelegate.swift in Sources */,
 			);
