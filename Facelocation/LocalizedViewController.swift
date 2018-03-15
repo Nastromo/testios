@@ -1,138 +1,105 @@
 import UIKit
 
-class LocalizedViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
-    //Was testind downloading image from the URL
-    var data: Data? = nil
+class LocalizedViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, ShowChat {
+    
+    lazy var menuBar: MenuBar = {
+        let mb = MenuBar()
+        mb.localizedViewController = self
+        return mb
+    }()
+    
+    var myCollectionView: UICollectionView?
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUpLocalizedUserList()
+        setUpHorizontalScreens()
         setUpTitleBar()
         setUpMenuBar()
-        setUpGroupChatBtn()
-//        setUpHorizontalScreens()
         
-        //Was testind downloading image from the URL
-        data = downloadImg()
     }
     
-//    func setUpHorizontalScreens(){
-//        let layout = UICollectionViewFlowLayout()
-//        layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-//        layout.minimumInteritemSpacing = 0
-//        layout.minimumLineSpacing = 0
-//        layout.itemSize = CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height - 160)
-//        
-//        let tabSize = CGRect(x: 0, y: 160, width: Int(UIScreen.main.bounds.width), height: Int(UIScreen.main.bounds.height) - 160)
-//        let myCollectionView = UICollectionView(frame: tabSize, collectionViewLayout: layout)
-//        
-//        myCollectionView.dataSource = self
-//        myCollectionView.delegate = self
-//        myCollectionView.register(UserListCell.self, forCellWithReuseIdentifier: "userListCell")
-//        myCollectionView.register(ChatCell.self, forCellWithReuseIdentifier: "chatCell")
-//        myCollectionView.register(AttentionCell.self, forCellWithReuseIdentifier: "attentionCell")
-//        myCollectionView.register(FilesCell.self, forCellWithReuseIdentifier: "filesCell")
-//        myCollectionView.backgroundColor = UIColor.white
-//        
-//        self.view.addSubview(myCollectionView)
-//    }
     
-    
-    
-    func setUpGroupChatBtn(){
-        let image = UIImage(named: "groupChat.png") as UIImage?
-        let button   = UIButton(type: UIButtonType.system) as UIButton
-        button.frame = CGRect(x: 0, y: 0, width: 65, height: 65)
-        button .setBackgroundImage(image, for: .normal)
-        button.addTarget(self, action: #selector(createGroupChat), for: .touchUpInside)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(button)
-        
-        let descHorizontal = "H:[button(65)]-25-|"
-        let descVertical = "V:[button(65)]-20-|"
-        let viewsDict = ["button": button]
-        
-        let horizontalConstraints = NSLayoutConstraint.constraints(withVisualFormat: descHorizontal,
-                                                                   options: NSLayoutFormatOptions(rawValue: 0),
-                                                                   metrics: nil,
-                                                                   views: viewsDict)
-        
-        let verticalConstraints = NSLayoutConstraint.constraints(withVisualFormat: descVertical,
-                                                                 options: NSLayoutFormatOptions(rawValue: 0),
-                                                                 metrics: nil,
-                                                                 views: viewsDict)
-        
-        self.view.addConstraints(horizontalConstraints)
-        self.view.addConstraints(verticalConstraints)
+    //Move Line Indicator While Sliding
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        print(scrollView.contentOffset)
+        menuBar.indicatorPositinX?.constant = scrollView.contentOffset.x / 4
     }
     
-    @objc func createGroupChat(){
-        print("Btn touched")
+    //Scroll Screens By Clicking Menu Tab Item
+    func moveTabScreen(menuIndex: Int){
+        let indexPath = IndexPath(item: menuIndex, section: 0)
+        myCollectionView!.scrollToItem(at: indexPath, at: .left, animated: true)
     }
     
-    //Localized User List (Collection View)
-    private func setUpLocalizedUserList(){
-        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-        layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 20, right: 0)
-        layout.minimumInteritemSpacing = 0
+    
+    //Horizontal Screens wich slids to left/right on Menu Tab Press
+    func setUpHorizontalScreens(){
+        let layout = UICollectionViewFlowLayout()
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         layout.minimumLineSpacing = 0
-        layout.itemSize = CGSize(width: UIScreen.main.bounds.width, height: 80)
-        
-        let userListFrame = CGRect(x: 0, y: 160, width: Int(UIScreen.main.bounds.width), height: Int(UIScreen.main.bounds.height) - 160)
-        let myCollectionView:UICollectionView = UICollectionView(frame: userListFrame, collectionViewLayout: layout)
-        
-        myCollectionView.dataSource = self
-        myCollectionView.delegate = self
-        myCollectionView.register(LocalizedUserCell.self, forCellWithReuseIdentifier: "userCell")
-        myCollectionView.register(GroupChatCell.self, forCellWithReuseIdentifier: "groupChatCell")
-        myCollectionView.backgroundColor = UIColor.white
-        
-        self.view.addSubview(myCollectionView)
+        layout.scrollDirection = .horizontal
+        layout.itemSize = CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+
+        let tabSize = CGRect(x: 0, y: 160, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+        myCollectionView = UICollectionView(frame: tabSize, collectionViewLayout: layout)
+
+        myCollectionView!.dataSource = self
+        myCollectionView!.delegate = self
+        myCollectionView!.register(UserListCell.self, forCellWithReuseIdentifier: "userListCell")
+        myCollectionView!.register(ChatCell.self, forCellWithReuseIdentifier: "chatCell")
+        myCollectionView!.register(AttentionCell.self, forCellWithReuseIdentifier: "attentionCell")
+        myCollectionView!.register(FilesCell.self, forCellWithReuseIdentifier: "filesCell")
+        myCollectionView!.backgroundColor = UIColor.white
+        myCollectionView!.showsHorizontalScrollIndicator = false
+        myCollectionView!.isPagingEnabled = true
+
+        self.view.addSubview(myCollectionView!)
     }
     
     
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 2
-    }
-    
-    
+    //Number Of Horizontal Screens
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        //Lists' Sizes
-        return (section == 0) ? 5 : 4
+        return 4
     }
     
-    //Downloading Image from URL
-    func downloadImg() -> Data{
-        let imageURL = URL(string: "https://tinder.com/static/tinder.png")
-        let data = try? Data(contentsOf: imageURL!)
-        return data!
-    }
-    
-    
-    //Cells content here
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    //111111111111111111111
+    func showChatScreen(cellIndex: Int){
+        print(cellIndex)
         
-        if indexPath.section == 0 {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "userCell", for: indexPath) as! LocalizedUserCell
-            cell.userAvatar.layer.cornerRadius = cell.userAvatar.frame.size.width / 2;
-            cell.userAvatar.layer.masksToBounds = true;
-            cell.userAvatar.image = UIImage(data: data!)
+    }
+    
+    
+    //Cells for each horizontal Screen
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        switch indexPath.item {
+        case 0:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "userListCell", for: indexPath) as! UserListCell
+            cell.delegate = self
             return cell
-        }else{
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "groupChatCell", for: indexPath) as! GroupChatCell
+        case 1:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "chatCell", for: indexPath) as! ChatCell
+            return cell
+        case 2:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "attentionCell", for: indexPath) as! AttentionCell
+            return cell
+        case 3:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "filesCell", for: indexPath) as! FilesCell
+            return cell
+        default:
+            print("СРАБОТАЛ ДЕФОЛТ В СВИЧЕ НА ЯЧЕЙКАХ")
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "groupChatCell", for: indexPath) as! UserListCell
             return cell
         }
     }
     
-    let menuBar: MenuBar = {
-        let mb = MenuBar()
-        return mb
-    }()
     
-    let descHorizontal = "H:|[menuBar]|"
-    let descVertical = "V:|-110-[menuBar(50)]"
-    
+    //Bar with Menu Tabs (Locals, Chat etc)
     private func setUpMenuBar(){
+        
+        let descHorizontal = "H:|[menuBar]|"
+        let descVertical = "V:|-110-[menuBar(50)]"
+        
         view.addSubview(menuBar)
         let viewDictionary = ["menuBar": menuBar]
         
@@ -154,7 +121,7 @@ class LocalizedViewController: UIViewController, UICollectionViewDataSource, UIC
         menuBar.layer.shadowOffset = CGSize(width: 0, height: 3)
     }
     
-    
+    //Bar With Event Title
     private func setUpTitleBar(){
         let titleBar = UIView()
         titleBar.frame = CGRect(x: 0, y: 60, width: UIScreen.main.bounds.width, height: 50)

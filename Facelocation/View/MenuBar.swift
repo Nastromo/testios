@@ -11,6 +11,7 @@ import UIKit
 class MenuBar: UIView, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     var indicatorPositinX: NSLayoutConstraint?
+    var localizedViewController: LocalizedViewController?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -49,10 +50,7 @@ class MenuBar: UIView, UICollectionViewDataSource, UICollectionViewDelegate, UIC
             self.layoutIfNeeded()
         }, completion: nil)
         
-        //Indicator line move animation
-//        UIView.animate(withDuration: 0.3) {
-//            self.layoutIfNeeded()
-//        }
+        localizedViewController?.moveTabScreen(menuIndex: indexPath.item)
     }
 
     //This collection is a set of tabs in MenuBar

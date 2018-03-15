@@ -13,6 +13,7 @@ class FilesCell: UICollectionViewCell{
     override init(frame: CGRect) {
         super .init(frame: frame)
         addSubview(chatNameTitle)
+        backgroundColor = UIColor.red
     }
     
     
