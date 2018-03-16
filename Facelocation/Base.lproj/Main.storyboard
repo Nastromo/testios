@@ -1269,10 +1269,29 @@
                         <viewLayoutGuide key="safeArea" id="1hl-KK-RTH"/>
                     </view>
                     <navigationItem key="navigationItem" id="1uY-sf-6oD"/>
+                    <connections>
+                        <segue destination="B8g-qc-M92" kind="show" identifier="supportViewController" id="gXL-ir-GSS"/>
+                        <segue destination="VZf-xq-Zur" kind="show" identifier="toChat" id="UoI-W9-cVW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ql6-4s-wHT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3084" y="1590.8545727136434"/>
+        </scene>
+        <!--Chat View Controller-->
+        <scene sceneID="5ze-YP-4jp">
+            <objects>
+                <viewController id="VZf-xq-Zur" customClass="ChatViewController" customModule="Facelocation" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="XEa-bv-BmJ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="W6h-k8-5uT"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Tys-et-GUm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3906" y="1590"/>
         </scene>
     </scenes>
     <resources>
@@ -1286,6 +1305,7 @@
         <image name="userIconProfile" width="55" height="55"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="gXL-ir-GSS"/>
         <segue reference="fiz-Zi-c0a"/>
         <segue reference="uwx-c8-0x3"/>
     </inferredMetricsTieBreakers>

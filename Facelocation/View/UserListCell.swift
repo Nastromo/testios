@@ -33,7 +33,6 @@ class UserListCell: UICollectionViewCell, UICollectionViewDataSource, UICollecti
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("Click")
         self.delegate?.showChatScreen(cellIndex: indexPath.item)
-    
     }
 
     

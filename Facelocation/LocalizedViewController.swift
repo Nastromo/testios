@@ -63,10 +63,10 @@ class LocalizedViewController: UIViewController, UICollectionViewDataSource, UIC
         return 4
     }
     
-    //111111111111111111111
+    //Start Chat ViewController
     func showChatScreen(cellIndex: Int){
         print(cellIndex)
-        
+        self.performSegue(withIdentifier: "toChat", sender: self)
     }
     
     
