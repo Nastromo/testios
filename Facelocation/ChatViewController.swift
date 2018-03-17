@@ -25,6 +25,9 @@ class ChatViewController: UIViewController, UICollectionViewDataSource, UICollec
         ms.append("You can also initialize an array with an array literal")
         
         ms.append("In this case, the array literal contains two String values and nothing else. This matches the type of the shoppingList variable’s declaration (an array that can only contain String values), and so the assignment of the array literal is permitted as a way to initialize shoppingList with two initial items.")
+        ms.append("You can also initialize an array with an array literal")
+        
+        ms.append("In this case, the array literal contains two String values and nothing else. This matches the type of the shoppingList variable’s declaration (an array that can only contain String values), and so the assignment of the array literal is permitted as a way to initialize shoppingList with two initial items.")
         
         return ms
     }()
@@ -57,6 +60,14 @@ class ChatViewController: UIViewController, UICollectionViewDataSource, UICollec
                 user.userID = myID
                 user.message = message
                 chatUsers.append(user)
+            case 5:
+                user.userID = myID
+                user.message = message
+                chatUsers.append(user)
+            case 6:
+                user.userID = myID
+                user.message = message
+                chatUsers.append(user)
             default:
                 print("Default")
             }
@@ -67,18 +78,38 @@ class ChatViewController: UIViewController, UICollectionViewDataSource, UICollec
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpChatLogCollection()
+        setupMyCollectionConstarints()
+        setupBottomMyCollectionConstaraint()
+        scrollToLastMessage()
         
         view.addSubview(backRectangl)
-        
+        setupBackRectanglConstarints()
+        setupBottomBackRectangleConstaraint()
+
         backRectangl.addSubview(messegeField)
         setupMessegeFieldConstarints()
-        
+
         backRectangl.addSubview(sendButton)
         setupSendButtonConstarints()
         
         createUsers()
+        
+        //Listen when keyboard appears
+        NotificationCenter.default.addObserver(self, selector: #selector(hundleKeyboardShowing), name: .UIKeyboardWillShow, object: nil)
+        
+        //Listen when keyboard hide
+        NotificationCenter.default.addObserver(self, selector: #selector(hundleKeyboardHiding), name: .UIKeyboardWillHide, object: nil)
     }
     
+    //Scroll to the last bottom message in collection
+    func scrollToLastMessage(){
+        let indexPath = IndexPath(item: self.messages.count - 1, section: 0)
+        self.myCollectionView?.contentInsetAdjustmentBehavior = .never
+        bottomMyCollectionConstraint?.constant = -54
+        self.myCollectionView!.scrollToItem(at: indexPath, at: .bottom, animated: true)
+    }
+    
+    //Send message button
     let sendButton: UIButton = {
         let image = UIImage(named: "sendBtn")
         let button   = UIButton(type: UIButtonType.custom)
@@ -88,8 +119,23 @@ class ChatViewController: UIViewController, UICollectionViewDataSource, UICollec
         return button
     }()
     
+    //Send message action
     @objc func sendBtnTouched(){
-        print("btnTouched")
+        if let chatMessage = messegeField.text {
+            messages.append(chatMessage)
+            let insertionIndex = messages.count - 1
+            let indexPath = IndexPath(item: insertionIndex, section: 0)
+            var indexPathArray = [IndexPath]()
+            indexPathArray.append(indexPath)
+            myCollectionView?.insertItems(at: indexPathArray)
+            
+            let newChatUser = User()
+            newChatUser.userID = myID
+            newChatUser.message = chatMessage
+            chatUsers.append(newChatUser)
+            
+            self.myCollectionView?.scrollToItem(at: indexPath, at: .bottom, animated: true)
+        }
     }
     
     func setupSendButtonConstarints(){
@@ -114,13 +160,106 @@ class ChatViewController: UIViewController, UICollectionViewDataSource, UICollec
     
     let backRectangl: UIView = {
         let br = UIView()
-        br.frame = CGRect(x: 0, y: UIScreen.main.bounds.height - 50, width: UIScreen.main.bounds.width, height: 50)
         br.backgroundColor = Colors.superLight
+        br.translatesAutoresizingMaskIntoConstraints = false
         return br
     }()
+    
+    func setupBackRectanglConstarints(){
+        let descHorizontal = "H:|[backRectangl]|"
+        let descVertical = "V:[backRectangl(50)]"
+        
+        let viewDictionary = ["backRectangl": backRectangl]
+        
+        let horizontalConstraints = NSLayoutConstraint.constraints(withVisualFormat: descHorizontal,
+                                                                   options: NSLayoutFormatOptions(rawValue: 0),
+                                                                   metrics: nil,
+                                                                   views: viewDictionary)
+        
+        let verticalConstraints = NSLayoutConstraint.constraints(withVisualFormat: descVertical,
+                                                                 options: NSLayoutFormatOptions(rawValue: 0),
+                                                                 metrics: nil,
+                                                                 views: viewDictionary)
+        
+        view.addConstraints(horizontalConstraints)
+        view.addConstraints(verticalConstraints)
+    }
+    
+    
+    //Grab the bottom constraint of a backRectangl
+    var bottomBackRectanglConstraint: NSLayoutConstraint?
+    
+    func setupBottomBackRectangleConstaraint(){
+        bottomBackRectanglConstraint = NSLayoutConstraint(item: backRectangl, attribute: .bottom, relatedBy: .equal, toItem: view, attribute: .bottom, multiplier: 1, constant: 0)
+        view.addConstraint(bottomBackRectanglConstraint!)
+    }
+    
+    
+    //Grab the bottom constraint of a myCollectionView
+    var bottomMyCollectionConstraint: NSLayoutConstraint?
+    
+    func setupBottomMyCollectionConstaraint(){
+        bottomMyCollectionConstraint = NSLayoutConstraint(item: myCollectionView!, attribute: .bottom, relatedBy: .equal, toItem: view, attribute: .bottom, multiplier: 1, constant: 0)
+        view.addConstraint(bottomMyCollectionConstraint!)
+    }
+    
+    
+    //Get Keyboard Top Height edge coordinat and pin backRectangl and MyCollection to the top Keyboard edge when it's showed
+    @objc func hundleKeyboardShowing(notification: NSNotification){
+        if let userInfo = notification.userInfo {
+            let keyboardSize = userInfo[UIKeyboardFrameEndUserInfoKey] as? CGRect
+            bottomBackRectanglConstraint?.constant = -keyboardSize!.height
+            bottomMyCollectionConstraint?.constant = -keyboardSize!.height - 54
+            
+            UIView.animate(withDuration: 0, delay: 0, options: .curveEaseOut, animations: {
+                self.view.layoutIfNeeded()
+            }, completion: { (complited) in
+                
+                //Animate the last cell bottom edge to top backRectangl edge
+                let indexPath = IndexPath(item: self.messages.count - 1, section: 0)
+                self.myCollectionView?.scrollToItem(at: indexPath, at: .bottom, animated: true)
+            
+            })
+        }
+    }
+    
+    
+    func setupMyCollectionConstarints(){
+        let descHorizontal = "H:|[myCollection]|"
+        let descVertical = "V:|[myCollection]"
+        
+        let viewDictionary = ["myCollection": myCollectionView]
+        
+        let horizontalConstraints = NSLayoutConstraint.constraints(withVisualFormat: descHorizontal,
+                                                                   options: NSLayoutFormatOptions(rawValue: 0),
+                                                                   metrics: nil,
+                                                                   views: viewDictionary)
+        
+        let verticalConstraints = NSLayoutConstraint.constraints(withVisualFormat: descVertical,
+                                                                 options: NSLayoutFormatOptions(rawValue: 0),
+                                                                 metrics: nil,
+                                                                 views: viewDictionary)
+        
+        view.addConstraints(horizontalConstraints)
+        view.addConstraints(verticalConstraints)
+    }
+    
+    
+    //Hide keyboard if any of cells are touched
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        messegeField.endEditing(true)
+    }
+    
+    //Get Keyboard Top Height edge coordinat and pin backRectangl to the top Keyboard edge when it's hided
+    @objc func hundleKeyboardHiding(notification: NSNotification){
+        bottomBackRectanglConstraint?.constant = 0
+        bottomMyCollectionConstraint?.constant = -54
+        UIView.animate(withDuration: 0, delay: 0, options: .curveEaseOut, animations: {
+            self.view.layoutIfNeeded()
+        }, completion: nil)
+    }
 
-    
-    
+
     let messegeField: UITextField = {
         let mf = UITextField()
         mf.backgroundColor = UIColor.white
@@ -161,7 +300,7 @@ class ChatViewController: UIViewController, UICollectionViewDataSource, UICollec
         layout.minimumLineSpacing = 20
         layout.itemSize = CGSize(width: UIScreen.main.bounds.width, height: 80) //Not nessesary because of cellForItemAt indexPath func
         
-        let collectionSize = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height - 50)
+        let collectionSize = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height - 54)
         myCollectionView = UICollectionView(frame: collectionSize, collectionViewLayout: layout)
         
         myCollectionView!.dataSource = self
@@ -169,9 +308,12 @@ class ChatViewController: UIViewController, UICollectionViewDataSource, UICollec
         
         myCollectionView!.register(ChatMessageCell.self, forCellWithReuseIdentifier: "chatMessage")
         myCollectionView!.backgroundColor = UIColor.white
+        myCollectionView?.translatesAutoresizingMaskIntoConstraints = false
 
         self.view.addSubview(myCollectionView!)
     }
+    
+    
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return messages.count
