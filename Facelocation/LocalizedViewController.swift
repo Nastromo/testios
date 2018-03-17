@@ -16,7 +16,6 @@ class LocalizedViewController: UIViewController, UICollectionViewDataSource, UIC
         setUpHorizontalScreens()
         setUpTitleBar()
         setUpMenuBar()
-        
     }
     
     

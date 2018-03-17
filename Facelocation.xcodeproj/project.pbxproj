@@ -36,6 +36,7 @@
 		B28730A9204C440200EF81E4 /* SupportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28730A8204C440200EF81E4 /* SupportViewController.swift */; };
 		B2CFB763204C30D300927400 /* AddNewLocationMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CFB762204C30D200927400 /* AddNewLocationMapViewController.swift */; };
 		B2CFB765204C367100927400 /* LocationDescViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CFB764204C367100927400 /* LocationDescViewController.swift */; };
+		B2D09B8D205DA3BA0009211F /* FacelocationAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D09B8C205DA3BA0009211F /* FacelocationAPI.swift */; };
 		B2D2055C2056CA3600E0D006 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D2055B2056CA3600E0D006 /* Constants.swift */; };
 		B2D2055E2057182C00E0D006 /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D2055D2057182C00E0D006 /* MenuCell.swift */; };
 		B2D20560205718A400E0D006 /* LocalizedUserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D2055F205718A400E0D006 /* LocalizedUserCell.swift */; };
@@ -82,6 +83,7 @@
 		B28730A8204C440200EF81E4 /* SupportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportViewController.swift; sourceTree = "<group>"; };
 		B2CFB762204C30D200927400 /* AddNewLocationMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewLocationMapViewController.swift; sourceTree = "<group>"; };
 		B2CFB764204C367100927400 /* LocationDescViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDescViewController.swift; sourceTree = "<group>"; };
+		B2D09B8C205DA3BA0009211F /* FacelocationAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacelocationAPI.swift; sourceTree = "<group>"; };
 		B2D2055B2056CA3600E0D006 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		B2D2055D2057182C00E0D006 /* MenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
 		B2D2055F205718A400E0D006 /* LocalizedUserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedUserCell.swift; sourceTree = "<group>"; };
@@ -219,6 +221,7 @@
 			isa = PBXGroup;
 			children = (
 				B2D2055B2056CA3600E0D006 /* Constants.swift */,
+				B2D09B8C205DA3BA0009211F /* FacelocationAPI.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -313,10 +316,12 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Facelocation/Pods-Facelocation-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Pulsator/Pulsator.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Pulsator.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -381,6 +386,7 @@
 				B2D20566205949F900E0D006 /* GroupChatCell.swift in Sources */,
 				B2D2056A2059593E00E0D006 /* ChatCell.swift in Sources */,
 				B284BC3B20568578002F998E /* MenuBar.swift in Sources */,
+				B2D09B8D205DA3BA0009211F /* FacelocationAPI.swift in Sources */,
 				B22A6DB8205BBA3800E0E779 /* ChatViewController.swift in Sources */,
 				B2114037204955960098570E /* LoginViewController.swift in Sources */,
 				B2D2056C2059594C00E0D006 /* AttentionCell.swift in Sources */,

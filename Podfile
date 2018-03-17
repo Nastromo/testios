@@ -8,5 +8,6 @@ target 'Facelocation' do
   pod "Pulsator"
   pod 'GoogleMaps'
   pod 'GooglePlaces'
+  pod 'Alamofire'
 
 end

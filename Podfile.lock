@@ -1,4 +1,5 @@
 PODS:
+  - Alamofire (4.6.0)
   - GoogleMaps (2.6.0):
     - GoogleMaps/Maps (= 2.6.0)
   - GoogleMaps/Base (2.6.0)
@@ -9,15 +10,17 @@ PODS:
   - Pulsator (0.4.1)
 
 DEPENDENCIES:
+  - Alamofire
   - GoogleMaps
   - GooglePlaces
   - Pulsator
 
 SPEC CHECKSUMS:
+  Alamofire: f41a599bd63041760b26d393ec1069d9d7b917f4
   GoogleMaps: 42f91c68b7fa2f84d5c86597b18ceb99f5414c7f
   GooglePlaces: f6ddf33b75cef69e888907d9947c57198ed845f3
   Pulsator: 89a18d0e0ee2f642bb83cb9dfb6b7eebc1dc6241
 
-PODFILE CHECKSUM: a5f4760a7d9cc96646259e37927e38ac9170d0f6
+PODFILE CHECKSUM: cfcbde7a673e78bd96942cfe364f3dcecf74d449
 
 COCOAPODS: 1.4.0

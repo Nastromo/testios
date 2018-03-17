@@ -235,7 +235,6 @@
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="logIn:" destination="z2v-qW-wiQ" eventType="touchUpInside" id="odz-I2-H2R"/>
-                                    <segue destination="2py-hY-ux1" kind="show" id="fiz-Zi-c0a"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LlL-c1-EnX">
@@ -279,6 +278,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="k9c-0L-e3g"/>
                     </view>
+                    <connections>
+                        <outlet property="login" destination="H5e-M7-49d" id="pLP-NC-wHW"/>
+                        <outlet property="password" destination="1mB-fe-N87" id="RO3-fK-t09"/>
+                        <segue destination="2py-hY-ux1" kind="show" identifier="toMainMap" id="Y29-nk-bF0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zdb-oQ-qKh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1305,8 +1309,8 @@
         <image name="userIconProfile" width="55" height="55"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="gXL-ir-GSS"/>
-        <segue reference="fiz-Zi-c0a"/>
+        <segue reference="jf4-3f-5RI"/>
+        <segue reference="Y29-nk-bF0"/>
         <segue reference="uwx-c8-0x3"/>
     </inferredMetricsTieBreakers>
 </document>
