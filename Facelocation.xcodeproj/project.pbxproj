@@ -48,6 +48,7 @@
 		B2D2056A2059593E00E0D006 /* ChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D205692059593E00E0D006 /* ChatCell.swift */; };
 		B2D2056C2059594C00E0D006 /* AttentionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D2056B2059594C00E0D006 /* AttentionCell.swift */; };
 		B2D2056E2059596100E0D006 /* FilesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D2056D2059596100E0D006 /* FilesCell.swift */; };
+		B2EC688E205ED37E00C00C02 /* DataBaseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EC688D205ED37E00C00C02 /* DataBaseHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -98,6 +99,7 @@
 		B2D205692059593E00E0D006 /* ChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatCell.swift; sourceTree = "<group>"; };
 		B2D2056B2059594C00E0D006 /* AttentionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttentionCell.swift; sourceTree = "<group>"; };
 		B2D2056D2059596100E0D006 /* FilesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilesCell.swift; sourceTree = "<group>"; };
+		B2EC688D205ED37E00C00C02 /* DataBaseHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBaseHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -198,6 +200,7 @@
 			children = (
 				B22A6DBC205C324600E0E779 /* User.swift */,
 				B2D09B92205E84A50009211F /* Registration.swift */,
+				B2EC688D205ED37E00C00C02 /* DataBaseHelper.swift */,
 			);
 			path = DataModel;
 			sourceTree = "<group>";
@@ -327,11 +330,13 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-Facelocation/Pods-Facelocation-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Pulsator/Pulsator.framework",
+				"${BUILT_PRODUCTS_DIR}/SQLite.swift/SQLite.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Pulsator.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SQLite.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -393,6 +398,7 @@
 				B28730A9204C440200EF81E4 /* SupportViewController.swift in Sources */,
 				B2D20560205718A400E0D006 /* LocalizedUserCell.swift in Sources */,
 				B2D09B91205E7C580009211F /* RegSecondViewController.swift in Sources */,
+				B2EC688E205ED37E00C00C02 /* DataBaseHelper.swift in Sources */,
 				B211403B20498C150098570E /* MainMapViewController.swift in Sources */,
 				B2D20566205949F900E0D006 /* GroupChatCell.swift in Sources */,
 				B2D2056A2059593E00E0D006 /* ChatCell.swift in Sources */,

@@ -9,6 +9,7 @@ class MainMapViewController: UIViewController, GMSMapViewDelegate, CLLocationMan
     @IBOutlet weak var leftMenuConstrait: NSLayoutConstraint!
     @IBOutlet weak var menuView: UIView!
     
+    
     //VARIABLES
     var menuState = false
     var locationManager = CLLocationManager()
@@ -20,6 +21,7 @@ class MainMapViewController: UIViewController, GMSMapViewDelegate, CLLocationMan
         let image = UIImage(named: "facelogo.png")
         imageView.image = image
         imageView.contentMode = .scaleAspectFit
+        navigationController?.setNavigationBarHidden(false, animated: true)
         navigationItem.titleView = imageView
         
         mapView.isMyLocationEnabled = true
@@ -31,6 +33,13 @@ class MainMapViewController: UIViewController, GMSMapViewDelegate, CLLocationMan
         
         menuView.layer.shadowOpacity = 0.5
         menuView.layer.shadowRadius = 6
+    }
+
+    
+    //Exit from App by pushing Exit btn in menu app
+    @IBAction func clickExit(_ sender: Any) {
+        DataBaseHelper.deleteUser(userID: DataBaseHelper.userDataArray[0])
+        self.performSegue(withIdentifier: "goExit", sender: self)
     }
     
     //Animate camera on user current position

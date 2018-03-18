@@ -11,10 +11,6 @@ class LoginViewController: UIViewController {
     let headers: HTTPHeaders = [
         "Content-Type": "application/json"
     ]
-
-    @IBAction func toseg(_ sender: Any) {
-        self.performSegue(withIdentifier: "drrrr", sender: self)
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,11 +47,13 @@ class LoginViewController: UIViewController {
                             let userAvatar: String = userOBJ["avatar_mob"] as! String
                             let userEmail: String = userOBJ["email"] as! String
 
-                            self.navigationController?.navigationBar.setBackgroundImage(nil, for: .default)
-                            self.navigationController?.navigationBar.shadowImage = nil
+//                            self.navigationController?.navigationBar.setBackgroundImage(nil, for: .default)
+//                            self.navigationController?.navigationBar.shadowImage = nil
                             
                             self.navigationController?.navigationBar.barTintColor = Colors.mainColor
                             self.navigationController?.navigationBar.isTranslucent = false
+                            
+                            DataBaseHelper.insertUser(userID: userID, userFirstLogin: true, userEmail: userEmail, userToken: userToken, userAvatarURL: userAvatar)
                             
                             self.performSegue(withIdentifier: "toMainMap", sender: self)
                         }
@@ -68,6 +66,8 @@ class LoginViewController: UIViewController {
     
     //Navigation Bar Setup
     func navigationBarSetup(){
+        navigationController?.setNavigationBarHidden(false, animated: true)
+        self.navigationController?.navigationBar.isTranslucent = true
         self.navigationController?.navigationBar.tintColor = UIColor.white
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "Назад", style: .plain, target: nil, action: nil)
     }
