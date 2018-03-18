@@ -11,28 +11,22 @@ class LoginViewController: UIViewController {
     let headers: HTTPHeaders = [
         "Content-Type": "application/json"
     ]
-    
-    
+
+    @IBAction func toseg(_ sender: Any) {
+        self.performSegue(withIdentifier: "drrrr", sender: self)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.navigationBar.tintColor = UIColor.white
-        navigationItem.backBarButtonItem = UIBarButtonItem(title: "Назад", style: .plain, target: nil, action: nil)
-        
-        print("\(requestURL)")
-        
+        navigationBarSetup()
     }
     
+    //Login Button presed
     @IBAction func logIn(_ sender: Any) {
         doLogin(email: login.text!, pass: password.text!)
-        navigationController?.navigationBar.setBackgroundImage(nil, for: .default)
-        navigationController?.navigationBar.shadowImage = nil
-        
-        let barColor = UIColor(red:0.34902, green:0.37255, blue:0.90980, alpha:1.00000)
-        navigationController?.navigationBar.barTintColor = barColor
-        navigationController?.navigationBar.isTranslucent = false
     }
     
+    //User Login Logic
     func doLogin(email: String, pass: String){
         let parameters: Parameters = [
             "email": email,
@@ -47,8 +41,22 @@ class LoginViewController: UIViewController {
                     switch response.result {
                     case .success:
                         print(response)
-                        print(response.response?.statusCode)
                         if response.response?.statusCode == 200{
+                            let responseJSON =  response.result.value
+                            let loginOBJ: Dictionary = responseJSON as! Dictionary<String, Any>
+                            let userToken: String = loginOBJ["token"] as! String
+                            
+                            let userOBJ: Dictionary = loginOBJ["user"] as! Dictionary<String, Any>
+                            let userID: String = userOBJ["_id"] as! String
+                            let userAvatar: String = userOBJ["avatar_mob"] as! String
+                            let userEmail: String = userOBJ["email"] as! String
+
+                            self.navigationController?.navigationBar.setBackgroundImage(nil, for: .default)
+                            self.navigationController?.navigationBar.shadowImage = nil
+                            
+                            self.navigationController?.navigationBar.barTintColor = Colors.mainColor
+                            self.navigationController?.navigationBar.isTranslucent = false
+                            
                             self.performSegue(withIdentifier: "toMainMap", sender: self)
                         }
                     case .failure(let error):
@@ -56,5 +64,11 @@ class LoginViewController: UIViewController {
                         print(error)
                     }
         }
+    }
+    
+    //Navigation Bar Setup
+    func navigationBarSetup(){
+        self.navigationController?.navigationBar.tintColor = UIColor.white
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "Назад", style: .plain, target: nil, action: nil)
     }
 }

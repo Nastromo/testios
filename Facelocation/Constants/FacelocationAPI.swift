@@ -1,7 +1,18 @@
 
+import Alamofire
+
 class URLlist{
     //Base URL
     static let baseURL = "https://face-location.com/"
+    
+    static let simpleHeaders: HTTPHeaders = [
+        "Content-Type": "application/json"
+    ]
+    
+    static let headers: HTTPHeaders = [
+        "Autorizzz": "token",
+        "Content-Type": "application/json"
+    ]
     
     
     //Registration

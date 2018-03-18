@@ -37,6 +37,9 @@
 		B2CFB763204C30D300927400 /* AddNewLocationMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CFB762204C30D200927400 /* AddNewLocationMapViewController.swift */; };
 		B2CFB765204C367100927400 /* LocationDescViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CFB764204C367100927400 /* LocationDescViewController.swift */; };
 		B2D09B8D205DA3BA0009211F /* FacelocationAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D09B8C205DA3BA0009211F /* FacelocationAPI.swift */; };
+		B2D09B8F205E7BFF0009211F /* RegFirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D09B8E205E7BFF0009211F /* RegFirstViewController.swift */; };
+		B2D09B91205E7C580009211F /* RegSecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D09B90205E7C580009211F /* RegSecondViewController.swift */; };
+		B2D09B93205E84A50009211F /* Registration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D09B92205E84A50009211F /* Registration.swift */; };
 		B2D2055C2056CA3600E0D006 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D2055B2056CA3600E0D006 /* Constants.swift */; };
 		B2D2055E2057182C00E0D006 /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D2055D2057182C00E0D006 /* MenuCell.swift */; };
 		B2D20560205718A400E0D006 /* LocalizedUserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D2055F205718A400E0D006 /* LocalizedUserCell.swift */; };
@@ -84,6 +87,9 @@
 		B2CFB762204C30D200927400 /* AddNewLocationMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewLocationMapViewController.swift; sourceTree = "<group>"; };
 		B2CFB764204C367100927400 /* LocationDescViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDescViewController.swift; sourceTree = "<group>"; };
 		B2D09B8C205DA3BA0009211F /* FacelocationAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacelocationAPI.swift; sourceTree = "<group>"; };
+		B2D09B8E205E7BFF0009211F /* RegFirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegFirstViewController.swift; sourceTree = "<group>"; };
+		B2D09B90205E7C580009211F /* RegSecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegSecondViewController.swift; sourceTree = "<group>"; };
+		B2D09B92205E84A50009211F /* Registration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Registration.swift; sourceTree = "<group>"; };
 		B2D2055B2056CA3600E0D006 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		B2D2055D2057182C00E0D006 /* MenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
 		B2D2055F205718A400E0D006 /* LocalizedUserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedUserCell.swift; sourceTree = "<group>"; };
@@ -158,6 +164,8 @@
 				B28730A8204C440200EF81E4 /* SupportViewController.swift */,
 				B2114E4E204C78A000A4D014 /* LocalizedViewController.swift */,
 				B22A6DB7205BBA3800E0E779 /* ChatViewController.swift */,
+				B2D09B8E205E7BFF0009211F /* RegFirstViewController.swift */,
+				B2D09B90205E7C580009211F /* RegSecondViewController.swift */,
 				B2113FFB204831260098570E /* Main.storyboard */,
 				B2113FFE204831260098570E /* Assets.xcassets */,
 				B2114000204831260098570E /* LaunchScreen.storyboard */,
@@ -189,6 +197,7 @@
 			isa = PBXGroup;
 			children = (
 				B22A6DBC205C324600E0E779 /* User.swift */,
+				B2D09B92205E84A50009211F /* Registration.swift */,
 			);
 			path = DataModel;
 			sourceTree = "<group>";
@@ -377,11 +386,13 @@
 				B2D205682059592B00E0D006 /* UserListCell.swift in Sources */,
 				B22A6DBA205BC26100E0E779 /* ChatMessageCell.swift in Sources */,
 				B2CFB765204C367100927400 /* LocationDescViewController.swift in Sources */,
+				B2D09B8F205E7BFF0009211F /* RegFirstViewController.swift in Sources */,
 				B2D2055C2056CA3600E0D006 /* Constants.swift in Sources */,
 				B2D2055E2057182C00E0D006 /* MenuCell.swift in Sources */,
 				B2114E51204C7C5D00A4D014 /* GradientColor.swift in Sources */,
 				B28730A9204C440200EF81E4 /* SupportViewController.swift in Sources */,
 				B2D20560205718A400E0D006 /* LocalizedUserCell.swift in Sources */,
+				B2D09B91205E7C580009211F /* RegSecondViewController.swift in Sources */,
 				B211403B20498C150098570E /* MainMapViewController.swift in Sources */,
 				B2D20566205949F900E0D006 /* GroupChatCell.swift in Sources */,
 				B2D2056A2059593E00E0D006 /* ChatCell.swift in Sources */,
@@ -395,6 +406,7 @@
 				B2D2056E2059596100E0D006 /* FilesCell.swift in Sources */,
 				B2114E4F204C78A000A4D014 /* LocalizedViewController.swift in Sources */,
 				B2113FF8204831260098570E /* AppDelegate.swift in Sources */,
+				B2D09B93205E84A50009211F /* Registration.swift in Sources */,
 				B22A6DBD205C324600E0E779 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

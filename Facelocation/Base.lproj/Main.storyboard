@@ -218,7 +218,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="tm0-2q-qfw" kind="show" id="U1C-ER-7F0"/>
+                                    <segue destination="tm0-2q-qfw" kind="show" id="ttz-yh-nZl"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J3U-ja-e9A">
@@ -386,10 +386,10 @@
             </objects>
             <point key="canvasLocation" x="-434" y="34"/>
         </scene>
-        <!--View Controller-->
+        <!--Reg First View Controller-->
         <scene sceneID="bAt-fH-eUd">
             <objects>
-                <viewController id="tm0-2q-qfw" sceneMemberID="viewController">
+                <viewController id="tm0-2q-qfw" customClass="RegFirstViewController" customModule="Facelocation" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="G3m-hT-Z2P">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -458,7 +458,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="vJO-X2-mxM" kind="show" id="hhx-Sf-YKV"/>
+                                    <action selector="nextStep:" destination="tm0-2q-qfw" eventType="touchUpInside" id="CmN-21-F8m"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -487,15 +487,19 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="qxA-Ks-bEv"/>
                     </view>
+                    <connections>
+                        <outlet property="emailField" destination="mPE-Zg-xQ9" id="V7L-fw-Ma5"/>
+                        <segue destination="vJO-X2-mxM" kind="show" identifier="nextStep" id="wPk-Eb-d5g"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9j3-wh-3ir" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1909.5999999999999" y="33.733133433283363"/>
+            <point key="canvasLocation" x="2063" y="34"/>
         </scene>
-        <!--View Controller-->
+        <!--Reg Second View Controller-->
         <scene sceneID="VyA-Bs-7aC">
             <objects>
-                <viewController id="vJO-X2-mxM" sceneMemberID="viewController">
+                <viewController id="vJO-X2-mxM" customClass="RegSecondViewController" customModule="Facelocation" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4uP-4R-hhM">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -563,6 +567,9 @@
                                         <integer key="value" value="5"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="registerUser:" destination="vJO-X2-mxM" eventType="touchUpInside" id="A5C-ls-eax"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.34901960780000002" green="0.37254901959999998" blue="0.90980392160000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -590,10 +597,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="GBJ-lo-Cyz"/>
                     </view>
+                    <connections>
+                        <outlet property="passField" destination="YzJ-VT-4dx" id="bU3-Ms-lBs"/>
+                        <segue destination="2py-hY-ux1" kind="show" identifier="toMainMapScreen" id="az6-Ub-Onl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7VH-D2-2oE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2642" y="34"/>
+            <point key="canvasLocation" x="2924" y="34"/>
         </scene>
         <!--Main Map View Controller-->
         <scene sceneID="ROD-JC-GrS">
@@ -1310,7 +1321,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="jf4-3f-5RI"/>
-        <segue reference="Y29-nk-bF0"/>
+        <segue reference="az6-Ub-Onl"/>
         <segue reference="uwx-c8-0x3"/>
     </inferredMetricsTieBreakers>
 </document>
