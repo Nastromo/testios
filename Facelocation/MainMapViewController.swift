@@ -1,6 +1,7 @@
 import UIKit
 import GoogleMaps
 import GooglePlaces
+import Alamofire
 
 class MainMapViewController: UIViewController, GMSMapViewDelegate, CLLocationManagerDelegate, GMSAutocompleteViewControllerDelegate{
 
@@ -13,6 +14,13 @@ class MainMapViewController: UIViewController, GMSMapViewDelegate, CLLocationMan
     //VARIABLES
     var menuState = false
     var locationManager = CLLocationManager()
+    var currentLocationMarker: GMSMarker?
+    let requestURL = URLlist.baseURL + URLlist.nearestEventsGET
+    var latitude: Double?
+    var longitude: Double?
+    var markersArray = [EventMarker]()
+    var lastlocation: CLLocation?
+    var firstRun = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +32,7 @@ class MainMapViewController: UIViewController, GMSMapViewDelegate, CLLocationMan
         navigationController?.setNavigationBarHidden(false, animated: true)
         navigationItem.titleView = imageView
         
-        mapView.isMyLocationEnabled = true
+        mapView.isMyLocationEnabled = false
         mapView.delegate = self
         
         //Location Manager code to fetch current location
@@ -33,6 +41,89 @@ class MainMapViewController: UIViewController, GMSMapViewDelegate, CLLocationMan
         
         menuView.layer.shadowOpacity = 0.5
         menuView.layer.shadowRadius = 6
+        
+        
+        
+    }
+
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if (firstRun) {
+            addCustomCurrentLocationMarker()
+            moveToUserPosition()
+            firstRun = false
+        }
+        showNearestEvents(latitude: latitude!, longitude: longitude!)
+    }
+    
+    //Create custom marker
+    func addCustomCurrentLocationMarker() {
+        currentLocationMarker = GMSMarker(position: (lastlocation?.coordinate)!)
+        currentLocationMarker?.icon = UIImage(named: "myPosition")
+        currentLocationMarker?.map = mapView
+    }
+    
+    
+    func moveToUserPosition(){
+        let camera = GMSCameraPosition.camera(withLatitude: latitude!, longitude:longitude!, zoom:16)
+        mapView.animate(to: camera)
+    }
+    
+
+    //Show events on map
+    func showNearestEvents(latitude: Double, longitude: Double){
+        let parameters: Parameters = [
+            "latitude": latitude,
+            "longitude": longitude,
+            "published": "true"
+        ]
+    
+        Alamofire.request(requestURL,
+                          method: .get,
+                          parameters: parameters,
+                          encoding: URLEncoding.default,
+                          headers: URLlist.headers).responseJSON {response in
+                            
+                            switch response.result {
+                            case .success:
+//                                print("БЛИЖАЙШИЕ ИВЕНТЫ: \(response)")
+                                if response.response?.statusCode == 200{
+                                    //We know, we have to get an Array of Objects
+                                    let response =  response.result.value as! Array<Any>
+                                    
+                                    //Iterate the gotted Array where each Object = element
+                                    for element in response{
+                                        
+                                        //We know the each element represent an Object without parametr name becouse it starts from "{"
+                                        let data = element as! Dictionary<String, Any>
+                                        
+                                        //In this "data" there is a parameter named "locations" - we get it. And we know the "locations" is an Array
+                                        let locations = data["locations"] as! Array<Any>
+                                        for location in locations{
+                                            let data = location as! Dictionary<String, Any>
+                                            let eventID = data["_id"] as! String
+                                            let address = data["address"] as! Dictionary<String, Any>
+                                            let marker = address["marker"] as! Dictionary<String, Any>
+                                            let latitude = marker["latitude"] as! Double
+                                            let longitude = marker["longitude"] as! Double
+                                            self.markersArray.append(EventMarker(jsonDic: marker))
+                                            
+                                            // Creates a marker
+                                            let eventMarker = GMSMarker()
+                                            eventMarker.position = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+                                            eventMarker.icon = UIImage(named: "eventMarker")
+                                            eventMarker.snippet = eventID
+                                            eventMarker.map = self.mapView
+                                        }
+                                    }
+                                }
+                            case .failure(let error):
+                                print("ОШИБКА ПОЛУЧЕНИЯ КООРДИНАТ БЛИЖАЙШИХ ИВЕНТОВ")
+                                print(error)
+                            }
+        }
     }
 
     
@@ -42,14 +133,17 @@ class MainMapViewController: UIViewController, GMSMapViewDelegate, CLLocationMan
         self.performSegue(withIdentifier: "goExit", sender: self)
     }
     
-    //Animate camera on user current position
+    //Get last user position coordinates
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        let location = locations.last
-        let camera = GMSCameraPosition.camera(withLatitude: (location?.coordinate.latitude)!, longitude:(location?.coordinate.longitude)!, zoom:16)
-        mapView.animate(to: camera)
         
+        lastlocation = locations.last
+        latitude = (lastlocation?.coordinate.latitude)!
+        longitude = (lastlocation?.coordinate.longitude)!
+        
+        currentLocationMarker?.position = CLLocationCoordinate2D(latitude: (lastlocation?.coordinate.latitude)!, longitude: (lastlocation?.coordinate.longitude)!)
+
         //Finally stop updating location otherwise it will come again and again in this delegate
-        self.locationManager.stopUpdatingLocation()
+//        self.locationManager.stopUpdatingLocation()
     }
     
     //App Menu
@@ -72,6 +166,11 @@ class MainMapViewController: UIViewController, GMSMapViewDelegate, CLLocationMan
     //AutoComplete Google Search for Places
     func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
         let camera = GMSCameraPosition.camera(withLatitude: place.coordinate.latitude, longitude: place.coordinate.longitude, zoom: 16)
+        
+        //This vars for viewDidApear method - shows nearest events in chosen place
+        latitude = place.coordinate.latitude
+        longitude = place.coordinate.longitude
+        
         self.mapView.camera = camera
         self.dismiss(animated: true, completion: nil)
     }
@@ -85,67 +184,19 @@ class MainMapViewController: UIViewController, GMSMapViewDelegate, CLLocationMan
     }
     
     @IBAction func searchForPlace(_ sender: Any) {
+        //This code shows Google Places autocomplete search dialog window
         let autoCompleteController = GMSAutocompleteViewController()
         autoCompleteController.delegate = self
-        
-        self.locationManager.startUpdatingLocation()
         self.present(autoCompleteController, animated: true, completion: nil)
     }
     
+    //Add New Location
     @IBAction func addNewLocation(_ sender: Any) {
         navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.tintColor = UIColor.white
     }
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
     
     
 }

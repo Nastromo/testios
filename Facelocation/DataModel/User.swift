@@ -9,9 +9,4 @@
 class User{
     var userID: String!
     var message: String?
-    
-//    init(userID: String, message: String) {
-//        self.userID = userID
-//        self.message = message
-//    }
 }

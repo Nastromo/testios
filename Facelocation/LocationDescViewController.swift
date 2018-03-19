@@ -11,4 +11,19 @@ class LocationDescViewController: UIViewController {
         desc.layer.borderColor = myColor.cgColor
         desc.layer.borderWidth = 4
     }
+    
+    
+    @IBAction func nextStep(_ sender: Any) {
+        getLocationAboutText()
+    }
+    
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        
+    }
+    
+    
+    func getLocationAboutText(){
+        Location.text = desc.text
+    }
 }

@@ -10,8 +10,8 @@ class URLlist{
     ]
     
     static let headers: HTTPHeaders = [
-        "Autorizzz": "token",
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        "X-Auth": "\(DataBaseHelper.userDataArray[2])"
     ]
     
     
@@ -23,26 +23,31 @@ class URLlist{
     static let loginPOST = "api/auth/login"
 
 
-//    @POST("api/auth/register")
-//    Call<RegistrationResponse> registerUser(
-//    @HeaderMap Map<String, String> headers,
-//    @Body RegistrationBody body
-//    );
-//
-//    //Login
-//    @POST("api/auth/login")
-//    Call<RegistrationResponse> loginUser(
-//    @HeaderMap Map<String, String> headers,
-//    @Body RegistrationBody body
-//    );
-//
-//
+    //Get nearest events
+    static let nearestEventsGET = "api/events"
+    
+    
+    //Create New Location
+    static let createLocationPOST = "api/locations"
+    
+    
+    
+    
+    
 //    //New LocationForAdapter
 //    @POST("api/locations")
 //    Call<LocationResponse> addLocation(
 //    @HeaderMap Map<String, String> headers,
 //    @Body LocationBody body
 //    );
+//
+//    //My Events
+//    @GET("api/events")
+//    Call <List<MyEventResponse>> getMyEvents(
+//    @HeaderMap Map<String, String> headers,
+//    @Query("user") String userID
+//    );
+//
 //
 //    //Search LocationForAdapter
 //    @GET("api/locations")
@@ -69,13 +74,6 @@ class URLlist{
 //    @GET("api/profile")
 //    Call <ProfileResponse> getMyProfile(
 //    @HeaderMap Map<String, String> headers
-//    );
-//
-//    //My Events
-//    @GET("api/events")
-//    Call <List<MyEventResponse>> getMyEvents(
-//    @HeaderMap Map<String, String> headers,
-//    @Query("user") String userID
 //    );
 //
 //    //My Visited Events
@@ -140,14 +138,6 @@ class URLlist{
 //    @Body IssueBody body
 //    );
 //
-//    //Get events coordinates
-//    @GET("api/events/")
-//    Call <List<NearestEventResponse>> getNearestEvents(
-//    @HeaderMap Map<String, String> headers,
-//    @Query("latitude") double latitude,
-//    @Query("longitude") double longitude,
-//    @Query("published") boolean published
-//    );
 //
 //    //Localize User on Event
 //    @POST("api/events/{eventID}/activate")
@@ -179,7 +169,7 @@ class URLlist{
 //    @Body ChatBody body
 //    );
 //
-//    //Get Main Event Chat
+//    //Get Chat By ID
 //    @GET("api/chat/")
 //    Call <List<MainChatResponse>> getChatByID(
 //    @HeaderMap Map<String, String> headers,
