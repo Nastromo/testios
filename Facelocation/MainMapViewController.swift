@@ -113,7 +113,6 @@ class MainMapViewController: UIViewController, GMSMapViewDelegate, CLLocationMan
                                             eventMarker.icon = UIImage(named: "eventMarker")
                                             eventMarker.snippet = eventID
                                             eventMarker.map = self.mapView
-                                            print("ПОКАЗАТЬ БЛИЖАЙШИЕ ИВЕНТЫ - МЕТОД ВЫПОЛНИЛСЯ УСПЕШНО")
                                         }
                                     }
                                 }
@@ -148,9 +147,7 @@ class MainMapViewController: UIViewController, GMSMapViewDelegate, CLLocationMan
             showNearestEvents(latitude: latitude!, longitude: longitude!)
             firstRun = false
         }
-        
-        
-        print(lastlocation)
+
         //Finally stop updating location otherwise it will come again and again in this delegate
 //        self.locationManager.stopUpdatingLocation()
     }

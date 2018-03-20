@@ -38,9 +38,23 @@ class NewEventPrivacyViewController: UIViewController, UIPickerViewDelegate, UIP
     
     //When user has chosen the image
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage{
-            
-        }
+        
+            // We use document directory to place our cloned image
+            let image = info[UIImagePickerControllerOriginalImage] as! UIImage
+            let imageUrl          = info[UIImagePickerControllerReferenceURL] as? NSURL
+            let imageName         = imageUrl?.lastPathComponent
+            let documentDirectory = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!
+            let photoURL = NSURL(fileURLWithPath: documentDirectory)
+            let localPath: URL = photoURL.appendingPathComponent(imageName!)!
+        
+            do {
+                try UIImageJPEGRepresentation(image, 1.0)?.write(to: localPath)
+                Event.imageURL = localPath
+                print("File saved")
+                print(localPath)
+            }catch {
+                print("Error saving file")
+            }
         
         self.dismiss(animated: true, completion: nil)
     }

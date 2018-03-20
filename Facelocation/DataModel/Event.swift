@@ -22,6 +22,7 @@ class Event: NSObject{
     static var type: Int?
     static var locationID: String?
     static var published: Bool?
+    static var imageURL: URL?
     
 }
 

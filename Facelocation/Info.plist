@@ -57,6 +57,6 @@
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Allow location</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Щоб вибрати фото, потрібно надати доступ</string>
+	<string>Щоб вибрати фото, дозвольте доступ до галереї.</string>
 </dict>
 </plist>

@@ -40,8 +40,11 @@ class NewEventDateViewController: UIViewController {
                             case .success:
                                 print(response)
                                 if response.response?.statusCode == 200{
-                                    print("ИВЕНТ ДОБАВЛЕН УСПЕШНО!")
+                                    let data = response.result.value as! Dictionary<String, Any>
+                                    let eventID = data["_id"] as! String
+                                    self.uploadImage(eventID: eventID)
                                     
+                                    print("ИВЕНТ ДОБАВЛЕН УСПЕШНО! - \(eventID)")
                                     self.performSegue(withIdentifier: "eventCreated", sender: self)
                                 }
                             case .failure(let error):
@@ -51,23 +54,25 @@ class NewEventDateViewController: UIViewController {
         }
     }
     
-//    func uploadImage(){
-//        Alamofire.upload(
-//            multipartFormData: { multipartFormData in
-//                multipartFormData.append(unicornImageURL, withName: "unicorn")
-//                multipartFormData.append(rainbowImageURL, withName: "rainbow")
-//        },
-//            to: "https://httpbin.org/post",
-//            encodingCompletion: { encodingResult in
-//                switch encodingResult {
-//                case .success(let upload, _, _):
-//                    upload.responseJSON { response in
-//                        debugPrint(response)
-//                    }
-//                case .failure(let encodingError):
-//                    print(encodingError)
-//                }
-//        }
-//        )
-//    }
+    func uploadImage(eventID: String){
+        Alamofire.upload(
+            multipartFormData: { multipartFormData in
+                multipartFormData.append(Event.imageURL!, withName: "file")
+        },
+            usingThreshold:UInt64.init(),
+            to: "https://face-location.com/api/events/\(eventID)/upload-cover",
+            method:.post,
+            headers: URLlist.headers,
+            encodingCompletion: { encodingResult in
+                switch encodingResult {
+                case .success(let upload, _, _):
+                    upload.responseJSON { response in
+                        debugPrint(response)
+                    }
+                case .failure(let encodingError):
+                    print(encodingError)
+                }
+        }
+        )
+    }
 }
