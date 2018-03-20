@@ -32,8 +32,9 @@ class MainMapViewController: UIViewController, GMSMapViewDelegate, CLLocationMan
         navigationController?.setNavigationBarHidden(false, animated: true)
         navigationItem.titleView = imageView
         
-        mapView.isMyLocationEnabled = false
         mapView.delegate = self
+        mapView.isMyLocationEnabled = true
+        
         
         //Location Manager code to fetch current location
         self.locationManager.delegate = self
@@ -41,21 +42,17 @@ class MainMapViewController: UIViewController, GMSMapViewDelegate, CLLocationMan
         
         menuView.layer.shadowOpacity = 0.5
         menuView.layer.shadowRadius = 6
-        
-        
-        
+
     }
 
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        if (firstRun) {
-            addCustomCurrentLocationMarker()
-            moveToUserPosition()
-            firstRun = false
+        if(!firstRun){
+            print("ПОКАЗАТЬ БЛИЖАЙШИЕ ИВЕНТЫ: \(latitude!), \(longitude!)")
+            showNearestEvents(latitude: latitude!, longitude: longitude!)
         }
-        showNearestEvents(latitude: latitude!, longitude: longitude!)
     }
     
     //Create custom marker
@@ -116,6 +113,7 @@ class MainMapViewController: UIViewController, GMSMapViewDelegate, CLLocationMan
                                             eventMarker.icon = UIImage(named: "eventMarker")
                                             eventMarker.snippet = eventID
                                             eventMarker.map = self.mapView
+                                            print("ПОКАЗАТЬ БЛИЖАЙШИЕ ИВЕНТЫ - МЕТОД ВЫПОЛНИЛСЯ УСПЕШНО")
                                         }
                                     }
                                 }
@@ -141,7 +139,18 @@ class MainMapViewController: UIViewController, GMSMapViewDelegate, CLLocationMan
         longitude = (lastlocation?.coordinate.longitude)!
         
         currentLocationMarker?.position = CLLocationCoordinate2D(latitude: (lastlocation?.coordinate.latitude)!, longitude: (lastlocation?.coordinate.longitude)!)
-
+        
+        if(firstRun){
+            let camera = GMSCameraPosition.camera(withLatitude: latitude!, longitude:longitude!, zoom:16)
+            mapView.animate(to: camera)
+            mapView.isMyLocationEnabled = false
+            addCustomCurrentLocationMarker()
+            showNearestEvents(latitude: latitude!, longitude: longitude!)
+            firstRun = false
+        }
+        
+        
+        print(lastlocation)
         //Finally stop updating location otherwise it will come again and again in this delegate
 //        self.locationManager.stopUpdatingLocation()
     }

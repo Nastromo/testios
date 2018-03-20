@@ -11,6 +11,7 @@ import Foundation
 
 class Event: NSObject{
     
+    static var eventID: String?
     static var title: String?
     static var text: String?
     static var start: String?
@@ -19,7 +20,8 @@ class Event: NSObject{
     static var seats: Int?
     static var frequency: Int?
     static var type: Int?
-//    static var locations: Locations?    // Have to figure out how to send object representatiom in .post method
+    static var locationID: String?
     static var published: Bool?
     
 }
+

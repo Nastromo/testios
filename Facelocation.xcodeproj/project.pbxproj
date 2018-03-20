@@ -42,6 +42,8 @@
 		B2B3EF1A20604AFE004E0A01 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B3EF1920604AFE004E0A01 /* Event.swift */; };
 		B2B3EF1C20604FD8004E0A01 /* NewEventAboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B3EF1B20604FD8004E0A01 /* NewEventAboutViewController.swift */; };
 		B2B3EF1E20605116004E0A01 /* NewEventPrivacyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B3EF1D20605116004E0A01 /* NewEventPrivacyViewController.swift */; };
+		B2B3EF202060F7AE004E0A01 /* NewEventCapacityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B3EF1F2060F7AE004E0A01 /* NewEventCapacityViewController.swift */; };
+		B2B3EF222060FB1E004E0A01 /* NewEventDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B3EF212060FB1E004E0A01 /* NewEventDateViewController.swift */; };
 		B2CFB763204C30D300927400 /* AddNewLocationMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CFB762204C30D200927400 /* AddNewLocationMapViewController.swift */; };
 		B2CFB765204C367100927400 /* LocationDescViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CFB764204C367100927400 /* LocationDescViewController.swift */; };
 		B2D09B8D205DA3BA0009211F /* FacelocationAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D09B8C205DA3BA0009211F /* FacelocationAPI.swift */; };
@@ -101,6 +103,8 @@
 		B2B3EF1920604AFE004E0A01 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		B2B3EF1B20604FD8004E0A01 /* NewEventAboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEventAboutViewController.swift; sourceTree = "<group>"; };
 		B2B3EF1D20605116004E0A01 /* NewEventPrivacyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEventPrivacyViewController.swift; sourceTree = "<group>"; };
+		B2B3EF1F2060F7AE004E0A01 /* NewEventCapacityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEventCapacityViewController.swift; sourceTree = "<group>"; };
+		B2B3EF212060FB1E004E0A01 /* NewEventDateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEventDateViewController.swift; sourceTree = "<group>"; };
 		B2CFB762204C30D200927400 /* AddNewLocationMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewLocationMapViewController.swift; sourceTree = "<group>"; };
 		B2CFB764204C367100927400 /* LocationDescViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDescViewController.swift; sourceTree = "<group>"; };
 		B2D09B8C205DA3BA0009211F /* FacelocationAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacelocationAPI.swift; sourceTree = "<group>"; };
@@ -194,6 +198,8 @@
 				B2B3EF1720604164004E0A01 /* NewEventViewController.swift */,
 				B2B3EF1B20604FD8004E0A01 /* NewEventAboutViewController.swift */,
 				B2B3EF1D20605116004E0A01 /* NewEventPrivacyViewController.swift */,
+				B2B3EF1F2060F7AE004E0A01 /* NewEventCapacityViewController.swift */,
+				B2B3EF212060FB1E004E0A01 /* NewEventDateViewController.swift */,
 			);
 			path = Facelocation;
 			sourceTree = "<group>";
@@ -412,6 +418,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2B3EF202060F7AE004E0A01 /* NewEventCapacityViewController.swift in Sources */,
 				B2D205682059592B00E0D006 /* UserListCell.swift in Sources */,
 				B22A6DBA205BC26100E0E779 /* ChatMessageCell.swift in Sources */,
 				B2CFB765204C367100927400 /* LocationDescViewController.swift in Sources */,
@@ -439,6 +446,7 @@
 				B2CFB763204C30D300927400 /* AddNewLocationMapViewController.swift in Sources */,
 				B2113FFA204831260098570E /* StartViewController.swift in Sources */,
 				B2B3EF1820604164004E0A01 /* NewEventViewController.swift in Sources */,
+				B2B3EF222060FB1E004E0A01 /* NewEventDateViewController.swift in Sources */,
 				B2D2056E2059596100E0D006 /* FilesCell.swift in Sources */,
 				B2B3EF1C20604FD8004E0A01 /* NewEventAboutViewController.swift in Sources */,
 				B2114E4F204C78A000A4D014 /* LocalizedViewController.swift in Sources */,

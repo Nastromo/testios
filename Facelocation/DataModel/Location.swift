@@ -9,6 +9,7 @@
 import Foundation
 
 class Location: NSObject{
+    
     static var title: String?
     static var text: String?
     static var contact: String?

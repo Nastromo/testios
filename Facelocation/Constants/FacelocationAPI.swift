@@ -31,7 +31,23 @@ class URLlist{
     static let createLocationPOST = "api/locations"
     
     
+    //Create New Event
+    static let createEventPOST = "api/events"
     
+    
+    //Upload Cover Photo to New Event
+    static let uploadCoverPhotoPOST = "api/events/\(Event.eventID!)/upload-cover"
+    
+ 
+    
+//    //Upload Event Cover
+//    @Multipart
+//    @POST("api/events/{eventID}/upload-cover")
+//    Call <ResponseBody> uploadEventCover(
+//    @HeaderMap Map<String, String> header,
+//    @Path("eventID") String eventID,
+//    @Part MultipartBody.Part file
+//    );
     
     
 //    //New LocationForAdapter
@@ -115,21 +131,7 @@ class URLlist{
 //    @Query("type") String type
 //    );
 //
-//    //Create new Event
-//    @POST("api/events")
-//    Call<com.face_location.facelocation.model.PostEvent.EventResponse> createEvent(
-//    @HeaderMap Map<String, String> headers,
-//    @Body EventBody body
-//    );
 //
-//    //Upload Event Cover
-//    @Multipart
-//    @POST("api/events/{eventID}/upload-cover")
-//    Call <ResponseBody> uploadEventCover(
-//    @HeaderMap Map<String, String> header,
-//    @Path("eventID") String eventID,
-//    @Part MultipartBody.Part file
-//    );
 //
 //    //Send Issue Report
 //    @POST("api/chat")

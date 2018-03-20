@@ -46,7 +46,11 @@ class LocationContactViewController: UIViewController {
                             case .success:
                                 print(response)
                                 if response.response?.statusCode == 200{
-                                    print("ДОБАВЛЕНИЕ ЛОКАЦИИ ПРОШЛО УСПЕШНО!")
+                                    let data =  response.result.value as! Dictionary<String, Any>
+                                    let locationID = data["_id"] as! String
+                                    Event.locationID = locationID
+                                    self.performSegue(withIdentifier: "toCreateEventSteps", sender: self)
+                                    print("ДОБАВЛЕНИЕ ЛОКАЦИИ ПРОШЛО УСПЕШНО! - \(locationID)")
                                 }
                             case .failure(let error):
                                 

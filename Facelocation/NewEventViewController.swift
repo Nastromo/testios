@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NewEventViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class NewEventViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
     
     @IBOutlet weak var typePicker: UIPickerView!
     @IBOutlet weak var eventTitle: UITextField!
@@ -31,6 +31,18 @@ class NewEventViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     override func viewDidLoad() {
         super.viewDidLoad()
         typePicker.delegate = self
+        eventTitle.delegate = self
+    }
+    
+    //Hide keyboard by clickin anywhere (UITextFieldDelegate)
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
+    //Hide keyboard by clicking return btn
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        eventTitle.resignFirstResponder()
+        return true
     }
     
     @IBAction func goNext(_ sender: Any) {
@@ -52,6 +64,7 @@ class NewEventViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         selectedType = eventTypes[row]
+        Event.type = 0
         Event.type = row
     }
 

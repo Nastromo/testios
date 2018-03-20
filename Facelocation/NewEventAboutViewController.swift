@@ -21,6 +21,7 @@ class NewEventAboutViewController: UIViewController {
     }
     
     @IBAction func goNext(_ sender: Any) {
+        Event.text = "Опис події"
         Event.text = desc.text
         self.performSegue(withIdentifier: "toPrivacy", sender: self)
     }

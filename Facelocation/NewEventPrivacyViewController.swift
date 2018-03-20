@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NewEventPrivacyViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class NewEventPrivacyViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate  {
 
     
 
@@ -26,9 +26,29 @@ class NewEventPrivacyViewController: UIViewController, UIPickerViewDelegate, UIP
     }
     
     
-    //
-    //Have to implement a separate method for Photo uploading
-    //
+    //Photo choosing
+    @IBAction func choseEventPhoto(_ sender: Any) {
+        let image = UIImagePickerController()
+        image.delegate = self
+        image.sourceType = UIImagePickerControllerSourceType.photoLibrary
+        image.allowsEditing = false
+        self.present(image, animated: true, completion: nil)
+        
+    }
+    
+    //When user has chosen the image
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage{
+            
+        }
+        
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    
+    @IBAction func goNext(_ sender: Any) {
+        self.performSegue(withIdentifier: "toCapacity", sender: self)
+    }
     
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
