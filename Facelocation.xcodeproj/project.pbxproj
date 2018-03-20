@@ -44,6 +44,7 @@
 		B2B3EF1E20605116004E0A01 /* NewEventPrivacyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B3EF1D20605116004E0A01 /* NewEventPrivacyViewController.swift */; };
 		B2B3EF202060F7AE004E0A01 /* NewEventCapacityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B3EF1F2060F7AE004E0A01 /* NewEventCapacityViewController.swift */; };
 		B2B3EF222060FB1E004E0A01 /* NewEventDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B3EF212060FB1E004E0A01 /* NewEventDateViewController.swift */; };
+		B2B3EF28206177D2004E0A01 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B3EF27206177D2004E0A01 /* UserProfileViewController.swift */; };
 		B2CFB763204C30D300927400 /* AddNewLocationMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CFB762204C30D200927400 /* AddNewLocationMapViewController.swift */; };
 		B2CFB765204C367100927400 /* LocationDescViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CFB764204C367100927400 /* LocationDescViewController.swift */; };
 		B2D09B8D205DA3BA0009211F /* FacelocationAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D09B8C205DA3BA0009211F /* FacelocationAPI.swift */; };
@@ -105,6 +106,7 @@
 		B2B3EF1D20605116004E0A01 /* NewEventPrivacyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEventPrivacyViewController.swift; sourceTree = "<group>"; };
 		B2B3EF1F2060F7AE004E0A01 /* NewEventCapacityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEventCapacityViewController.swift; sourceTree = "<group>"; };
 		B2B3EF212060FB1E004E0A01 /* NewEventDateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEventDateViewController.swift; sourceTree = "<group>"; };
+		B2B3EF27206177D2004E0A01 /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		B2CFB762204C30D200927400 /* AddNewLocationMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewLocationMapViewController.swift; sourceTree = "<group>"; };
 		B2CFB764204C367100927400 /* LocationDescViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDescViewController.swift; sourceTree = "<group>"; };
 		B2D09B8C205DA3BA0009211F /* FacelocationAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacelocationAPI.swift; sourceTree = "<group>"; };
@@ -200,6 +202,7 @@
 				B2B3EF1D20605116004E0A01 /* NewEventPrivacyViewController.swift */,
 				B2B3EF1F2060F7AE004E0A01 /* NewEventCapacityViewController.swift */,
 				B2B3EF212060FB1E004E0A01 /* NewEventDateViewController.swift */,
+				B2B3EF27206177D2004E0A01 /* UserProfileViewController.swift */,
 			);
 			path = Facelocation;
 			sourceTree = "<group>";
@@ -439,6 +442,7 @@
 				B2D20566205949F900E0D006 /* GroupChatCell.swift in Sources */,
 				B2D2056A2059593E00E0D006 /* ChatCell.swift in Sources */,
 				B284BC3B20568578002F998E /* MenuBar.swift in Sources */,
+				B2B3EF28206177D2004E0A01 /* UserProfileViewController.swift in Sources */,
 				B2D09B8D205DA3BA0009211F /* FacelocationAPI.swift in Sources */,
 				B22A6DB8205BBA3800E0E779 /* ChatViewController.swift in Sources */,
 				B2114037204955960098570E /* LoginViewController.swift in Sources */,

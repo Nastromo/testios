@@ -37,17 +37,33 @@ class URLlist{
     
     //Upload Cover Photo to New Event
     static let uploadCoverPhotoPOST = "api/events/\(Event.eventID!)/upload-cover"
+   
+    
+    //Upload User Avatar
+    static let uploadUserAvatarPOST = "api/profile/avatar"
+    
+    
+    //Get My Profile Data
+    static let getUserProfileGET = "api/profile"
+    
+    
     
  
+    //    //Upload User Avatar
+    //    @Multipart
+    //    @POST("api/profile/avatar")
+    //    Call <ResponseBody> uploadAvatar(
+    //    @HeaderMap Map<String, String> header,
+    //    @Part MultipartBody.Part file
+    //    );
     
-//    //Upload Event Cover
-//    @Multipart
-//    @POST("api/events/{eventID}/upload-cover")
-//    Call <ResponseBody> uploadEventCover(
-//    @HeaderMap Map<String, String> header,
-//    @Path("eventID") String eventID,
-//    @Part MultipartBody.Part file
-//    );
+    //    //My Profile
+    //    @GET("api/profile")
+    //    Call <ProfileResponse> getMyProfile(
+    //    @HeaderMap Map<String, String> headers
+    //    );
+    
+    
     
     
 //    //New LocationForAdapter
@@ -71,13 +87,6 @@ class URLlist{
 //    @HeaderMap Map<String, String> headers
 //    );
 //
-//    //Upload User Avatar
-//    @Multipart
-//    @POST("api/profile/avatar")
-//    Call <ResponseBody> uploadAvatar(
-//    @HeaderMap Map<String, String> header,
-//    @Part MultipartBody.Part file
-//    );
 //
 //    //Update My Profile
 //    @POST("api/profile")
@@ -86,11 +95,6 @@ class URLlist{
 //    @Body ProfileBody body
 //    );
 //
-//    //My Profile
-//    @GET("api/profile")
-//    Call <ProfileResponse> getMyProfile(
-//    @HeaderMap Map<String, String> headers
-//    );
 //
 //    //My Visited Events
 //    @GET("api/events")

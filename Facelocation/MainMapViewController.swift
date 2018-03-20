@@ -9,6 +9,7 @@ class MainMapViewController: UIViewController, GMSMapViewDelegate, CLLocationMan
     @IBOutlet weak var mapView: GMSMapView!
     @IBOutlet weak var leftMenuConstrait: NSLayoutConstraint!
     @IBOutlet weak var menuView: UIView!
+    @IBOutlet weak var userAvatar: UIButton!
     
     
     //VARIABLES
@@ -42,7 +43,19 @@ class MainMapViewController: UIViewController, GMSMapViewDelegate, CLLocationMan
         
         menuView.layer.shadowOpacity = 0.5
         menuView.layer.shadowRadius = 6
+        
+        setUserAvatar()
 
+    }
+    
+    //Downloading and Set User Avatar from URL
+    func setUserAvatar(){
+        let imageURL = URL(string: DataBaseHelper.userDataArray[3])
+        let data = try? Data(contentsOf: imageURL!)
+        let userAvatarImage = UIImage(data: data!)
+        userAvatar.setImage(userAvatarImage, for: .normal)
+        userAvatar.layer.cornerRadius = 26;
+        userAvatar.layer.masksToBounds = true;
     }
 
     

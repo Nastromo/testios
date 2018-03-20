@@ -6,6 +6,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -712,6 +713,8 @@ FACE LOCATION
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="olx-QV-X4t">
                                         <rect key="frame" x="20" y="10" width="55" height="55"/>
                                         <constraints>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="55" id="GeA-1v-Jzq"/>
+                                            <constraint firstAttribute="height" constant="55" id="SxQ-za-4Io"/>
                                             <constraint firstAttribute="width" constant="55" id="T3y-tg-fk7"/>
                                         </constraints>
                                         <state key="normal" title="Button" image="userIconProfile"/>
@@ -811,6 +814,7 @@ FACE LOCATION
                                     <constraint firstItem="xa5-qQ-mhz" firstAttribute="leading" secondItem="olx-QV-X4t" secondAttribute="leading" id="BHu-rr-yU3"/>
                                     <constraint firstItem="xa5-qQ-mhz" firstAttribute="top" secondItem="olx-QV-X4t" secondAttribute="bottom" constant="27" id="BXw-NP-uUW"/>
                                     <constraint firstItem="I3E-0a-7yu" firstAttribute="leading" secondItem="sUj-M6-pTa" secondAttribute="leading" id="Eu8-Hb-beO"/>
+                                    <constraint firstItem="olx-QV-X4t" firstAttribute="top" secondItem="J3o-7F-f2w" secondAttribute="top" constant="10" id="IGw-EQ-X21"/>
                                     <constraint firstItem="xa5-qQ-mhz" firstAttribute="leading" secondItem="86O-J3-k6d" secondAttribute="leading" id="KH1-sL-22p"/>
                                     <constraint firstAttribute="bottom" secondItem="sUj-M6-pTa" secondAttribute="bottom" constant="25" id="MfD-Lu-0Sx"/>
                                     <constraint firstAttribute="trailing" secondItem="olx-QV-X4t" secondAttribute="trailing" constant="165" id="NO7-3F-bIe"/>
@@ -819,9 +823,11 @@ FACE LOCATION
                                     <constraint firstItem="0Ca-By-GE6" firstAttribute="top" secondItem="H2K-c5-nRv" secondAttribute="bottom" constant="12" id="Oej-7n-Az2"/>
                                     <constraint firstItem="86O-J3-k6d" firstAttribute="top" secondItem="olx-QV-X4t" secondAttribute="bottom" constant="46" id="PxU-eY-alG"/>
                                     <constraint firstItem="H2K-c5-nRv" firstAttribute="leading" secondItem="0Ca-By-GE6" secondAttribute="leading" id="RGI-hh-Mej"/>
+                                    <constraint firstAttribute="trailing" secondItem="olx-QV-X4t" secondAttribute="trailing" constant="165" id="ZIx-jl-AoX"/>
                                     <constraint firstItem="S22-LU-KqY" firstAttribute="top" secondItem="rB1-hP-NkR" secondAttribute="bottom" constant="12" id="cvi-2V-bk7"/>
                                     <constraint firstItem="rB1-hP-NkR" firstAttribute="top" secondItem="0Ca-By-GE6" secondAttribute="bottom" constant="12" id="dXm-JT-SnZ"/>
                                     <constraint firstItem="rB1-hP-NkR" firstAttribute="leading" secondItem="S22-LU-KqY" secondAttribute="leading" id="g0c-FY-CpG"/>
+                                    <constraint firstItem="olx-QV-X4t" firstAttribute="leading" secondItem="J3o-7F-f2w" secondAttribute="leading" constant="20" id="kKA-kq-Wmc"/>
                                     <constraint firstAttribute="width" constant="240" id="mQ0-BQ-iKm"/>
                                     <constraint firstItem="ebg-rY-9qa" firstAttribute="leading" secondItem="86O-J3-k6d" secondAttribute="leading" id="mlE-jG-JwR"/>
                                     <constraint firstItem="yvL-lF-dkM" firstAttribute="leading" secondItem="I3E-0a-7yu" secondAttribute="leading" id="ndD-aB-FAB"/>
@@ -865,6 +871,7 @@ FACE LOCATION
                         <outlet property="leftMenuConstrait" destination="djH-Yi-IKm" id="r3Q-c7-KDs"/>
                         <outlet property="mapView" destination="bq7-hU-yga" id="gtG-hf-JwB"/>
                         <outlet property="menuView" destination="J3o-7F-f2w" id="oSX-85-Egn"/>
+                        <outlet property="userAvatar" destination="olx-QV-X4t" id="36l-x4-mpM"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="goExit" id="aEo-TC-t9Y"/>
                     </connections>
                 </viewController>
@@ -872,17 +879,27 @@ FACE LOCATION
             </objects>
             <point key="canvasLocation" x="1191" y="805"/>
         </scene>
-        <!--View Controller-->
+        <!--User Profile View Controller-->
         <scene sceneID="rcl-TJ-nxk">
             <objects>
-                <viewController id="cFi-Q2-Za7" sceneMemberID="viewController">
+                <viewController id="cFi-Q2-Za7" customClass="UserProfileViewController" customModule="Facelocation" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YrZ-nb-vaU">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r29-Sv-kwY">
                                 <rect key="frame" x="150" y="44" width="75" height="75"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="75" id="Bot-n1-HsM"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="75" id="XFH-11-AcL"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="75" id="eFf-e5-DpF"/>
+                                    <constraint firstAttribute="width" secondItem="r29-Sv-kwY" secondAttribute="height" multiplier="1:1" id="kkb-aD-UJx"/>
+                                    <constraint firstAttribute="width" constant="75" id="z28-lz-mgu"/>
+                                </constraints>
                                 <state key="normal" title="Button" image="uAvatar"/>
+                                <connections>
+                                    <action selector="choseAvatar:" destination="cFi-Q2-Za7" eventType="touchUpInside" id="kpg-tb-Xfq"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nID-bu-fOn">
                                 <rect key="frame" x="110" y="127" width="154" height="30"/>
@@ -987,11 +1004,14 @@ FACE LOCATION
                             <constraint firstItem="ZX2-wN-uQu" firstAttribute="top" secondItem="kXP-GT-d6k" secondAttribute="bottom" constant="7" id="3b8-M3-I3B"/>
                             <constraint firstItem="M0Y-co-WI8" firstAttribute="top" secondItem="r29-Sv-kwY" secondAttribute="bottom" constant="27" id="6Cu-AS-cid"/>
                             <constraint firstItem="L7c-Wt-GWJ" firstAttribute="trailing" secondItem="rd0-GY-RPo" secondAttribute="trailing" id="6hX-E0-cPR"/>
+                            <constraint firstItem="Ivk-Vj-BcQ" firstAttribute="trailing" secondItem="r29-Sv-kwY" secondAttribute="trailing" constant="150" id="81V-2u-P35"/>
                             <constraint firstItem="L7c-Wt-GWJ" firstAttribute="top" secondItem="QYf-42-1LK" secondAttribute="bottom" constant="7" id="9Po-nD-8mt"/>
                             <constraint firstItem="kXP-GT-d6k" firstAttribute="trailing" secondItem="QYf-42-1LK" secondAttribute="trailing" id="BEQ-6q-9kP"/>
                             <constraint firstItem="L7c-Wt-GWJ" firstAttribute="leading" secondItem="wad-3m-t6t" secondAttribute="leading" id="EfU-OH-ERX"/>
                             <constraint firstItem="wad-3m-t6t" firstAttribute="trailing" secondItem="MAo-aQ-3XS" secondAttribute="trailing" id="Eyb-cf-tBB"/>
                             <constraint firstItem="QYf-42-1LK" firstAttribute="top" secondItem="ZX2-wN-uQu" secondAttribute="bottom" id="Fer-y0-VAn"/>
+                            <constraint firstItem="Ivk-Vj-BcQ" firstAttribute="trailing" secondItem="r29-Sv-kwY" secondAttribute="trailing" constant="150" id="GB5-To-Pfm"/>
+                            <constraint firstItem="r29-Sv-kwY" firstAttribute="leading" secondItem="Ivk-Vj-BcQ" secondAttribute="leading" constant="150" id="GVK-q3-Pdg"/>
                             <constraint firstItem="nID-bu-fOn" firstAttribute="centerX" secondItem="YrZ-nb-vaU" secondAttribute="centerX" id="Hjj-ke-hp5"/>
                             <constraint firstItem="rd0-GY-RPo" firstAttribute="top" secondItem="wad-3m-t6t" secondAttribute="bottom" constant="7" id="I4E-R6-gj7"/>
                             <constraint firstItem="I4U-Hd-lB8" firstAttribute="trailing" secondItem="kXP-GT-d6k" secondAttribute="trailing" id="J2N-A8-c2T"/>
@@ -1018,15 +1038,25 @@ FACE LOCATION
                             <constraint firstItem="scr-I1-JgD" firstAttribute="trailing" secondItem="ZX2-wN-uQu" secondAttribute="trailing" id="gBS-UG-KzV"/>
                             <constraint firstItem="QYf-42-1LK" firstAttribute="leading" secondItem="L7c-Wt-GWJ" secondAttribute="leading" id="hbz-x4-lkJ"/>
                             <constraint firstItem="I4U-Hd-lB8" firstAttribute="leading" secondItem="scr-I1-JgD" secondAttribute="leading" id="jCm-CJ-7mw"/>
+                            <constraint firstItem="r29-Sv-kwY" firstAttribute="top" secondItem="Ivk-Vj-BcQ" secondAttribute="top" constant="24" id="jgL-Yv-ofb"/>
+                            <constraint firstItem="r29-Sv-kwY" firstAttribute="leading" secondItem="Ivk-Vj-BcQ" secondAttribute="leading" constant="150" id="kYn-jN-qUY"/>
                             <constraint firstItem="QYf-42-1LK" firstAttribute="trailing" secondItem="wad-3m-t6t" secondAttribute="trailing" id="s0R-jk-vWn"/>
                             <constraint firstItem="wad-3m-t6t" firstAttribute="leading" secondItem="rd0-GY-RPo" secondAttribute="leading" id="t05-I5-OBI"/>
                             <constraint firstItem="MAo-aQ-3XS" firstAttribute="top" secondItem="rd0-GY-RPo" secondAttribute="bottom" id="tnN-b3-wiL"/>
+                            <constraint firstItem="r29-Sv-kwY" firstAttribute="top" secondItem="Ivk-Vj-BcQ" secondAttribute="top" constant="24" id="uvA-iS-KEV"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Ivk-Vj-BcQ"/>
                     </view>
                     <navigationItem key="navigationItem" id="Yvf-0s-wg1">
-                        <barButtonItem key="rightBarButtonItem" title="Готово" id="9b2-9G-bRp"/>
+                        <barButtonItem key="rightBarButtonItem" title="Готово" id="9b2-9G-bRp">
+                            <connections>
+                                <action selector="saveChanges:" destination="cFi-Q2-Za7" id="Mna-Cz-wzl"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="userAvatar" destination="r29-Sv-kwY" id="g05-cK-Sqc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o4v-gQ-NZR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1927,7 +1957,7 @@ FACE LOCATION
         <image name="userIconProfile" width="55" height="55"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="DPG-Km-Dcp"/>
+        <segue reference="yF7-lg-S7D"/>
         <segue reference="jf4-3f-5RI"/>
         <segue reference="Axq-Ju-E2b"/>
         <segue reference="uwx-c8-0x3"/>
