@@ -1,4 +1,5 @@
 import UIKit
+import Alamofire
 
 class LocalizedViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, ShowChat {
     
@@ -9,6 +10,9 @@ class LocalizedViewController: UIViewController, UICollectionViewDataSource, UIC
     }()
     
     var myCollectionView: UICollectionView?
+    var requestURL: String?
+    var titleBarLabel: UILabel?
+    
 
     
     override func viewDidLoad() {
@@ -16,6 +20,18 @@ class LocalizedViewController: UIViewController, UICollectionViewDataSource, UIC
         setUpHorizontalScreens()
         setUpTitleBar()
         setUpMenuBar()
+        
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        requestURL = "\(URLlist.baseURL)api/events/\(Event.eventID!)"
+        getEventTitle()
+        
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        ChatUserList.chatUserList.removeAll()
     }
     
     
@@ -40,7 +56,7 @@ class LocalizedViewController: UIViewController, UICollectionViewDataSource, UIC
         layout.scrollDirection = .horizontal
         layout.itemSize = CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
 
-        let tabSize = CGRect(x: 0, y: 160, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+        let tabSize = CGRect(x: 0, y: 100, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
         myCollectionView = UICollectionView(frame: tabSize, collectionViewLayout: layout)
 
         myCollectionView!.dataSource = self
@@ -97,7 +113,7 @@ class LocalizedViewController: UIViewController, UICollectionViewDataSource, UIC
     private func setUpMenuBar(){
         
         let descHorizontal = "H:|[menuBar]|"
-        let descVertical = "V:|-110-[menuBar(50)]"
+        let descVertical = "V:|-50-[menuBar(50)]"
         
         view.addSubview(menuBar)
         let viewDictionary = ["menuBar": menuBar]
@@ -123,17 +139,35 @@ class LocalizedViewController: UIViewController, UICollectionViewDataSource, UIC
     //Bar With Event Title
     private func setUpTitleBar(){
         let titleBar = UIView()
-        titleBar.frame = CGRect(x: 0, y: 60, width: UIScreen.main.bounds.width, height: 50)
+        titleBar.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 50)
         titleBar.setBackgroundGradient(colorOne: Colors.purpleDark, colorTwo: Colors.purpleLight)
         view.addSubview(titleBar)
         
-        let titleBarLabel = UILabel()
-        titleBarLabel.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: titleBar.bounds.height)
-        titleBarLabel.text = "eventTitle"
-        titleBarLabel.textAlignment = .center
-        titleBarLabel.textColor = Colors.purpleSuperDark
-        titleBarLabel.font = UIFont.boldSystemFont(ofSize: 14)
-        titleBarLabel.text = titleBarLabel.text?.uppercased()
-        titleBar.addSubview(titleBarLabel)
+        titleBarLabel = UILabel()
+        titleBarLabel?.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: titleBar.bounds.height)
+        titleBarLabel?.textAlignment = .center
+        titleBarLabel?.textColor = Colors.purpleSuperDark
+        titleBarLabel?.font = UIFont.boldSystemFont(ofSize: 14)
+        titleBarLabel?.text = titleBarLabel?.text?.uppercased()
+        titleBar.addSubview(titleBarLabel!)
+    }
+    
+    func getEventTitle(){
+        Alamofire.request(requestURL!,
+                          method: .get,
+                          encoding: URLEncoding.default,
+                          headers: URLlist.headers).responseJSON {response in
+                            
+                            switch response.result {
+                            case .success:
+                                if response.response?.statusCode == 200{
+                                    let response =  response.result.value as! Dictionary<String, Any>
+                                    self.titleBarLabel?.text = response["title"] as? String
+                                }
+                            case .failure(let error):
+                                print("ОШИБКА ПОЛУЧЕНИЯ ДАННЫХ ИВЕНТА")
+                                print(error)
+                            }
+        }
     }
 }

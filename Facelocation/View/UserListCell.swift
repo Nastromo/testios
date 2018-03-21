@@ -17,15 +17,11 @@ class UserListCell: UICollectionViewCell, UICollectionViewDataSource, UICollecti
     
     var delegate: ShowChat?
     
-    //Was testind downloading image from the URL
-    var data: Data? = nil
-    
     override init(frame: CGRect) {
         super .init(frame: frame)
         setUpLocalizedUserList()
         setUpGroupChatBtn()
         
-        data = downloadImg()
     }
     
     
@@ -62,7 +58,8 @@ class UserListCell: UICollectionViewCell, UICollectionViewDataSource, UICollecti
     
     //Lists' Sizes
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return (section == 0) ? 5 : 4
+        print("РАЗМЕР СЕКЦИИ ДЛЯ ЧАТ ЮЗЕРОВ: \(ChatUserList.chatUserList.count)")
+        return (section == 0) ? ChatUserList.chatUserList.count : 4
     }
     
     //Cells content here
@@ -70,9 +67,18 @@ class UserListCell: UICollectionViewCell, UICollectionViewDataSource, UICollecti
         
         if indexPath.section == 0 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "userCell", for: indexPath) as! LocalizedUserCell
+           
             cell.userAvatar.layer.cornerRadius = cell.userAvatar.frame.size.width / 2;
             cell.userAvatar.layer.masksToBounds = true;
+            let imageURL = URL(string: ChatUserList.chatUserList[indexPath.item].userAvatar)
+            let data = try? Data(contentsOf: imageURL!)
             cell.userAvatar.image = UIImage(data: data!)
+            
+            cell.userName.text = ChatUserList.chatUserList[indexPath.item].userName
+            cell.userEmail.text = ChatUserList.chatUserList[indexPath.item].userEmail
+            
+            
+            
             return cell
         }else{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "groupChatCell", for: indexPath) as! GroupChatCell

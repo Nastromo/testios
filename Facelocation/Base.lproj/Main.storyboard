@@ -240,14 +240,6 @@
                                     <action selector="logIn:" destination="z2v-qW-wiQ" eventType="touchUpInside" id="odz-I2-H2R"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LlL-c1-EnX">
-                                <rect key="frame" x="164" y="498" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <segue destination="V6L-vb-jEL" kind="show" id="xho-Wh-J7r"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.34901960784313724" green="0.37254901960784315" blue="0.90980392156862744" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -1121,11 +1113,12 @@ FACE LOCATION
                         <outlet property="eventLocationTitle" destination="aqq-jv-zU6" id="IlG-JZ-bPf"/>
                         <outlet property="eventTitle" destination="TNH-cr-P0C" id="di6-9A-9kD"/>
                         <outlet property="userQuantity" destination="j23-hv-PPm" id="VQ0-wM-JHo"/>
+                        <segue destination="V6L-vb-jEL" kind="show" identifier="toLocalized" id="btl-ei-Q0i"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rsu-6b-uwH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="280.80000000000001" y="1495.5022488755624"/>
+            <point key="canvasLocation" x="142" y="1591"/>
         </scene>
         <!--User Profile View Controller-->
         <scene sceneID="rcl-TJ-nxk">
@@ -1656,13 +1649,12 @@ FACE LOCATION
                     </view>
                     <navigationItem key="navigationItem" id="1uY-sf-6oD"/>
                     <connections>
-                        <segue destination="B8g-qc-M92" kind="show" identifier="supportViewController" id="gXL-ir-GSS"/>
                         <segue destination="VZf-xq-Zur" kind="show" identifier="toChat" id="UoI-W9-cVW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ql6-4s-wHT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3084" y="1590.8545727136434"/>
+            <point key="canvasLocation" x="1102" y="2606"/>
         </scene>
         <!--Chat View Controller-->
         <scene sceneID="5ze-YP-4jp">
@@ -1677,7 +1669,7 @@ FACE LOCATION
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tys-et-GUm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3906" y="1590"/>
+            <point key="canvasLocation" x="4062" y="1824"/>
         </scene>
         <!--New Event View Controller-->
         <scene sceneID="DMw-lL-CVd">
@@ -2192,7 +2184,7 @@ FACE LOCATION
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XIU-3i-NFb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4734" y="1590"/>
+            <point key="canvasLocation" x="2924" y="1591"/>
         </scene>
     </scenes>
     <resources>
@@ -2207,8 +2199,7 @@ FACE LOCATION
         <image name="userIconProfile" width="55" height="55"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="jf4-3f-5RI"/>
-        <segue reference="Y29-nk-bF0"/>
+        <segue reference="Lxi-am-vFq"/>
         <segue reference="uwx-c8-0x3"/>
         <segue reference="aEo-TC-t9Y"/>
     </inferredMetricsTieBreakers>

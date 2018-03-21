@@ -32,9 +32,8 @@ class EventViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("\(Event.eventID) ID ИВЕНТА КОТОРЫЙ НУЖНО ЗАГРУЗИТЬ")
-        requestURL = "\(URLlist.baseURL)api/events/\(Event.eventID!)"
-        getEvent()
+        
+        
     }
     
     func getEvent(){
@@ -57,6 +56,22 @@ class EventViewController: UIViewController {
                                     self.eventCoverURL = cover["location_mob"] as! String
                                     self.eventDesc = response["text"] as! String
                                     let userObj = response["user"] as! Dictionary<String, Any>
+                                    
+                                    let subscribers = response["subscribers"] as! Array<Any>
+                                    self.userQuantity.text = String(subscribers.count)
+                                    for subscriber in subscribers{
+                                        let subData = subscriber as? Dictionary<String, Any>
+                                        let userData = subData!["user"] as? Dictionary<String, Any>
+                                        
+                                        let subName = userData!["username"] as? String ?? "Ім'я не вказано"
+                                        let subID = userData!["_id"] as! String
+                                        let subEmail = userData!["email"] as! String
+                                        let avatar_mob = userData!["avatar_mob"] as! String
+                                        
+                                        let chatUser = ChatUser(userName: subName, userID: subID, userEmail: subEmail, userAvatar: avatar_mob)
+                                        ChatUserList.chatUserList.append(chatUser)
+                                    }
+                                    
                                     self.eventCreatorURL = userObj["avatar_mob"] as! String
                                     
                                     self.eventTitle.text = self.eventTitleText
@@ -94,35 +109,23 @@ class EventViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         navigationBarSetup()
+        requestURL = "\(URLlist.baseURL)api/events/\(Event.eventID!)"
+        getEvent()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        ChatUserList.chatUserList.removeAll()
     }
     
     //Localize on the event
     @IBAction func localize(_ sender: Any) {
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
+        self.navigationController?.navigationBar.tintColor = UIColor.white
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "Назад", style: .plain, target: nil, action: nil)
+        self.performSegue(withIdentifier: "toLocalized", sender: self)
     }
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
     
     //Navigation Bar Setup
     func navigationBarSetup(){
