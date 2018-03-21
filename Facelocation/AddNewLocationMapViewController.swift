@@ -7,6 +7,10 @@ class AddNewLocationMapViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+    }
+    
+    @IBAction func goNext(_ sender: Any) {
         Location.title = locationTitle.text
     }
 }

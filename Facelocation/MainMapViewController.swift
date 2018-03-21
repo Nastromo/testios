@@ -22,6 +22,7 @@ class MainMapViewController: UIViewController, GMSMapViewDelegate, CLLocationMan
     var markersArray = [EventMarker]()
     var lastlocation: CLLocation?
     var firstRun = true
+    var eventMarker: GMSMarker?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,6 +48,7 @@ class MainMapViewController: UIViewController, GMSMapViewDelegate, CLLocationMan
         setUserAvatar()
 
     }
+    
     
     //Downloading and Set User Avatar from URL
     func setUserAvatar(){
@@ -108,12 +110,12 @@ class MainMapViewController: UIViewController, GMSMapViewDelegate, CLLocationMan
                                         
                                         //We know the each element represent an Object without parametr name becouse it starts from "{"
                                         let data = element as! Dictionary<String, Any>
-                                        
+                                        let eventID = data["_id"] as! String
                                         //In this "data" there is a parameter named "locations" - we get it. And we know the "locations" is an Array
                                         let locations = data["locations"] as! Array<Any>
                                         for location in locations{
                                             let data = location as! Dictionary<String, Any>
-                                            let eventID = data["_id"] as! String
+                                            let locationID = data["_id"] as! String
                                             let address = data["address"] as! Dictionary<String, Any>
                                             let marker = address["marker"] as! Dictionary<String, Any>
                                             let latitude = marker["latitude"] as! Double
@@ -121,11 +123,13 @@ class MainMapViewController: UIViewController, GMSMapViewDelegate, CLLocationMan
                                             self.markersArray.append(EventMarker(jsonDic: marker))
                                             
                                             // Creates a marker
-                                            let eventMarker = GMSMarker()
-                                            eventMarker.position = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
-                                            eventMarker.icon = UIImage(named: "eventMarker")
-                                            eventMarker.snippet = eventID
-                                            eventMarker.map = self.mapView
+                                            self.eventMarker = GMSMarker()
+                                            self.eventMarker?.position = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+                                            self.eventMarker?.icon = UIImage(named: "eventMarker")
+                                            self.eventMarker?.userData = eventID
+                                            self.eventMarker?.map = self.mapView
+                                            
+                                            
                                         }
                                     }
                                 }
@@ -135,7 +139,27 @@ class MainMapViewController: UIViewController, GMSMapViewDelegate, CLLocationMan
                             }
         }
     }
+    
+    //This methos calls when user tap on marker
+    func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
+        print("НАЖАЛ НА МАРКЕР")
+        Event.eventID = marker.userData as! String
+        print(Event.eventID!)
+        
+        self.performSegue(withIdentifier: "toEventScreen", sender: self)
+        return true
+    }
 
+    //This methos calls when user clicks on any coordinat
+    //HIDE MENU
+    func mapView(_ mapView: GMSMapView, didTapAt coordinate: CLLocationCoordinate2D) {
+        print("КЛИКНУЛ ПО КООРДИНАТАМ")
+        leftMenuConstrait.constant = -240;
+        UIView.animate(withDuration: 0.3, animations: {
+            self.view.layoutIfNeeded()
+        })
+    }
+    
     
     //Exit from App by pushing Exit btn in menu app
     @IBAction func clickExit(_ sender: Any) {

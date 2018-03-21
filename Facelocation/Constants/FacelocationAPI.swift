@@ -46,24 +46,18 @@ class URLlist{
     //Get My Profile Data
     static let getUserProfileGET = "api/profile"
     
+
+    //Get Event Data
+    static let getEventDataGET = "api/events/\(Event.eventID!)"
     
+
     
- 
-    //    //Upload User Avatar
-    //    @Multipart
-    //    @POST("api/profile/avatar")
-    //    Call <ResponseBody> uploadAvatar(
-    //    @HeaderMap Map<String, String> header,
-    //    @Part MultipartBody.Part file
+    //    //Get My Event
+    //    @GET("api/events/{eventID}")
+    //    Call<EventResponse> getMyEvent(
+    //    @HeaderMap Map<String, String> headers,
+    //    @Path("eventID") String eventID
     //    );
-    
-    //    //My Profile
-    //    @GET("api/profile")
-    //    Call <ProfileResponse> getMyProfile(
-    //    @HeaderMap Map<String, String> headers
-    //    );
-    
-    
     
     
 //    //New LocationForAdapter
@@ -71,6 +65,13 @@ class URLlist{
 //    Call<LocationResponse> addLocation(
 //    @HeaderMap Map<String, String> headers,
 //    @Body LocationBody body
+//
+//
+//    );
+//    //My Profile
+//    @GET("api/profile")
+//    Call <ProfileResponse> getMyProfile(
+//    @HeaderMap Map<String, String> headers
 //    );
 //
 //    //My Events
@@ -118,12 +119,6 @@ class URLlist{
 //    @Body LocationBody body
 //    );
 //
-//    //Get My Event
-//    @GET("api/events/{eventID}")
-//    Call<EventResponse> getMyEvent(
-//    @HeaderMap Map<String, String> headers,
-//    @Path("eventID") String eventID
-//    );
 //
 //    //Get Similar Events
 //    @GET("api/events/")
