@@ -1637,6 +1637,124 @@ FACE LOCATION
             </objects>
             <point key="canvasLocation" x="1973.5999999999999" y="1590.8545727136434"/>
         </scene>
+        <!--Group Chat Name View Controller-->
+        <scene sceneID="596-a3-OS8">
+            <objects>
+                <viewController modalPresentationStyle="overCurrentContext" id="abc-aG-coY" customClass="GroupChatNameViewController" customModule="Facelocation" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9A5-if-sFP" userLabel="Мы">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tXy-35-iaa">
+                                <rect key="frame" x="47" y="223" width="280" height="180"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fst-kI-n3Z">
+                                        <rect key="frame" x="27" y="68" width="225" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HbO-hd-k9U">
+                                        <rect key="frame" x="27" y="118" width="100" height="35"/>
+                                        <color key="backgroundColor" white="0.78694661461666671" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="100" id="Df8-Ka-EAm"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                        <state key="normal" title="НАЗАД">
+                                            <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="cancel:" destination="abc-aG-coY" eventType="touchUpInside" id="8fX-sk-8uz"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HnM-xZ-4vu">
+                                        <rect key="frame" x="152" y="117" width="100" height="35"/>
+                                        <color key="backgroundColor" red="0.31372549020000001" green="0.89019607840000003" blue="0.76078431369999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="35" id="kbO-kW-Nnq"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                        <state key="normal" title="ГОТОВО">
+                                            <color key="titleColor" red="0.11288163810968399" green="0.58499759435653687" blue="0.74066239595413208" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="goNext:" destination="abc-aG-coY" eventType="touchUpInside" id="PvZ-kb-SLo"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ВКАЖІТЬ НАЗВУ ЧАТУ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HNl-mr-cpd">
+                                        <rect key="frame" x="44" y="20" width="191" height="20"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="HbO-hd-k9U" firstAttribute="leading" secondItem="fst-kI-n3Z" secondAttribute="leading" id="0pS-Zh-8Bs"/>
+                                    <constraint firstItem="HbO-hd-k9U" firstAttribute="top" secondItem="fst-kI-n3Z" secondAttribute="bottom" constant="20" id="93N-yf-1G0"/>
+                                    <constraint firstItem="fst-kI-n3Z" firstAttribute="leading" secondItem="tXy-35-iaa" secondAttribute="leading" constant="27" id="DSw-f6-kZb"/>
+                                    <constraint firstAttribute="bottom" secondItem="HbO-hd-k9U" secondAttribute="bottom" constant="27" id="URF-Lm-sir"/>
+                                    <constraint firstItem="HnM-xZ-4vu" firstAttribute="leading" secondItem="HbO-hd-k9U" secondAttribute="trailing" constant="25" id="WVS-PQ-qIn"/>
+                                    <constraint firstItem="fst-kI-n3Z" firstAttribute="centerY" secondItem="tXy-35-iaa" secondAttribute="centerY" constant="-7.5" id="abB-ZV-vdM"/>
+                                    <constraint firstItem="HnM-xZ-4vu" firstAttribute="top" secondItem="fst-kI-n3Z" secondAttribute="bottom" constant="19" id="dbk-VD-YAf"/>
+                                    <constraint firstAttribute="trailing" secondItem="fst-kI-n3Z" secondAttribute="trailing" constant="28" id="dqo-30-KUO"/>
+                                    <constraint firstAttribute="trailing" secondItem="HNl-mr-cpd" secondAttribute="trailing" constant="45" id="hb3-eY-85M"/>
+                                    <constraint firstItem="HNl-mr-cpd" firstAttribute="top" secondItem="tXy-35-iaa" secondAttribute="top" constant="20" id="poq-My-QMB"/>
+                                    <constraint firstItem="HNl-mr-cpd" firstAttribute="leading" secondItem="tXy-35-iaa" secondAttribute="leading" constant="44" id="sB2-CD-zEG"/>
+                                    <constraint firstItem="HnM-xZ-4vu" firstAttribute="trailing" secondItem="fst-kI-n3Z" secondAttribute="trailing" id="ztm-um-1vO"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.48330479452054792" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="tXy-35-iaa" firstAttribute="leading" secondItem="ArL-i6-vcV" secondAttribute="leading" constant="47" id="3fp-5o-19I"/>
+                            <constraint firstItem="tXy-35-iaa" firstAttribute="top" secondItem="ArL-i6-vcV" secondAttribute="top" constant="203" id="EKp-h7-5xp"/>
+                            <constraint firstItem="tXy-35-iaa" firstAttribute="centerY" secondItem="9A5-if-sFP" secondAttribute="centerY" constant="-20.5" id="itM-3d-iiu"/>
+                            <constraint firstItem="tXy-35-iaa" firstAttribute="centerX" secondItem="9A5-if-sFP" secondAttribute="centerX" id="y1H-cF-RZv"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ArL-i6-vcV"/>
+                    </view>
+                    <connections>
+                        <outlet property="chatName" destination="fst-kI-n3Z" id="Fye-ZJ-Bto"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iGZ-mc-7bO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="304.80000000000001" y="3353.9730134932538"/>
+        </scene>
+        <!--Chose Users View Controller-->
+        <scene sceneID="flc-nc-i72">
+            <objects>
+                <viewController id="Nb8-zY-qCz" customClass="ChoseUsersViewController" customModule="Facelocation" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cgz-2M-8ja">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pOL-J7-poa">
+                                <rect key="frame" x="164" y="318" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="Ghb-8O-S1b"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="d96-KC-hOU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1112.8" y="3353.9730134932538"/>
+        </scene>
         <!--Localized View Controller-->
         <scene sceneID="JHy-CL-HCo">
             <objects>
@@ -1650,6 +1768,7 @@ FACE LOCATION
                     <navigationItem key="navigationItem" id="1uY-sf-6oD"/>
                     <connections>
                         <segue destination="VZf-xq-Zur" kind="show" identifier="toChat" id="UoI-W9-cVW"/>
+                        <segue destination="Nb8-zY-qCz" kind="show" identifier="toChatUserChose" id="ibr-oE-zj7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ql6-4s-wHT" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -1,7 +1,7 @@
 import UIKit
 import Alamofire
 
-class LocalizedViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, ShowChat {
+class LocalizedViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, ShowChat, UIAlertViewDelegate {
     
     lazy var menuBar: MenuBar = {
         let mb = MenuBar()
@@ -20,7 +20,6 @@ class LocalizedViewController: UIViewController, UICollectionViewDataSource, UIC
         setUpHorizontalScreens()
         setUpTitleBar()
         setUpMenuBar()
-        
         
     }
     
@@ -82,6 +81,42 @@ class LocalizedViewController: UIViewController, UICollectionViewDataSource, UIC
     func showChatScreen(cellIndex: Int){
         print(cellIndex)
         self.performSegue(withIdentifier: "toChat", sender: self)
+    }
+    
+    
+    //Show Popup
+    func showPopup(){
+        print("It's a live ))")
+        
+        let alertController = UIAlertController(title: "Назва чату", message: "вкажіть назву чату", preferredStyle: .alert)
+        
+        let confirmAction = UIAlertAction(title: "Готово", style: .default) { (_) in
+            if let field = alertController.textFields![0] as? UITextField {
+                
+                GroupChat.name = field.text
+                print(GroupChat.name)
+                self.performSegue(withIdentifier: "toChatUserChose", sender: self)
+                
+            } else {
+                
+                print("please enter email id")
+            }
+        }
+        
+        let cancelAction = UIAlertAction(title: "Назад", style: .cancel) { (_) in
+            
+            //do somthing if cancel
+            
+        }
+        
+        alertController.addTextField { (textField) in
+            textField.placeholder = "Назва чату"
+        }
+        
+        alertController.addAction(confirmAction)
+        alertController.addAction(cancelAction)
+        
+        self.present(alertController, animated: true, completion: nil)
     }
     
     

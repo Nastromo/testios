@@ -47,6 +47,9 @@
 		B2B3EF28206177D2004E0A01 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B3EF27206177D2004E0A01 /* UserProfileViewController.swift */; };
 		B2B3EF2A20624DFE004E0A01 /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B3EF2920624DFE004E0A01 /* EventViewController.swift */; };
 		B2B3EF2C20629E0E004E0A01 /* ChatUserList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B3EF2B20629E0E004E0A01 /* ChatUserList.swift */; };
+		B2B3EF2E2063DD22004E0A01 /* GroupChatNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B3EF2D2063DD22004E0A01 /* GroupChatNameViewController.swift */; };
+		B2B3EF302063FF90004E0A01 /* GroupChat.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B3EF2F2063FF90004E0A01 /* GroupChat.swift */; };
+		B2B3EF3220640238004E0A01 /* ChoseUsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B3EF3120640238004E0A01 /* ChoseUsersViewController.swift */; };
 		B2CFB763204C30D300927400 /* AddNewLocationMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CFB762204C30D200927400 /* AddNewLocationMapViewController.swift */; };
 		B2CFB765204C367100927400 /* LocationDescViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CFB764204C367100927400 /* LocationDescViewController.swift */; };
 		B2D09B8D205DA3BA0009211F /* FacelocationAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D09B8C205DA3BA0009211F /* FacelocationAPI.swift */; };
@@ -111,6 +114,9 @@
 		B2B3EF27206177D2004E0A01 /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		B2B3EF2920624DFE004E0A01 /* EventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventViewController.swift; sourceTree = "<group>"; };
 		B2B3EF2B20629E0E004E0A01 /* ChatUserList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatUserList.swift; sourceTree = "<group>"; };
+		B2B3EF2D2063DD22004E0A01 /* GroupChatNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupChatNameViewController.swift; sourceTree = "<group>"; };
+		B2B3EF2F2063FF90004E0A01 /* GroupChat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupChat.swift; sourceTree = "<group>"; };
+		B2B3EF3120640238004E0A01 /* ChoseUsersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoseUsersViewController.swift; sourceTree = "<group>"; };
 		B2CFB762204C30D200927400 /* AddNewLocationMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewLocationMapViewController.swift; sourceTree = "<group>"; };
 		B2CFB764204C367100927400 /* LocationDescViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDescViewController.swift; sourceTree = "<group>"; };
 		B2D09B8C205DA3BA0009211F /* FacelocationAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacelocationAPI.swift; sourceTree = "<group>"; };
@@ -208,6 +214,8 @@
 				B2114003204831260098570E /* Info.plist */,
 				B211400920483A4A0098570E /* Images.xcassets */,
 				B2B3EF2920624DFE004E0A01 /* EventViewController.swift */,
+				B2B3EF2D2063DD22004E0A01 /* GroupChatNameViewController.swift */,
+				B2B3EF3120640238004E0A01 /* ChoseUsersViewController.swift */,
 			);
 			path = Facelocation;
 			sourceTree = "<group>";
@@ -240,6 +248,7 @@
 				B2B3EF0F20602B12004E0A01 /* Location.swift */,
 				B2B3EF1920604AFE004E0A01 /* Event.swift */,
 				B2B3EF2B20629E0E004E0A01 /* ChatUserList.swift */,
+				B2B3EF2F2063FF90004E0A01 /* GroupChat.swift */,
 			);
 			path = DataModel;
 			sourceTree = "<group>";
@@ -429,6 +438,7 @@
 			files = (
 				B2B3EF202060F7AE004E0A01 /* NewEventCapacityViewController.swift in Sources */,
 				B2D205682059592B00E0D006 /* UserListCell.swift in Sources */,
+				B2B3EF3220640238004E0A01 /* ChoseUsersViewController.swift in Sources */,
 				B22A6DBA205BC26100E0E779 /* ChatMessageCell.swift in Sources */,
 				B2CFB765204C367100927400 /* LocationDescViewController.swift in Sources */,
 				B2B3EF1E20605116004E0A01 /* NewEventPrivacyViewController.swift in Sources */,
@@ -436,8 +446,10 @@
 				B2D09B8F205E7BFF0009211F /* RegFirstViewController.swift in Sources */,
 				B2D2055C2056CA3600E0D006 /* Constants.swift in Sources */,
 				B2D2055E2057182C00E0D006 /* MenuCell.swift in Sources */,
+				B2B3EF302063FF90004E0A01 /* GroupChat.swift in Sources */,
 				B2B3EF1020602B12004E0A01 /* Location.swift in Sources */,
 				B2114E51204C7C5D00A4D014 /* GradientColor.swift in Sources */,
+				B2B3EF2E2063DD22004E0A01 /* GroupChatNameViewController.swift in Sources */,
 				B2B3EF1A20604AFE004E0A01 /* Event.swift in Sources */,
 				B2B3EF16206038AD004E0A01 /* LocationContactViewController.swift in Sources */,
 				B28730A9204C440200EF81E4 /* SupportViewController.swift in Sources */,

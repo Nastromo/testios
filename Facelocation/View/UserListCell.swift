@@ -8,14 +8,18 @@
 
 import UIKit
 
-protocol ShowChat {
+protocol ShowChat: AnyObject {
+    
     func showChatScreen(cellIndex: Int)
+    func showPopup()
+    
 }
+
 
 
 class UserListCell: UICollectionViewCell, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
-    var delegate: ShowChat?
+    weak var delegate: ShowChat?
     
     override init(frame: CGRect) {
         super .init(frame: frame)
@@ -58,7 +62,6 @@ class UserListCell: UICollectionViewCell, UICollectionViewDataSource, UICollecti
     
     //Lists' Sizes
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print("РАЗМЕР СЕКЦИИ ДЛЯ ЧАТ ЮЗЕРОВ: \(ChatUserList.chatUserList.count)")
         return (section == 0) ? ChatUserList.chatUserList.count : 4
     }
     
@@ -124,6 +127,7 @@ class UserListCell: UICollectionViewCell, UICollectionViewDataSource, UICollecti
     //Action on Create Group Chat Btn
     @objc func createGroupChat(){
         print("Btn touched")
+        self.delegate?.showPopup()
     }
     
     required init?(coder aDecoder: NSCoder) {
