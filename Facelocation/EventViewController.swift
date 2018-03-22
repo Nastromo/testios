@@ -114,6 +114,7 @@ class EventViewController: UIViewController {
     }
     
     override func viewDidDisappear(_ animated: Bool) {
+        ChatUserList.chatUserListCopy = ChatUserList.chatUserList
         ChatUserList.chatUserList.removeAll()
     }
     

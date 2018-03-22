@@ -50,13 +50,17 @@ class URLlist{
     //Get Event Data
     static let getEventDataGET = "api/events/\(Event.eventID!)"
     
+    
+    //Localize User on Event
+    static let localizeUserPOST = "api/events/\(Event.eventID!)/activate"
 
     
-    //    //Get My Event
-    //    @GET("api/events/{eventID}")
-    //    Call<EventResponse> getMyEvent(
+    //    //Localize User on Event
+    //    @POST("api/events/{eventID}/activate")
+    //    Call <List<LocalizationResponse>> localizUser(
     //    @HeaderMap Map<String, String> headers,
-    //    @Path("eventID") String eventID
+    //    @Path("eventID") String eventID,
+    //    @Body LocalizationBody body
     //    );
     
     
@@ -140,13 +144,7 @@ class URLlist{
 //    );
 //
 //
-//    //Localize User on Event
-//    @POST("api/events/{eventID}/activate")
-//    Call <List<LocalizationResponse>> localizUser(
-//    @HeaderMap Map<String, String> headers,
-//    @Path("eventID") String eventID,
-//    @Body LocalizationBody body
-//    );
+
 //
 //    //Ban user on event
 //    @GET("api/events/{eventID}/ban/{userID}")

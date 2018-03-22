@@ -11,6 +11,7 @@ import Foundation
 class ChatUserList: NSObject{
     
     static var chatUserList = [ChatUser]()
+    static var chatUserListCopy = [ChatUser]()
     
 }
 

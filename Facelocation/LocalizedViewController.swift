@@ -31,6 +31,10 @@ class LocalizedViewController: UIViewController, UICollectionViewDataSource, UIC
     
     override func viewWillDisappear(_ animated: Bool) {
         ChatUserList.chatUserList.removeAll()
+        self.navigationController?.navigationBar.tintColor = UIColor.white
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "Назад", style: .plain, target: nil, action: nil)
+        
+        
     }
     
     
