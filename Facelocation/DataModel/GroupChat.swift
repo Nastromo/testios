@@ -11,5 +11,11 @@ import Foundation
 class GroupChat: NSObject{
     
     static var name: String?
+    let chatTitle: String
+    
+    
+    init(chatTitle: String) {
+        self.chatTitle = chatTitle
+    }
     
 }

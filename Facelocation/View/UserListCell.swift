@@ -31,7 +31,6 @@ class UserListCell: UICollectionViewCell, UICollectionViewDataSource, UICollecti
     
     //Click on User Cell
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("Click")
         self.delegate?.showChatScreen(cellIndex: indexPath.item)
     }
 
@@ -62,7 +61,7 @@ class UserListCell: UICollectionViewCell, UICollectionViewDataSource, UICollecti
     
     //Lists' Sizes
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return (section == 0) ? ChatUserList.chatUserList.count : 4
+        return (section == 0) ? ChatUserList.chatUserListCopy.count : GroupChatList.groupChatsListCopy.count
     }
     
     //Cells content here
@@ -73,18 +72,19 @@ class UserListCell: UICollectionViewCell, UICollectionViewDataSource, UICollecti
            
             cell.userAvatar.layer.cornerRadius = cell.userAvatar.frame.size.width / 2;
             cell.userAvatar.layer.masksToBounds = true;
-            let imageURL = URL(string: ChatUserList.chatUserList[indexPath.item].userAvatar)
+            let imageURL = URL(string: ChatUserList.chatUserListCopy[indexPath.item].userAvatar)
             let data = try? Data(contentsOf: imageURL!)
             cell.userAvatar.image = UIImage(data: data!)
             
-            cell.userName.text = ChatUserList.chatUserList[indexPath.item].userName
-            cell.userEmail.text = ChatUserList.chatUserList[indexPath.item].userEmail
+            cell.userName.text = ChatUserList.chatUserListCopy[indexPath.item].userName
+            cell.userEmail.text = ChatUserList.chatUserListCopy[indexPath.item].userEmail
             
             
             
             return cell
         }else{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "groupChatCell", for: indexPath) as! GroupChatCell
+            cell.chatNameTitle.text = GroupChatList.groupChatsListCopy[indexPath.item].chatTitle
             return cell
         }
     }

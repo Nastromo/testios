@@ -21,5 +21,7 @@ struct Colors {
     static let grey = UIColor(red: 231 / 255.0, green: 231 / 255.0, blue: 235 / 255.0, alpha: 1.0)
     static let superLight = UIColor(red: 232 / 255.0, green: 239 / 255.0, blue: 247 / 255.0, alpha: 1.0)
     static let mainColor = UIColor(red:0.34902, green:0.37255, blue:0.90980, alpha:1.00000)
+    static let malina = UIColor(red: 253 / 255.0, green: 41 / 255.0, blue: 93 / 255.0, alpha: 1.0)
+    
     
 }

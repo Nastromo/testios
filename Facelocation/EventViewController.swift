@@ -23,6 +23,7 @@ class EventViewController: UIViewController {
     @IBOutlet weak var eventDescription: UITextView!
     
     var requestURL: String?
+    var urlRequest: String?
     var eventTitleText: String?
     var locationTitle: String?
     var eventCoverURL: String?
@@ -37,6 +38,10 @@ class EventViewController: UIViewController {
     }
     
     func getEvent(){
+        
+        ChatUserList.chatUserList = [ChatUser]()
+        ChatUserList.chatUserListCopy = [ChatUser]()
+        
         Alamofire.request(requestURL!,
                           method: .get,
                           encoding: URLEncoding.default,
@@ -110,13 +115,19 @@ class EventViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         navigationBarSetup()
         requestURL = "\(URLlist.baseURL)api/events/\(Event.eventID!)"
+        urlRequest = URLlist.baseURL + URLlist.getAllChatsGET
         getEvent()
+        getChats()
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
+        GroupChatList.groupChatsListCopy = GroupChatList.groupChatsList
+        GroupChatList.groupChatsList.removeAll()
+        
         ChatUserList.chatUserListCopy = ChatUserList.chatUserList
         ChatUserList.chatUserList.removeAll()
     }
+    
     
     //Localize on the event
     @IBAction func localize(_ sender: Any) {
@@ -164,5 +175,45 @@ class EventViewController: UIViewController {
         self.navigationController?.navigationBar.barTintColor = Colors.mainColor
         self.navigationController?.navigationBar.tintColor = UIColor.white
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "Назад", style: .plain, target: nil, action: nil)
+    }
+    
+    //Get all event's chats
+    func getChats(){
+        
+        GroupChatList.groupChatsList = [GroupChat]()
+        GroupChatList.groupChatsListCopy = [GroupChat]()
+        print("ГРУПОВЫЕ ЧАТЫ ДЛЯ ИВЕНТА ID: \(Event.eventID!)")
+        
+        let parameters: Parameters = [
+            "event": Event.eventID!,
+        ]
+        
+        Alamofire.request(urlRequest!,
+                          method: .get,
+                          parameters: parameters,
+                          encoding: URLEncoding.default,
+                          headers: URLlist.headers).responseJSON {response in
+                            
+                            switch response.result {
+                            case .success:
+                                if response.response?.statusCode == 200{
+                                    let array = response.result.value as! Array<Any>
+                                    for item in array {
+                                        let chat = item as! Dictionary<String, Any>
+                                        let chatType = chat["type"] as! Int
+                                        if chatType == 2 {
+                                            let groupChatTitle = chat["title"] as! String
+                                            let groupChat = GroupChat(chatTitle: groupChatTitle)
+                                            GroupChatList.groupChatsList.append(groupChat)
+                                        }
+                                    }
+                                    
+                                    print("ЧАТЫ ПОЛУЧЕНЫ УСПЕШНО! - EVENT ID \(Event.eventID!) + \(GroupChatList.groupChatsList.count)")
+                                }
+                            case .failure(let error):
+                                print("ОШИБКА ПОЛУЧЕНИЯ ЧАТОВ")
+                                print(error)
+                            }
+        }
     }
 }

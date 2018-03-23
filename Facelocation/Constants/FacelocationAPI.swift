@@ -59,6 +59,18 @@ class URLlist{
     static let createChatPOST = "api/chat"
     
     
+    //Get all chats
+    static let getAllChatsGET = "api/chat"
+   
+    
+    //    //Get Main Event Chat
+    //    @GET("api/chat")
+    //    Call <List<MainChatResponse>> getChat(
+    //    @HeaderMap Map<String, String> headers,
+    //    @Query("event") String eventID
+    //    );
+    
+    
     //    //Create chat
     //    @POST("api/chat")
     //    Call<ChatResponse> createChat(
@@ -155,12 +167,6 @@ class URLlist{
 //    @Path("userID") String userID
 //    );
 //
-//    //Get Main Event Chat
-//    @GET("api/chat")
-//    Call <List<MainChatResponse>> getChat(
-//    @HeaderMap Map<String, String> headers,
-//    @Query("event") String eventID
-//    );
 //
 //
 //    //Get Chat By ID

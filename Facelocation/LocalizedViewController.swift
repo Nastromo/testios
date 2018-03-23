@@ -26,15 +26,12 @@ class LocalizedViewController: UIViewController, UICollectionViewDataSource, UIC
     override func viewWillAppear(_ animated: Bool) {
         requestURL = "\(URLlist.baseURL)api/events/\(Event.eventID!)"
         getEventTitle()
-        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        ChatUserList.chatUserList.removeAll()
+        
         self.navigationController?.navigationBar.tintColor = UIColor.white
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "Назад", style: .plain, target: nil, action: nil)
-        
-        
     }
     
     
@@ -90,7 +87,6 @@ class LocalizedViewController: UIViewController, UICollectionViewDataSource, UIC
     
     //Show Popup
     func showPopup(){
-        print("It's a live ))")
         
         let alertController = UIAlertController(title: "Назва чату", message: "вкажіть назву чату", preferredStyle: .alert)
         
@@ -98,12 +94,7 @@ class LocalizedViewController: UIViewController, UICollectionViewDataSource, UIC
             if let field = alertController.textFields![0] as? UITextField {
                 
                 GroupChat.name = field.text
-                print("НАЗВАНИЕ ГРУППОВОГО ЧАТА - \(GroupChat.name)")
                 self.performSegue(withIdentifier: "toChatUserChose", sender: self)
-                
-            } else {
-                
-                print("please enter email id")
             }
         }
         
