@@ -13,6 +13,9 @@ class ChatUserList: NSObject{
     static var chatUserList = [ChatUser]()
     static var chatUserListCopy = [ChatUser]()
     
+    static var usersIdCollection = [String: Bool]()
+    static var selectedUsersArray = [String]()
+    
 }
 
 
@@ -22,6 +25,7 @@ class ChatUser: NSObject{
     let userID: String
     let userEmail: String
     let userAvatar: String
+    var isSelected = false
     
     init(userName: String, userID: String, userEmail: String, userAvatar: String){
         self.userName = userName

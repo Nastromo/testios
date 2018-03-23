@@ -55,13 +55,17 @@ class URLlist{
     static let localizeUserPOST = "api/events/\(Event.eventID!)/activate"
 
     
-    //    //Localize User on Event
-    //    @POST("api/events/{eventID}/activate")
-    //    Call <List<LocalizationResponse>> localizUser(
+    //Create chat
+    static let createChatPOST = "api/chat"
+    
+    
+    //    //Create chat
+    //    @POST("api/chat")
+    //    Call<ChatResponse> createChat(
     //    @HeaderMap Map<String, String> headers,
-    //    @Path("eventID") String eventID,
-    //    @Body LocalizationBody body
+    //    @Body ChatBody body
     //    );
+
     
     
 //    //New LocationForAdapter
@@ -143,9 +147,6 @@ class URLlist{
 //    @Body IssueBody body
 //    );
 //
-//
-
-//
 //    //Ban user on event
 //    @GET("api/events/{eventID}/ban/{userID}")
 //    Call <ResponseBody> userBan(
@@ -161,12 +162,6 @@ class URLlist{
 //    @Query("event") String eventID
 //    );
 //
-//    //Create chat
-//    @POST("api/chat")
-//    Call<ChatResponse> createChat(
-//    @HeaderMap Map<String, String> headers,
-//    @Body ChatBody body
-//    );
 //
 //    //Get Chat By ID
 //    @GET("api/chat/")

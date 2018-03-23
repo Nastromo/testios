@@ -50,6 +50,8 @@
 		B2B3EF2E2063DD22004E0A01 /* GroupChatNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B3EF2D2063DD22004E0A01 /* GroupChatNameViewController.swift */; };
 		B2B3EF302063FF90004E0A01 /* GroupChat.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B3EF2F2063FF90004E0A01 /* GroupChat.swift */; };
 		B2B3EF3220640238004E0A01 /* ChoseUsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B3EF3120640238004E0A01 /* ChoseUsersViewController.swift */; };
+		B2B3EF342064F26F004E0A01 /* Coordinates.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B3EF332064F26F004E0A01 /* Coordinates.swift */; };
+		B2B3EF362065003C004E0A01 /* GroupChatUserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B3EF352065003C004E0A01 /* GroupChatUserCell.swift */; };
 		B2CFB763204C30D300927400 /* AddNewLocationMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CFB762204C30D200927400 /* AddNewLocationMapViewController.swift */; };
 		B2CFB765204C367100927400 /* LocationDescViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CFB764204C367100927400 /* LocationDescViewController.swift */; };
 		B2D09B8D205DA3BA0009211F /* FacelocationAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D09B8C205DA3BA0009211F /* FacelocationAPI.swift */; };
@@ -117,6 +119,8 @@
 		B2B3EF2D2063DD22004E0A01 /* GroupChatNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupChatNameViewController.swift; sourceTree = "<group>"; };
 		B2B3EF2F2063FF90004E0A01 /* GroupChat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupChat.swift; sourceTree = "<group>"; };
 		B2B3EF3120640238004E0A01 /* ChoseUsersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoseUsersViewController.swift; sourceTree = "<group>"; };
+		B2B3EF332064F26F004E0A01 /* Coordinates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinates.swift; sourceTree = "<group>"; };
+		B2B3EF352065003C004E0A01 /* GroupChatUserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupChatUserCell.swift; sourceTree = "<group>"; };
 		B2CFB762204C30D200927400 /* AddNewLocationMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewLocationMapViewController.swift; sourceTree = "<group>"; };
 		B2CFB764204C367100927400 /* LocationDescViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDescViewController.swift; sourceTree = "<group>"; };
 		B2D09B8C205DA3BA0009211F /* FacelocationAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacelocationAPI.swift; sourceTree = "<group>"; };
@@ -249,6 +253,7 @@
 				B2B3EF1920604AFE004E0A01 /* Event.swift */,
 				B2B3EF2B20629E0E004E0A01 /* ChatUserList.swift */,
 				B2B3EF2F2063FF90004E0A01 /* GroupChat.swift */,
+				B2B3EF332064F26F004E0A01 /* Coordinates.swift */,
 			);
 			path = DataModel;
 			sourceTree = "<group>";
@@ -265,6 +270,7 @@
 				B2D2056B2059594C00E0D006 /* AttentionCell.swift */,
 				B2D2056D2059596100E0D006 /* FilesCell.swift */,
 				B22A6DB9205BC26100E0E779 /* ChatMessageCell.swift */,
+				B2B3EF352065003C004E0A01 /* GroupChatUserCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -450,6 +456,7 @@
 				B2B3EF1020602B12004E0A01 /* Location.swift in Sources */,
 				B2114E51204C7C5D00A4D014 /* GradientColor.swift in Sources */,
 				B2B3EF2E2063DD22004E0A01 /* GroupChatNameViewController.swift in Sources */,
+				B2B3EF362065003C004E0A01 /* GroupChatUserCell.swift in Sources */,
 				B2B3EF1A20604AFE004E0A01 /* Event.swift in Sources */,
 				B2B3EF16206038AD004E0A01 /* LocationContactViewController.swift in Sources */,
 				B28730A9204C440200EF81E4 /* SupportViewController.swift in Sources */,
@@ -466,6 +473,7 @@
 				B2D09B8D205DA3BA0009211F /* FacelocationAPI.swift in Sources */,
 				B22A6DB8205BBA3800E0E779 /* ChatViewController.swift in Sources */,
 				B2114037204955960098570E /* LoginViewController.swift in Sources */,
+				B2B3EF342064F26F004E0A01 /* Coordinates.swift in Sources */,
 				B2D2056C2059594C00E0D006 /* AttentionCell.swift in Sources */,
 				B2CFB763204C30D300927400 /* AddNewLocationMapViewController.swift in Sources */,
 				B2113FFA204831260098570E /* StartViewController.swift in Sources */,

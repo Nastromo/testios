@@ -98,7 +98,7 @@ class LocalizedViewController: UIViewController, UICollectionViewDataSource, UIC
             if let field = alertController.textFields![0] as? UITextField {
                 
                 GroupChat.name = field.text
-                print(GroupChat.name)
+                print("НАЗВАНИЕ ГРУППОВОГО ЧАТА - \(GroupChat.name)")
                 self.performSegue(withIdentifier: "toChatUserChose", sender: self)
                 
             } else {

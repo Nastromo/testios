@@ -123,10 +123,39 @@ class EventViewController: UIViewController {
         self.navigationController?.setNavigationBarHidden(false, animated: true)
         self.navigationController?.navigationBar.tintColor = UIColor.white
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "Назад", style: .plain, target: nil, action: nil)
-        self.performSegue(withIdentifier: "toLocalized", sender: self)
+        localize()
     }
     
-
+    
+    //Localize user on event
+    func localize(){
+        let requestURL = URLlist.baseURL + URLlist.localizeUserPOST
+        let parameters: Parameters = [
+            "latitude": Coordinates.latitude!,
+            "longitude": Coordinates.longitude!
+        ]
+        
+        Alamofire.request(requestURL,
+                          method: .post,
+                          parameters: parameters,
+                          encoding: JSONEncoding.default,
+                          headers: URLlist.headers).responseJSON {response in
+                            
+                            switch response.result {
+                            case .success:
+                                print(response)
+                                if response.response?.statusCode == 200{
+                                    print("ЛОКАЛИЗАЦИЯ ВЫПОЛНЕНА УСПЕШНО")
+                                    self.performSegue(withIdentifier: "toLocalized", sender: self)
+                                } else {
+                                    print("НУЖНО БЫТЬ в РАДИУСЕ ЛОКАЦИИ")
+                                }
+                            case .failure(let error):
+                                
+                                print(error)
+                            }
+            }
+    }
     
     //Navigation Bar Setup
     func navigationBarSetup(){
@@ -136,6 +165,4 @@ class EventViewController: UIViewController {
         self.navigationController?.navigationBar.tintColor = UIColor.white
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "Назад", style: .plain, target: nil, action: nil)
     }
-
-
 }

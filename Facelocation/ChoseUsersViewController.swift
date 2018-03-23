@@ -19,16 +19,63 @@ class ChoseUsersViewController: UIViewController, UICollectionViewDataSource, UI
         
     }
     
+    //Create group chat
     @objc func createGroupChat(){
         
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
+        //Append selected userID only
+        for item in ChatUserList.usersIdCollection {
+            if item.value {
+                ChatUserList.selectedUsersArray.append(item.key)
+            }
+        }
         
+        let requestURL = URLlist.baseURL + URLlist.createChatPOST
+        let parameters: Parameters = [
+            "title": GroupChat.name!,
+            "event": Event.eventID!,
+            "type": 2,
+            "user": ChatUserList.selectedUsersArray
+        ]
+        
+        Alamofire.request(requestURL,
+                          method: .post,
+                          parameters: parameters,
+                          encoding: JSONEncoding.default,
+                          headers: URLlist.headers).responseJSON {response in
+                            
+                            switch response.result {
+                            case .success:
+                                print(response)
+                                if response.response?.statusCode == 200{
+                                    print("СОЗДАНИЕ ГРУППОВОГО ЧАТА ВЫПОЛНЕНО УСПЕШНО")
+                                    self.performSegue(withIdentifier: "toGroupChat", sender: self)
+                                } else {
+                                    print("ОШИБКА СОЗДАНИЯ ГРУППОВОГО ЧАТА")
+                                }
+                            case .failure(let error):
+                                
+                                print(error)
+                            }
+        }
     }
     
+    
+
     //Click on User Cell
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        if !ChatUserList.chatUserListCopy[indexPath.item].isSelected {
+            collectionView.cellForItem(at: indexPath)?.backgroundColor = Colors.superLight
+            ChatUserList.chatUserListCopy[indexPath.item].isSelected = true
+            ChatUserList.usersIdCollection[ChatUserList.chatUserListCopy[indexPath.item].userID] = true
+            
+        } else {
+            collectionView.cellForItem(at: indexPath)?.backgroundColor = UIColor.white
+            ChatUserList.chatUserListCopy[indexPath.item].isSelected = false
+            ChatUserList.usersIdCollection[ChatUserList.chatUserListCopy[indexPath.item].userID] = false
+        }
+        
+        print("РАЗМЕР СЛОВАРЯ = \(ChatUserList.usersIdCollection)")
         
     }
     

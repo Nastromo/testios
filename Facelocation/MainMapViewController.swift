@@ -66,6 +66,8 @@ class MainMapViewController: UIViewController, GMSMapViewDelegate, CLLocationMan
         
         if(!firstRun){
             print("ПОКАЗАТЬ БЛИЖАЙШИЕ ИВЕНТЫ: \(latitude!), \(longitude!)")
+            Coordinates.latitude = latitude!
+            Coordinates.longitude = longitude!            
             showNearestEvents(latitude: latitude!, longitude: longitude!)
         }
     }

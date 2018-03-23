@@ -1647,10 +1647,13 @@ FACE LOCATION
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Ghb-8O-S1b"/>
                     </view>
+                    <connections>
+                        <segue destination="VZf-xq-Zur" kind="show" identifier="toGroupChat" id="36X-Ld-JKW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d96-KC-hOU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1112.8" y="3353.9730134932538"/>
+            <point key="canvasLocation" x="3254" y="2694"/>
         </scene>
         <!--Localized View Controller-->
         <scene sceneID="JHy-CL-HCo">
@@ -2215,6 +2218,7 @@ FACE LOCATION
         <image name="userIconProfile" width="55" height="55"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="36X-Ld-JKW"/>
         <segue reference="Lxi-am-vFq"/>
         <segue reference="uwx-c8-0x3"/>
         <segue reference="aEo-TC-t9Y"/>
