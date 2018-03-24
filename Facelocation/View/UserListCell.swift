@@ -11,6 +11,7 @@ import UIKit
 protocol ShowChat: AnyObject {
     
     func showChatScreen(cellIndex: Int)
+    func showGroupChatScreen(cellIndex: Int)
     func showPopup()
     
 }
@@ -31,7 +32,11 @@ class UserListCell: UICollectionViewCell, UICollectionViewDataSource, UICollecti
     
     //Click on User Cell
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.delegate?.showChatScreen(cellIndex: indexPath.item)
+        if indexPath.section == 0 {
+            self.delegate?.showChatScreen(cellIndex: indexPath.item)
+        } else {
+            self.delegate?.showGroupChatScreen(cellIndex: indexPath.item)
+        }
     }
 
     

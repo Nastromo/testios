@@ -1667,8 +1667,9 @@ FACE LOCATION
                     </view>
                     <navigationItem key="navigationItem" id="1uY-sf-6oD"/>
                     <connections>
-                        <segue destination="VZf-xq-Zur" kind="show" identifier="toChat" id="UoI-W9-cVW"/>
+                        <segue destination="VZf-xq-Zur" kind="show" identifier="toChatOneOnOne" id="UoI-W9-cVW"/>
                         <segue destination="Nb8-zY-qCz" kind="show" identifier="toChatUserChose" id="ibr-oE-zj7"/>
+                        <segue destination="VZf-xq-Zur" kind="show" identifier="toGroupChat" id="8NS-Em-zBF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ql6-4s-wHT" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2218,7 +2219,7 @@ FACE LOCATION
         <image name="userIconProfile" width="55" height="55"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="36X-Ld-JKW"/>
+        <segue reference="8NS-Em-zBF"/>
         <segue reference="Lxi-am-vFq"/>
         <segue reference="uwx-c8-0x3"/>
         <segue reference="aEo-TC-t9Y"/>

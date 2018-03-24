@@ -78,14 +78,37 @@ class LocalizedViewController: UIViewController, UICollectionViewDataSource, UIC
         return 4
     }
     
-    //Start Chat ViewController
-    func showChatScreen(cellIndex: Int){
-        print(cellIndex)
-        self.performSegue(withIdentifier: "toChat", sender: self)
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "toChatOneOnOne" {
+            let chatVC = segue.destination as! ChatViewController
+            chatVC.userID = sender as? String
+            
+        } else if segue.identifier == "toGroupChat" {
+            let chatVC = segue.destination as! ChatViewController
+            chatVC.groupChatID = sender as? String
+            
+        } else if segue.identifier == "toChatUserChose" {
+            segue.destination as? ChoseUsersViewController
+        }
     }
     
     
-    //Show Popup
+    //Start Chat One on One
+    func showChatScreen(cellIndex: Int){
+        let userID = ChatUserList.chatUserListCopy[cellIndex].userID
+        self.performSegue(withIdentifier: "toChatOneOnOne", sender: userID)
+    }
+    
+    
+    //Start Group Chat
+    func showGroupChatScreen(cellIndex: Int){
+        let groupChatID = GroupChatList.groupChatsListCopy[cellIndex].chatID
+        self.performSegue(withIdentifier: "toGroupChat", sender: groupChatID)
+    }
+    
+    
+    //Show Popup Create Group Chat
     func showPopup(){
         
         let alertController = UIAlertController(title: "Назва чату", message: "вкажіть назву чату", preferredStyle: .alert)
@@ -195,7 +218,7 @@ class LocalizedViewController: UIViewController, UICollectionViewDataSource, UIC
                                     self.titleBarLabel?.text = response["title"] as? String
                                 }
                             case .failure(let error):
-                                print("ОШИБКА ПОЛУЧЕНИЯ ДАННЫХ ИВЕНТА")
+                                print("ОШИБКА ПОЛУЧЕНИЯ ЗАГОЛОВКА ИВЕНТА")
                                 print(error)
                             }
         }

@@ -7,80 +7,23 @@
 //
 
 import UIKit
+import Alamofire
 
 class ChatViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
-    let myID = "myStringID"
+    let myDBid = DataBaseHelper.userDataArray[0]
     var myCollectionView: UICollectionView?
-    
-    var messages: [String] = {
-        var ms: [String] = []
-        
-        ms.append("Creating an Ar")
-        
-        ms.append("Alternatively, if the context already provides type information, such as a function argument or an already typed variable or constant, you can create an empty array with an empty array literal, which is written as [] (an empty pair of square brackets). Alternatively, if the context already provides type information, such as a function argument or an already typed variable or constant, you can create an empty array with an empty array literal, which is written as [] (an empty pair of square brackets). empty array literal, which is written as")
-        
-        ms.append("Swift’s Array type also provides")
-        
-        ms.append("You can also initialize an array with an array literal")
-        
-        ms.append("In this case, the array literal contains two String values and nothing else. This matches the type of the shoppingList variable’s declaration (an array that can only contain String values), and so the assignment of the array literal is permitted as a way to initialize shoppingList with two initial items.")
-        ms.append("You can also initialize an array with an array literal")
-        
-        ms.append("In this case, the array literal contains two String values and nothing else. This matches the type of the shoppingList variable’s declaration (an array that can only contain String values), and so the assignment of the array literal is permitted as a way to initialize shoppingList with two initial items.")
-        
-        return ms
-    }()
-    
-    var chatUsers = [User]()
-    
-    func createUsers(){
-        for (index, message) in messages.enumerated() {
-            
-            
-            let user = User()
-            switch index {
-            case 0:
-                user.userID = String(index)
-                user.message = message
-                chatUsers.append(user)
-            case 1:
-                user.userID = String(index)
-                user.message = message
-                chatUsers.append(user)
-            case 2:
-                user.userID = myID
-                user.message = message
-                chatUsers.append(user)
-            case 3:
-                user.userID = String(index)
-                user.message = message
-                chatUsers.append(user)
-            case 4:
-                user.userID = myID
-                user.message = message
-                chatUsers.append(user)
-            case 5:
-                user.userID = myID
-                user.message = message
-                chatUsers.append(user)
-            case 6:
-                user.userID = myID
-                user.message = message
-                chatUsers.append(user)
-            default:
-                print("Default")
-            }
-        }
-    }
+    var userID: String?
+    var groupChatID: String?
+    var messagesArray: [Message]?
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setUpChatLogCollection()
         setupMyCollectionConstarints()
         setupBottomMyCollectionConstaraint()
-        scrollToLastMessage()
         
         view.addSubview(backRectangl)
         setupBackRectanglConstarints()
@@ -92,21 +35,116 @@ class ChatViewController: UIViewController, UICollectionViewDataSource, UICollec
         backRectangl.addSubview(sendButton)
         setupSendButtonConstarints()
         
-        createUsers()
-        
         //Listen when keyboard appears
         NotificationCenter.default.addObserver(self, selector: #selector(hundleKeyboardShowing), name: .UIKeyboardWillShow, object: nil)
         
         //Listen when keyboard hide
         NotificationCenter.default.addObserver(self, selector: #selector(hundleKeyboardHiding), name: .UIKeyboardWillHide, object: nil)
+        
+        if self.userID != nil {
+            print("ИСПОЛНИЛОСЬ ПЕРВОЕ УСЛОВИЕ")
+            createChat()
+        } else {
+            getGroupChat()
+        }
+    }
+    
+    
+    //Create chat if not exist else get messages from returned chat
+    func createChat(){
+        
+        self.messagesArray = [Message]()
+        let requestURL = URLlist.baseURL + URLlist.createChatPOST
+        let parameters: Parameters = [
+            "event": Event.eventID!,
+            "type": 1,
+            "user": [self.myDBid, self.userID]
+        ]
+        
+        Alamofire.request(requestURL,
+                          method: .post,
+                          parameters: parameters,
+                          encoding: JSONEncoding.default,
+                          headers: URLlist.headers).responseJSON {response in
+                            
+                            switch response.result {
+                            case .success:
+                                print(response)
+                                if response.response?.statusCode == 200{
+
+                                    print("СОЗДАНИЕ ЧАТА 1 НА 1 ВЫПОЛНЕНО УСПЕШНО")
+                                    
+                                } else {
+                                    print("ОШИБКА СОЗДАНИЯ ЧАТА 1 НА 1")
+                                }
+                            case .failure(let error):
+                                
+                                print(error)
+                            }
+        }
+        
+    }
+    
+    //Get group chat by groupChatID
+    func getGroupChat(){
+        
+        self.messagesArray = [Message]()
+        let requestURL = URLlist.baseURL + URLlist.getChatGET + self.groupChatID!
+        Alamofire.request(requestURL,
+                          method: .get,
+                          encoding: URLEncoding.default,
+                          headers: URLlist.headers).responseJSON {response in
+                            
+                            switch response.result {
+                            case .success:
+                                print(response)
+                                if response.response?.statusCode == 200{
+                                    let groupChatObj = response.result.value as! Dictionary<String, Any>
+                                    let messages = groupChatObj["messages"] as! Array<Any>
+                                    for message in messages {
+                                        let messageObj = message as! Dictionary<String, Any>
+                                        
+                                        let userText = messageObj["text"] as! String
+                                        
+                                        let user = messageObj["user"] as! Dictionary<String, Any>
+                                        
+                                        let userID = user["_id"] as! String
+                                        let userEmail = user["email"] as! String
+                                        let userName = user["username"] as! String
+                                        let userAvatar = user["avatar_mob"] as! String
+                                        
+                                        let message = Message(userName: userName, userID: userID, userEmail: userEmail, userAvatar: userAvatar, userText: userText)
+
+                                        self.messagesArray?.append(message)
+                                        self.myCollectionView?.reloadData()
+                                        
+                                    }
+                                    print("КОЛИЧЕСТВО СООБЩЕНИЙ В ЧАТЕ - \(self.messagesArray!.count)")
+                                    self.scrollToLastMessage()
+                                    print("ПОЛУЧЕНИЕ ГРУППОВОГО ЧАТА ВЫПОЛНЕНО УСПЕШНО. ID ЧАТА - \(self.groupChatID!)")
+                                    print("ID ИВЕНТА - \(Event.eventID!)")
+                                    
+                                } else {
+                                    print("ОШИБКА ПОЛУЧЕНИЯ ГРУППОВОГО ЧАТА - \(Event.eventID!)")
+                                }
+                            case .failure(let error):
+                                
+                                print(error)
+                            }
+        }
+        
     }
     
     //Scroll to the last bottom message in collection
     func scrollToLastMessage(){
-        let indexPath = IndexPath(item: self.messages.count - 1, section: 0)
+        let item = self.messagesArray!.count - 1
+        let indexPath = IndexPath(item: item, section: 0)
         self.myCollectionView?.contentInsetAdjustmentBehavior = .never
         bottomMyCollectionConstraint?.constant = -54
-        self.myCollectionView!.scrollToItem(at: indexPath, at: .bottom, animated: true)
+
+        if !(item < 0){
+            self.myCollectionView!.scrollToItem(at: indexPath, at: .bottom, animated: true)
+        }
     }
     
     //Send message button
@@ -122,17 +160,15 @@ class ChatViewController: UIViewController, UICollectionViewDataSource, UICollec
     //Send message action
     @objc func sendBtnTouched(){
         if let chatMessage = messegeField.text {
-            messages.append(chatMessage)
-            let insertionIndex = messages.count - 1
+            
+            let newMessage = Message(userName: "myName", userID: myDBid, userEmail: "myEmail", userAvatar: "myAvatar", userText: chatMessage)
+            
+            messagesArray?.append(newMessage)
+            let insertionIndex = messagesArray!.count - 1
             let indexPath = IndexPath(item: insertionIndex, section: 0)
             var indexPathArray = [IndexPath]()
             indexPathArray.append(indexPath)
             myCollectionView?.insertItems(at: indexPathArray)
-            
-            let newChatUser = User()
-            newChatUser.userID = myID
-            newChatUser.message = chatMessage
-            chatUsers.append(newChatUser)
             
             self.myCollectionView?.scrollToItem(at: indexPath, at: .bottom, animated: true)
         }
@@ -216,7 +252,7 @@ class ChatViewController: UIViewController, UICollectionViewDataSource, UICollec
             }, completion: { (complited) in
                 
                 //Animate the last cell bottom edge to top backRectangl edge
-                let indexPath = IndexPath(item: self.messages.count - 1, section: 0)
+                let indexPath = IndexPath(item: self.messagesArray!.count - 1, section: 0)
                 self.myCollectionView?.scrollToItem(at: indexPath, at: .bottom, animated: true)
             
             })
@@ -316,12 +352,13 @@ class ChatViewController: UIViewController, UICollectionViewDataSource, UICollec
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return messages.count
+        return messagesArray!.count
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        let messageText = messages[indexPath.item]
+        let messageObj = messagesArray![indexPath.item]
+        let messageText = messageObj.userText
         let size = CGSize(width: 250, height: 1000)
         let options = NSStringDrawingOptions.usesFontLeading.union(.usesLineFragmentOrigin)
         let estimatedMessageBubbleFrame = NSString(string: messageText).boundingRect(with: size, options: options, attributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 16)], context: nil)
@@ -332,24 +369,26 @@ class ChatViewController: UIViewController, UICollectionViewDataSource, UICollec
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "chatMessage", for: indexPath) as! ChatMessageCell
         
         
-        let messageText = messages[indexPath.item]
+        let messageObj = messagesArray![indexPath.item]
+        let messageText = messageObj.userText
         let size = CGSize(width: 250, height: 1000)
         let options = NSStringDrawingOptions.usesFontLeading.union(.usesLineFragmentOrigin)
         let estimatedTextSize = NSString(string: messageText).boundingRect(with: size, options: options, attributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 16)], context: nil)
         
         
-        if chatUsers[indexPath.item].userID != myID {
-            cell.messageText.text = chatUsers[indexPath.item].message
+        if messagesArray![indexPath.item].userID != myDBid {
+            cell.messageText.text = messagesArray![indexPath.item].userText
             cell.messageText.frame = CGRect(x: 60, y: 0, width: estimatedTextSize.width, height: estimatedTextSize.height + 20)
             cell.messageBubble.frame = CGRect(x: 48, y: 0, width: estimatedTextSize.width + 24, height: estimatedTextSize.height + 20)
         } else {
-            cell.messageText.text = chatUsers[indexPath.item].message
+            cell.messageText.text = messagesArray![indexPath.item].userText
             cell.messageText.frame = CGRect(x: view.frame.width - estimatedTextSize.width - 14, y: 0, width: estimatedTextSize.width, height: estimatedTextSize.height + 20)
             cell.messageBubble.frame = CGRect(x: view.frame.width - estimatedTextSize.width - 26, y: 0, width: estimatedTextSize.width + 22, height: estimatedTextSize.height + 20)
             cell.messageBubble.backgroundColor = Colors.grey
             cell.messageText.textColor = UIColor.black
             cell.userAvatar.isHidden = true
         }
+        cell.backgroundColor = UIColor.blue
         return cell
     }
 }

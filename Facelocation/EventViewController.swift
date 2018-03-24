@@ -159,7 +159,7 @@ class EventViewController: UIViewController {
                                     print("ЛОКАЛИЗАЦИЯ ВЫПОЛНЕНА УСПЕШНО")
                                     self.performSegue(withIdentifier: "toLocalized", sender: self)
                                 } else {
-                                    print("НУЖНО БЫТЬ в РАДИУСЕ ЛОКАЦИИ")
+                                    print("НУЖНО БЫТЬ В РАДИУСЕ ЛОКАЦИИ")
                                 }
                             case .failure(let error):
                                 
@@ -200,10 +200,11 @@ class EventViewController: UIViewController {
                                     let array = response.result.value as! Array<Any>
                                     for item in array {
                                         let chat = item as! Dictionary<String, Any>
+                                        let chatID = chat["_id"] as! String
                                         let chatType = chat["type"] as! Int
                                         if chatType == 2 {
                                             let groupChatTitle = chat["title"] as! String
-                                            let groupChat = GroupChat(chatTitle: groupChatTitle)
+                                            let groupChat = GroupChat(chatTitle: groupChatTitle, chatID: chatID)
                                             GroupChatList.groupChatsList.append(groupChat)
                                         }
                                     }

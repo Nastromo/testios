@@ -12,10 +12,11 @@ class GroupChat: NSObject{
     
     static var name: String?
     let chatTitle: String
+    let chatID: String
     
     
-    init(chatTitle: String) {
+    init(chatTitle: String, chatID: String) {
         self.chatTitle = chatTitle
+        self.chatID = chatID
     }
-    
 }
