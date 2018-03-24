@@ -19,16 +19,7 @@ class MenuCell: UICollectionViewCell {
         tl.text = "tabLabel"
         return tl
     }()
-    
-    //    let tabButton: UIButton = {
-    //        let tb = UIButton()
-    //        tb.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width/5, height: 50)
-    //        tb.setTitleColor(Colors.purpleSuperLight, for: .normal)
-    //        tb.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
-    //        tb.tintColor = UIColor.black
-    //        tb.setTitle("tabTitle", for: .normal)
-    //        return tb
-    //    }()
+
     
     override init(frame: CGRect) {
         super .init(frame: frame)
@@ -39,7 +30,6 @@ class MenuCell: UICollectionViewCell {
     func setUpTabs(){
         backgroundColor = UIColor.white
         addSubview(tabLabel)
-        //        addSubview(tabButton)
     }
     
     override var isHighlighted: Bool{

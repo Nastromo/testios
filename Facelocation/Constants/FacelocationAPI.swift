@@ -59,12 +59,13 @@ class URLlist{
     static let createChatPOST = "api/chat"
     
     
-    //Get all events chats
+    //Get all events chats (main chat also)
     static let getAllChatsGET = "api/chat"
     
     
     //Get chat by caht ID
     static let getChatGET = "api/chat/"
+
    
 
     //    //Get Main Event Chat

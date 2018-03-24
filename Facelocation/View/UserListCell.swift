@@ -112,7 +112,7 @@ class UserListCell: UICollectionViewCell, UICollectionViewDataSource, UICollecti
         addSubview(button)
         
         let descHorizontal = "H:[button(65)]-25-|"
-        let descVertical = "V:[button(65)]-175-|"
+        let descVertical = "V:[button(65)]-25-|"
         let viewsDict = ["button": button]
         
         let horizontalConstraints = NSLayoutConstraint.constraints(withVisualFormat: descHorizontal,

@@ -3,17 +3,10 @@ import Alamofire
 
 class LocalizedViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, ShowChat, UIAlertViewDelegate {
     
-    lazy var menuBar: MenuBar = {
-        let mb = MenuBar()
-        mb.localizedViewController = self
-        return mb
-    }()
-    
     var myCollectionView: UICollectionView?
     var requestURL: String?
     var titleBarLabel: UILabel?
     
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,9 +47,9 @@ class LocalizedViewController: UIViewController, UICollectionViewDataSource, UIC
         layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         layout.minimumLineSpacing = 0
         layout.scrollDirection = .horizontal
-        layout.itemSize = CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+        layout.itemSize = CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height - 160)
 
-        let tabSize = CGRect(x: 0, y: 100, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+        let tabSize = CGRect(x: 0, y: 20, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height )
         myCollectionView = UICollectionView(frame: tabSize, collectionViewLayout: layout)
 
         myCollectionView!.dataSource = self
@@ -161,6 +154,11 @@ class LocalizedViewController: UIViewController, UICollectionViewDataSource, UIC
         }
     }
     
+    lazy var menuBar: MenuBar = {
+        let mb = MenuBar()
+        mb.localizedViewController = self
+        return mb
+    }()
     
     //Bar with Menu Tabs (Locals, Chat etc)
     private func setUpMenuBar(){
