@@ -71,14 +71,36 @@ class ChatViewController: UIViewController, UICollectionViewDataSource, UICollec
                             case .success:
                                 print(response)
                                 if response.response?.statusCode == 200{
-
-                                    print("СОЗДАНИЕ ЧАТА 1 НА 1 ВЫПОЛНЕНО УСПЕШНО")
+                                    let chatObj = response.result.value as! Dictionary<String, Any>
+                                    let chatID = chatObj["_id"] as! String
+                                    let messages = chatObj["messages"] as! Array<Any>
+                                    for message in messages {
+                                        let messageObj = message as! Dictionary<String, Any>
+                                        
+                                        let userText = messageObj["text"] as! String
+                                        
+                                        let user = messageObj["user"] as! Dictionary<String, Any>
+                                        
+                                        let userID = user["_id"] as! String
+                                        let userEmail = user["email"] as! String
+                                        let userName = user["username"] as? String
+                                        let userAvatar = user["avatar_mob"] as! String
+                                        
+                                        let message = Message(userName: userName ?? "Имя не указано", userID: userID, userEmail: userEmail, userAvatar: userAvatar, userText: userText)
+                                        
+                                        self.messagesArray?.append(message)
+                                        self.myCollectionView?.reloadData()
+                                        
+                                    }
+                                    print("КОЛИЧЕСТВО СООБЩЕНИЙ В ЧАТЕ - \(self.messagesArray!.count)")
+                                    self.scrollToLastMessage()
+                                    print("СОЗДАНИЕ ЧАТА 1 НА 1 ВЫПОЛНЕНО УСПЕШНО - \(chatID)")
+                                    print("ID ИВЕНТА - \(Event.eventID!)")
                                     
                                 } else {
                                     print("ОШИБКА СОЗДАНИЯ ЧАТА 1 НА 1")
                                 }
                             case .failure(let error):
-                                
                                 print(error)
                             }
         }
@@ -110,10 +132,10 @@ class ChatViewController: UIViewController, UICollectionViewDataSource, UICollec
                                         
                                         let userID = user["_id"] as! String
                                         let userEmail = user["email"] as! String
-                                        let userName = user["username"] as! String
+                                        let userName = user["username"] as? String
                                         let userAvatar = user["avatar_mob"] as! String
                                         
-                                        let message = Message(userName: userName, userID: userID, userEmail: userEmail, userAvatar: userAvatar, userText: userText)
+                                        let message = Message(userName: userName ?? "Имя не указано", userID: userID, userEmail: userEmail, userAvatar: userAvatar, userText: userText)
 
                                         self.messagesArray?.append(message)
                                         self.myCollectionView?.reloadData()
@@ -128,7 +150,6 @@ class ChatViewController: UIViewController, UICollectionViewDataSource, UICollec
                                     print("ОШИБКА ПОЛУЧЕНИЯ ГРУППОВОГО ЧАТА - \(Event.eventID!)")
                                 }
                             case .failure(let error):
-                                
                                 print(error)
                             }
         }
