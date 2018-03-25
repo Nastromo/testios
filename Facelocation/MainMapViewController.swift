@@ -50,6 +50,11 @@ class MainMapViewController: UIViewController, GMSMapViewDelegate, CLLocationMan
     }
     
     
+    override func viewDidDisappear(_ animated: Bool) {
+        self.navigationController?.navigationBar.tintColor = UIColor.white
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "Назад", style: .plain, target: nil, action: nil)
+    }
+    
     //Downloading and Set User Avatar from URL
     func setUserAvatar(){
         let imageURL = URL(string: DataBaseHelper.userDataArray[3])

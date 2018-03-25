@@ -13,14 +13,12 @@ class FilesCell: UICollectionViewCell{
     override init(frame: CGRect) {
         super .init(frame: frame)
         addSubview(chatNameTitle)
-        backgroundColor = UIColor.red
     }
     
     
     let chatNameTitle: UILabel = {
         let un = UILabel()
         un.frame = CGRect(x: 85, y: 30, width: 200, height: 20)
-        un.text = "11111111111"
         un.textColor = Colors.purpleText
         un.font = UIFont.boldSystemFont(ofSize: 14)
         return un

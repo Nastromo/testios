@@ -313,9 +313,9 @@ class ChatCell: UICollectionViewCell, UICollectionViewDataSource, UICollectionVi
         myCollectionView!.delegate = self
         
         myCollectionView!.register(ChatMessageCell.self, forCellWithReuseIdentifier: "chatMessage")
-//        myCollectionView!.backgroundColor = UIColor.white
+        myCollectionView!.backgroundColor = UIColor.white
         myCollectionView?.translatesAutoresizingMaskIntoConstraints = false
-        myCollectionView?.backgroundColor = UIColor.black
+        
         addSubview(myCollectionView!)
     }
     
@@ -350,6 +350,11 @@ class ChatCell: UICollectionViewCell, UICollectionViewDataSource, UICollectionVi
             cell.messageText.text = messagesArray![indexPath.item].userText
             cell.messageText.frame = CGRect(x: 60, y: 0, width: estimatedTextSize.width, height: estimatedTextSize.height + 20)
             cell.messageBubble.frame = CGRect(x: 48, y: 0, width: estimatedTextSize.width + 24, height: estimatedTextSize.height + 20)
+            
+            let imageURL = URL(string: messagesArray![indexPath.item].userAvatar)
+            let data = try? Data(contentsOf: imageURL!)
+            cell.userAvatar.image = UIImage(data: data!)
+            
         } else {
             cell.messageText.text = messagesArray![indexPath.item].userText
             cell.messageText.frame = CGRect(x: self.frame.width - estimatedTextSize.width - 14, y: 0, width: estimatedTextSize.width, height: estimatedTextSize.height + 20)
@@ -358,7 +363,6 @@ class ChatCell: UICollectionViewCell, UICollectionViewDataSource, UICollectionVi
             cell.messageText.textColor = UIColor.black
             cell.userAvatar.isHidden = true
         }
-        cell.backgroundColor = UIColor.blue
         return cell
     }
     

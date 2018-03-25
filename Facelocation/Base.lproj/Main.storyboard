@@ -780,6 +780,9 @@ FACE LOCATION
                                         <state key="normal" title="Події, що я створив">
                                             <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="Csi-u2-hb5" kind="show" id="EXy-UW-bd0"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H2K-c5-nRv">
                                         <rect key="frame" x="20" y="199" width="148" height="30"/>
@@ -787,6 +790,9 @@ FACE LOCATION
                                         <state key="normal" title="Події, які я відвідав">
                                             <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="Csi-u2-hb5" kind="show" id="2uV-0J-dWX"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Ca-By-GE6">
                                         <rect key="frame" x="20" y="241" width="165" height="30"/>
@@ -794,6 +800,9 @@ FACE LOCATION
                                         <state key="normal" title="Локації, що я створив">
                                             <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="Csi-u2-hb5" kind="show" id="pde-yM-3gW"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1655,6 +1664,69 @@ FACE LOCATION
             </objects>
             <point key="canvasLocation" x="3254" y="2694"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="dMu-7d-MmG">
+            <objects>
+                <viewController id="Csi-u2-hb5" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zru-c2-322">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="13e-NV-gfL">
+                                <rect key="frame" x="0.0" y="20" width="375" height="50"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="МОЇ ПОДІЇ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yQ5-r5-GYZ">
+                                        <rect key="frame" x="19" y="15" width="82" height="21"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                        <color key="textColor" red="0.34901960780000002" green="0.37254901959999998" blue="0.90980392160000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="МОЇ ЛОКАЦІЇ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IIb-Ms-db4">
+                                        <rect key="frame" x="263" y="15" width="104" height="21"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                        <color key="textColor" red="0.34901960780000002" green="0.37254901959999998" blue="0.90980392160000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ВІДВІДАВ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0LW-Bz-pXm">
+                                        <rect key="frame" x="149" y="15" width="77" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="77" id="JLR-nG-Klk"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                        <color key="textColor" red="0.34901960780000002" green="0.37254901959999998" blue="0.90980392160000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.60784313729999995" green="0.70196078429999997" blue="0.92156862750000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="0LW-Bz-pXm" firstAttribute="baseline" secondItem="IIb-Ms-db4" secondAttribute="baseline" id="4ea-hC-UMC"/>
+                                    <constraint firstItem="yQ5-r5-GYZ" firstAttribute="baseline" secondItem="0LW-Bz-pXm" secondAttribute="baseline" id="CWk-Kc-rJH"/>
+                                    <constraint firstItem="yQ5-r5-GYZ" firstAttribute="top" secondItem="13e-NV-gfL" secondAttribute="top" constant="15" id="LVG-wc-8SI"/>
+                                    <constraint firstItem="yQ5-r5-GYZ" firstAttribute="firstBaseline" secondItem="0LW-Bz-pXm" secondAttribute="firstBaseline" id="OD5-J8-knz"/>
+                                    <constraint firstItem="IIb-Ms-db4" firstAttribute="trailing" secondItem="13e-NV-gfL" secondAttribute="trailingMargin" id="Q6t-67-a8g"/>
+                                    <constraint firstItem="yQ5-r5-GYZ" firstAttribute="centerY" secondItem="13e-NV-gfL" secondAttribute="centerY" id="W1D-NU-dc5"/>
+                                    <constraint firstItem="0LW-Bz-pXm" firstAttribute="leading" secondItem="yQ5-r5-GYZ" secondAttribute="trailing" constant="48" id="WKo-c7-UMn"/>
+                                    <constraint firstItem="0LW-Bz-pXm" firstAttribute="centerX" secondItem="13e-NV-gfL" secondAttribute="centerX" id="aB8-HK-9Uu"/>
+                                    <constraint firstAttribute="height" constant="50" id="dao-Nb-k2K"/>
+                                    <constraint firstItem="0LW-Bz-pXm" firstAttribute="firstBaseline" secondItem="IIb-Ms-db4" secondAttribute="firstBaseline" id="eEt-zw-gwX"/>
+                                    <constraint firstItem="IIb-Ms-db4" firstAttribute="leading" secondItem="0LW-Bz-pXm" secondAttribute="trailing" constant="37" id="jfD-IK-PN9"/>
+                                    <constraint firstItem="yQ5-r5-GYZ" firstAttribute="leading" secondItem="13e-NV-gfL" secondAttribute="leading" constant="19" id="rj7-kb-jrd"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="13e-NV-gfL" firstAttribute="leading" secondItem="13u-0F-1vr" secondAttribute="leading" id="3Tu-I2-cCT"/>
+                            <constraint firstItem="13e-NV-gfL" firstAttribute="trailing" secondItem="13u-0F-1vr" secondAttribute="trailing" id="PFT-CU-b5U"/>
+                            <constraint firstItem="13e-NV-gfL" firstAttribute="top" secondItem="13u-0F-1vr" secondAttribute="top" id="ySc-Np-KJF"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="13u-0F-1vr"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0oA-uM-ufa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4333.6000000000004" y="2687.4062968515746"/>
+        </scene>
         <!--Localized View Controller-->
         <scene sceneID="JHy-CL-HCo">
             <objects>
@@ -2219,7 +2291,9 @@ FACE LOCATION
         <image name="userIconProfile" width="55" height="55"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="yF7-lg-S7D"/>
         <segue reference="8NS-Em-zBF"/>
+        <segue reference="2uV-0J-dWX"/>
         <segue reference="Lxi-am-vFq"/>
         <segue reference="uwx-c8-0x3"/>
         <segue reference="aEo-TC-t9Y"/>
