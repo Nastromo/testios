@@ -8,15 +8,19 @@ PODS:
   - GooglePlaces (2.6.0):
     - GoogleMaps/Base (= 2.6.0)
   - Pulsator (0.4.1)
+  - Socket.IO-Client-Swift (13.1.1):
+    - Starscream (~> 3.0.2)
   - SQLite.swift (0.11.4):
     - SQLite.swift/standard (= 0.11.4)
   - SQLite.swift/standard (0.11.4)
+  - Starscream (3.0.4)
 
 DEPENDENCIES:
   - Alamofire
   - GoogleMaps
   - GooglePlaces
   - Pulsator
+  - Socket.IO-Client-Swift (~> 13.1.0)
   - SQLite.swift (~> 0.11.4)
 
 SPEC CHECKSUMS:
@@ -24,8 +28,10 @@ SPEC CHECKSUMS:
   GoogleMaps: 42f91c68b7fa2f84d5c86597b18ceb99f5414c7f
   GooglePlaces: f6ddf33b75cef69e888907d9947c57198ed845f3
   Pulsator: 89a18d0e0ee2f642bb83cb9dfb6b7eebc1dc6241
+  Socket.IO-Client-Swift: f22222913f29801e30ae0df712db663ec096edc2
   SQLite.swift: 3e3bee21da701b5b9f87c4a672cb54f233505692
+  Starscream: f5da93fe6984c77b694366bf7299b7dc63a76f26
 
-PODFILE CHECKSUM: c63cec0dc6ea45a3ddf30f1adc97ce99b13eaf0e
+PODFILE CHECKSUM: 20fd3795e1dcbd7661bc035f6db4874e5ec0d4ee
 
 COCOAPODS: 1.4.0

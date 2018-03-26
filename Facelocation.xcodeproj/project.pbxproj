@@ -55,6 +55,8 @@
 		B2B3EF3820653DDB004E0A01 /* GroupChatList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B3EF3720653DDB004E0A01 /* GroupChatList.swift */; };
 		B2B3EF3A20668233004E0A01 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B3EF3920668233004E0A01 /* Message.swift */; };
 		B2B3EF3C206801E1004E0A01 /* MyEventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B3EF3B206801E1004E0A01 /* MyEventsViewController.swift */; };
+		B2B3EF3E20682471004E0A01 /* SocketIOManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B3EF3D20682471004E0A01 /* SocketIOManager.swift */; };
+		B2B3EF4020694C68004E0A01 /* ChatRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B3EF3F20694C68004E0A01 /* ChatRoom.swift */; };
 		B2CFB763204C30D300927400 /* AddNewLocationMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CFB762204C30D200927400 /* AddNewLocationMapViewController.swift */; };
 		B2CFB765204C367100927400 /* LocationDescViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CFB764204C367100927400 /* LocationDescViewController.swift */; };
 		B2D09B8D205DA3BA0009211F /* FacelocationAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D09B8C205DA3BA0009211F /* FacelocationAPI.swift */; };
@@ -127,6 +129,8 @@
 		B2B3EF3720653DDB004E0A01 /* GroupChatList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupChatList.swift; sourceTree = "<group>"; };
 		B2B3EF3920668233004E0A01 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		B2B3EF3B206801E1004E0A01 /* MyEventsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyEventsViewController.swift; sourceTree = "<group>"; };
+		B2B3EF3D20682471004E0A01 /* SocketIOManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketIOManager.swift; sourceTree = "<group>"; };
+		B2B3EF3F20694C68004E0A01 /* ChatRoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoom.swift; sourceTree = "<group>"; };
 		B2CFB762204C30D200927400 /* AddNewLocationMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewLocationMapViewController.swift; sourceTree = "<group>"; };
 		B2CFB764204C367100927400 /* LocationDescViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDescViewController.swift; sourceTree = "<group>"; };
 		B2D09B8C205DA3BA0009211F /* FacelocationAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacelocationAPI.swift; sourceTree = "<group>"; };
@@ -263,6 +267,7 @@
 				B2B3EF332064F26F004E0A01 /* Coordinates.swift */,
 				B2B3EF3720653DDB004E0A01 /* GroupChatList.swift */,
 				B2B3EF3920668233004E0A01 /* Message.swift */,
+				B2B3EF3F20694C68004E0A01 /* ChatRoom.swift */,
 			);
 			path = DataModel;
 			sourceTree = "<group>";
@@ -288,6 +293,7 @@
 			isa = PBXGroup;
 			children = (
 				B2114E50204C7C5D00A4D014 /* GradientColor.swift */,
+				B2B3EF3D20682471004E0A01 /* SocketIOManager.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -394,12 +400,16 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Pulsator/Pulsator.framework",
 				"${BUILT_PRODUCTS_DIR}/SQLite.swift/SQLite.framework",
+				"${BUILT_PRODUCTS_DIR}/Socket.IO-Client-Swift/SocketIO.framework",
+				"${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Pulsator.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SQLite.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SocketIO.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Starscream.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -479,6 +489,7 @@
 				B2D20566205949F900E0D006 /* GroupChatCell.swift in Sources */,
 				B2D2056A2059593E00E0D006 /* ChatCell.swift in Sources */,
 				B284BC3B20568578002F998E /* MenuBar.swift in Sources */,
+				B2B3EF3E20682471004E0A01 /* SocketIOManager.swift in Sources */,
 				B2B3EF28206177D2004E0A01 /* UserProfileViewController.swift in Sources */,
 				B2B3EF3C206801E1004E0A01 /* MyEventsViewController.swift in Sources */,
 				B2B3EF2C20629E0E004E0A01 /* ChatUserList.swift in Sources */,
@@ -489,6 +500,7 @@
 				B2D2056C2059594C00E0D006 /* AttentionCell.swift in Sources */,
 				B2CFB763204C30D300927400 /* AddNewLocationMapViewController.swift in Sources */,
 				B2113FFA204831260098570E /* StartViewController.swift in Sources */,
+				B2B3EF4020694C68004E0A01 /* ChatRoom.swift in Sources */,
 				B2B3EF1820604164004E0A01 /* NewEventViewController.swift in Sources */,
 				B2B3EF222060FB1E004E0A01 /* NewEventDateViewController.swift in Sources */,
 				B2D2056E2059596100E0D006 /* FilesCell.swift in Sources */,

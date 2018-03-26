@@ -10,5 +10,6 @@ target 'Facelocation' do
   pod 'GooglePlaces'
   pod 'Alamofire'
   pod 'SQLite.swift', '~> 0.11.4'
+  pod 'Socket.IO-Client-Swift', '~> 13.1.0'
 
 end

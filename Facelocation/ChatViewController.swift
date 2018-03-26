@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import SocketIO
 
 class ChatViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
@@ -16,6 +17,7 @@ class ChatViewController: UIViewController, UICollectionViewDataSource, UICollec
     var userID: String?
     var groupChatID: String?
     var messagesArray: [Message]?
+    var chatID: String?
     
     
     override func viewDidLoad() {
@@ -47,6 +49,18 @@ class ChatViewController: UIViewController, UICollectionViewDataSource, UICollec
         } else {
             getGroupChat()
         }
+        if SocketIOManager.isSocketConnected(){
+            SocketIOManager.connectToChatRoom(chat: self.groupChatID!, user: self.myDBid)
+            SocketIOManager.reciveMessage()
+        } else {
+            print("СОКЕТ МЕРТ!!!")
+        }
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(true)
+        SocketIOManager.disconnectSocket()
+        SocketIOManager.removeListener()
     }
     
     
@@ -72,7 +86,7 @@ class ChatViewController: UIViewController, UICollectionViewDataSource, UICollec
                                 print(response)
                                 if response.response?.statusCode == 200{
                                     let chatObj = response.result.value as! Dictionary<String, Any>
-                                    let chatID = chatObj["_id"] as! String
+                                    self.chatID = chatObj["_id"] as! String
                                     let messages = chatObj["messages"] as! Array<Any>
                                     for message in messages {
                                         let messageObj = message as! Dictionary<String, Any>
@@ -92,9 +106,24 @@ class ChatViewController: UIViewController, UICollectionViewDataSource, UICollec
                                         self.myCollectionView?.reloadData()
                                         
                                     }
+                                    
+                                    SocketIOManager.connectSocket()
+                                    
+                                    
+//                                    let json = """
+//                                    {
+//                                     "chat": "\(self.chatID!)",
+//                                     "user": "\(self.myDBid)",
+//                                    }
+//                                    """.data(using: .utf8)!
+//
+//                                    SocketIOManager.connectToChatRoom(chatRoom: json)
+//                                    SocketIOManager.reciveMessage()
+                                    
+                                    
                                     print("КОЛИЧЕСТВО СООБЩЕНИЙ В ЧАТЕ - \(self.messagesArray!.count)")
                                     self.scrollToLastMessage()
-                                    print("СОЗДАНИЕ ЧАТА 1 НА 1 ВЫПОЛНЕНО УСПЕШНО - \(chatID)")
+                                    print("СОЗДАНИЕ ЧАТА 1 НА 1 ВЫПОЛНЕНО УСПЕШНО - \(self.chatID!)")
                                     print("ID ИВЕНТА - \(Event.eventID!)")
                                     
                                 } else {
@@ -141,6 +170,10 @@ class ChatViewController: UIViewController, UICollectionViewDataSource, UICollec
                                         self.myCollectionView?.reloadData()
                                         
                                     }
+                                    
+                                    SocketIOManager.connectSocket()
+
+
                                     print("КОЛИЧЕСТВО СООБЩЕНИЙ В ЧАТЕ - \(self.messagesArray!.count)")
                                     self.scrollToLastMessage()
                                     print("ПОЛУЧЕНИЕ ГРУППОВОГО ЧАТА ВЫПОЛНЕНО УСПЕШНО. ID ЧАТА - \(self.groupChatID!)")
@@ -398,6 +431,11 @@ class ChatViewController: UIViewController, UICollectionViewDataSource, UICollec
         
         
         if messagesArray![indexPath.item].userID != myDBid {
+            
+            let imageURL = URL(string: messagesArray![indexPath.item].userAvatar)
+            let data = try? Data(contentsOf: imageURL!)
+            cell.userAvatar.image = UIImage(data: data!)
+            
             cell.messageText.text = messagesArray![indexPath.item].userText
             cell.messageText.frame = CGRect(x: 60, y: 0, width: estimatedTextSize.width, height: estimatedTextSize.height + 20)
             cell.messageBubble.frame = CGRect(x: 48, y: 0, width: estimatedTextSize.width + 24, height: estimatedTextSize.height + 20)
@@ -409,7 +447,7 @@ class ChatViewController: UIViewController, UICollectionViewDataSource, UICollec
             cell.messageText.textColor = UIColor.black
             cell.userAvatar.isHidden = true
         }
-        cell.backgroundColor = UIColor.blue
+        
         return cell
     }
 }

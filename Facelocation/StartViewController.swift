@@ -15,6 +15,7 @@ class StartViewController: UIViewController {
         
         DataBaseHelper.createDataBase()
         DataBaseHelper.createTable()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
