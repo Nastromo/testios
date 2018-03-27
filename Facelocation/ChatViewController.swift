@@ -483,9 +483,12 @@ class ChatViewController: UIViewController, UICollectionViewDataSource, UICollec
         if messagesArray![indexPath.item].userID != myDBid {
             
             let imageURL = URL(string: messagesArray![indexPath.item].userAvatar)
-            let data = try? Data(contentsOf: imageURL!)
-            cell.userAvatar.image = UIImage(data: data!)
-            
+            Alamofire.download(imageURL!).responseData { response in
+                if let data = response.result.value {
+                    cell.userAvatar.image = UIImage(data: data)
+                }
+            }
+
             cell.messageText.text = messagesArray![indexPath.item].userText
             cell.messageText.frame = CGRect(x: 60, y: 0, width: estimatedTextSize.width, height: estimatedTextSize.height + 20)
             cell.messageBubble.frame = CGRect(x: 48, y: 0, width: estimatedTextSize.width + 24, height: estimatedTextSize.height + 20)
