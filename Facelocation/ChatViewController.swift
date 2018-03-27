@@ -23,6 +23,8 @@ class ChatViewController: UIViewController, UICollectionViewDataSource, UICollec
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        SocketIOManager.connectSocket()
+        
         setUpChatLogCollection()
         setupMyCollectionConstarints()
         setupBottomMyCollectionConstaraint()
@@ -43,19 +45,49 @@ class ChatViewController: UIViewController, UICollectionViewDataSource, UICollec
         //Listen when keyboard hide
         NotificationCenter.default.addObserver(self, selector: #selector(hundleKeyboardHiding), name: .UIKeyboardWillHide, object: nil)
         
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         if self.userID != nil {
-            print("ИСПОЛНИЛОСЬ ПЕРВОЕ УСЛОВИЕ")
             createChat()
+            print("ВЫПОЛНЕНИЕ НАЧАЛОСЬ ОДІН НА ОДІН")
         } else {
             getGroupChat()
-        }
-        if SocketIOManager.isSocketConnected(){
-            SocketIOManager.connectToChatRoom(chat: self.groupChatID!, user: self.myDBid)
-            SocketIOManager.reciveMessage()
-        } else {
-            print("СОКЕТ МЕРТ!!!")
+            print("ВЫПОЛНЕНИЕ НАЧАЛОСЬ ГРУППВОЙ ЧАТ")
+            
+            if ("\(SocketIOManager.socket.status)" == "connected"){
+                SocketIOManager.connectToChat(chat: self.groupChatID!, user: self.myDBid)
+            } else {
+                print("\(SocketIOManager.socket.status) - СТАТУС СОКЕТАААА")
+                SocketIOManager.onConnected(chat: self.groupChatID!, user: self.myDBid)
+            }
+
+            SocketIOManager.socket.on("new-message-mob", callback: { [weak self] (dataArray, ack) in
+                print(dataArray)
+                print("ПОЛУЧИЛ ГРУППОВОЕ СООБЩЕНИЕ")
+                
+                for data in dataArray{
+                    let messageObj = data as! Dictionary<String, Any>
+                    let message = messageObj["message"] as! Dictionary<String, Any>
+                    let userID = message["user"] as! String
+                    let userAvatar = message["avatar_mob"] as! String
+                    let userText = message["text"] as! String
+                    
+                    let newMessage = Message(userName: "myName", userID: userID, userEmail: "myEmail", userAvatar: userAvatar, userText: userText)
+                    
+                    self?.messagesArray?.append(newMessage)
+                    let insertionIndex = (self?.messagesArray!.count)! - 1
+                    let indexPath = IndexPath(item: insertionIndex, section: 0)
+                    var indexPathArray = [IndexPath]()
+                    indexPathArray.append(indexPath)
+                    self?.myCollectionView?.insertItems(at: indexPathArray)
+                    self?.myCollectionView?.scrollToItem(at: indexPath, at: .bottom, animated: true)
+                }
+            })
         }
     }
+    
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(true)
@@ -107,24 +139,37 @@ class ChatViewController: UIViewController, UICollectionViewDataSource, UICollec
                                         
                                     }
                                     
-                                    SocketIOManager.connectSocket()
+                                    if ("\(SocketIOManager.socket.status)" == "connected"){
+                                        SocketIOManager.connectToChat(chat: self.chatID!, user: self.myDBid)
+                                    } else {
+                                        print("\(SocketIOManager.socket.status) - СТАТУС СОКЕТАААА")
+                                        SocketIOManager.onConnected(chat: self.chatID!, user: self.myDBid)
+                                    }
                                     
+                                    SocketIOManager.socket.on("new-message-mob", callback: { [weak self] (dataArray, ack) in
+                                        print(dataArray)
+                                        print("ПОЛУЧИЛ ЛИЧНОЕ СООБЩЕНИЕ")
+                                        
+                                        for data in dataArray{
+                                            let messageObj = data as! Dictionary<String, Any>
+                                            let message = messageObj["message"] as! Dictionary<String, Any>
+                                            let userID = message["user"] as! String
+                                            let userAvatar = message["avatar_mob"] as! String
+                                            let userText = message["text"] as! String
+                                            
+                                            let newMessage = Message(userName: "myName", userID: userID, userEmail: "myEmail", userAvatar: userAvatar, userText: userText)
+                                            
+                                            self?.messagesArray?.append(newMessage)
+                                            let insertionIndex = (self?.messagesArray!.count)! - 1
+                                            let indexPath = IndexPath(item: insertionIndex, section: 0)
+                                            var indexPathArray = [IndexPath]()
+                                            indexPathArray.append(indexPath)
+                                            self?.myCollectionView?.insertItems(at: indexPathArray)
+                                            self?.myCollectionView?.scrollToItem(at: indexPath, at: .bottom, animated: true)
+                                        }
+                                    })
                                     
-//                                    let json = """
-//                                    {
-//                                     "chat": "\(self.chatID!)",
-//                                     "user": "\(self.myDBid)",
-//                                    }
-//                                    """.data(using: .utf8)!
-//
-//                                    SocketIOManager.connectToChatRoom(chatRoom: json)
-//                                    SocketIOManager.reciveMessage()
-                                    
-                                    
-                                    print("КОЛИЧЕСТВО СООБЩЕНИЙ В ЧАТЕ - \(self.messagesArray!.count)")
                                     self.scrollToLastMessage()
-                                    print("СОЗДАНИЕ ЧАТА 1 НА 1 ВЫПОЛНЕНО УСПЕШНО - \(self.chatID!)")
-                                    print("ID ИВЕНТА - \(Event.eventID!)")
                                     
                                 } else {
                                     print("ОШИБКА СОЗДАНИЯ ЧАТА 1 НА 1")
@@ -133,7 +178,6 @@ class ChatViewController: UIViewController, UICollectionViewDataSource, UICollec
                                 print(error)
                             }
         }
-        
     }
     
     //Get group chat by groupChatID
@@ -170,14 +214,9 @@ class ChatViewController: UIViewController, UICollectionViewDataSource, UICollec
                                         self.myCollectionView?.reloadData()
                                         
                                     }
-                                    
-                                    SocketIOManager.connectSocket()
 
-
-                                    print("КОЛИЧЕСТВО СООБЩЕНИЙ В ЧАТЕ - \(self.messagesArray!.count)")
                                     self.scrollToLastMessage()
-                                    print("ПОЛУЧЕНИЕ ГРУППОВОГО ЧАТА ВЫПОЛНЕНО УСПЕШНО. ID ЧАТА - \(self.groupChatID!)")
-                                    print("ID ИВЕНТА - \(Event.eventID!)")
+
                                     
                                 } else {
                                     print("ОШИБКА ПОЛУЧЕНИЯ ГРУППОВОГО ЧАТА - \(Event.eventID!)")
@@ -186,7 +225,6 @@ class ChatViewController: UIViewController, UICollectionViewDataSource, UICollec
                                 print(error)
                             }
         }
-        
     }
     
     //Scroll to the last bottom message in collection
@@ -216,6 +254,18 @@ class ChatViewController: UIViewController, UICollectionViewDataSource, UICollec
         if let chatMessage = messegeField.text {
             
             let newMessage = Message(userName: "myName", userID: myDBid, userEmail: "myEmail", userAvatar: "myAvatar", userText: chatMessage)
+            
+            let messageData: [String: Any] = [
+                "chat": self.chatID!,
+                "user": myDBid,
+                "message": [
+                    "user": myDBid,
+                    "text": chatMessage
+                ]
+            ]
+            
+            SocketIOManager.socket.emit("save-message", messageData);
+            
             
             messagesArray?.append(newMessage)
             let insertionIndex = messagesArray!.count - 1
