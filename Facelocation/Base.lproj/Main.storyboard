@@ -313,7 +313,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="466" id="pAe-U6-psT"/>
                                 </constraints>
-                                <mutableString key="text">УГОДА ПРО КОРИСТУВАННЯ СЕРВІСОМ
+                                <string key="text">УГОДА ПРО КОРИСТУВАННЯ СЕРВІСОМ
 FACE LOCATION
 
 Ця Угода є договором приєднання, та визначає умови і порядок використання сервісу Face Location, а також його контенту.
@@ -387,7 +387,7 @@ FACE LOCATION
 
 Усі правовідносини, які виникають у зв'язку з використанням сервісу Face Location, тлумачаться відповідно до чинного законодавства України.
 Будь-які суперечки, що виникають внаслідок використання сервісу Face Location, підлягають врегулюванню шляхом проведення переговорів.
-Будь-які спори, що виникають внаслідок використання сервісу Face Location, підлягають вирішенню відповідно до норм чинного законодавства України.</mutableString>
+Будь-які спори, що виникають внаслідок використання сервісу Face Location, підлягають вирішенню відповідно до норм чинного законодавства України.</string>
                                 <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -2291,10 +2291,9 @@ FACE LOCATION
         <image name="userIconProfile" width="55" height="55"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="yF7-lg-S7D"/>
         <segue reference="8NS-Em-zBF"/>
         <segue reference="2uV-0J-dWX"/>
-        <segue reference="Lxi-am-vFq"/>
+        <segue reference="1xH-ks-8pG"/>
         <segue reference="uwx-c8-0x3"/>
         <segue reference="aEo-TC-t9Y"/>
     </inferredMetricsTieBreakers>

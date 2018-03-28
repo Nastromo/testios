@@ -508,6 +508,9 @@ class ChatViewController: UIViewController, UICollectionViewDataSource, UICollec
             cell.messageText.text = messagesArray![indexPath.item].userText
             cell.messageText.frame = CGRect(x: 60, y: 0, width: estimatedTextSize.width, height: estimatedTextSize.height + 20)
             cell.messageBubble.frame = CGRect(x: 48, y: 0, width: estimatedTextSize.width + 24, height: estimatedTextSize.height + 20)
+            cell.messageBubble.backgroundColor = Colors.purpleSuperLight
+            cell.messageText.textColor = UIColor.white
+            cell.userAvatar.isHidden = false
 
         } else {
             cell.messageText.text = messagesArray![indexPath.item].userText

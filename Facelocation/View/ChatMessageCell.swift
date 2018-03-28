@@ -18,6 +18,12 @@ class ChatMessageCell: UICollectionViewCell{
 //        setMessageTextConstraints()
     }
     
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+    }
+    
     let userAvatar: UIImageView = {
         let ua = UIImageView()
         ua.image = UIImage(named: "uAvatar")

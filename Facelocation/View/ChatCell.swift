@@ -14,11 +14,13 @@ class ChatCell: UICollectionViewCell, UICollectionViewDataSource, UICollectionVi
     let myDBid = DataBaseHelper.userDataArray[0]
     var myCollectionView: UICollectionView?
     var userID: String?
-    var groupChatID: String?
+    var chatID: String?
     var messagesArray: [Message]?
     
     override init(frame: CGRect) {
         super .init(frame: frame)
+        
+        SocketIOManager.connectSocket()
         
         setUpChatLogCollection()
         setupMyCollectionConstarints()
@@ -68,6 +70,7 @@ class ChatCell: UICollectionViewCell, UICollectionViewDataSource, UICollectionVi
                                         let chat = item as! Dictionary<String, Any>
                                         let chatType = chat["type"] as! Int
                                         if chatType == 0 {
+                                            self.chatID = chat["_id"] as? String
                                             let messages = chat["messages"] as! Array<Any>
                                             for message in messages{
                                                 let messageObj = message as! Dictionary<String, Any>
@@ -89,8 +92,41 @@ class ChatCell: UICollectionViewCell, UICollectionViewDataSource, UICollectionVi
                                         }
                                     }
                                     self.scrollToLastMessage()
+                                    
                                     print("ГЛАВНЫЙ ЧАТ ПОЛУЧЕН УСПЕШНО! - EVENT ID \(Event.eventID!)")
                                     print("К-ВО СООБЩЕНИЙ В ГЛАВНОМ ЧАТЕ: \(self.messagesArray!.count)")
+                                    
+                                    print("ГЛАВНЫЙ ЧАТ ID \(self.chatID!)")
+                                    if ("\(SocketIOManager.socket.status)" == "connected"){
+                                        print("\(SocketIOManager.socket.status) - СТАТУС СОКЕТА НА ЭКРАНЕ ГЛАВНОГО ЧАТА")
+                                        SocketIOManager.connectToChat(chat: self.chatID!, user: self.myDBid)
+                                    } else {
+                                        print("\(SocketIOManager.socket.status) - СТАТУС СОКЕТА НА ЭКРАНЕ ГЛАВНОГО ЧАТА")
+                                        SocketIOManager.onConnected(chat: self.chatID!, user: self.myDBid)
+                                    }
+                                    
+                                    SocketIOManager.socket.on("new-message-mob", callback: { [weak self] (dataArray, ack) in
+                                        print(dataArray)
+                                        print("ПОЛУЧИЛ ОБЩЕЕ СООБЩЕНИЕ")
+                                        
+                                        for data in dataArray{
+                                            let messageObj = data as! Dictionary<String, Any>
+                                            let message = messageObj["message"] as! Dictionary<String, Any>
+                                            let userID = message["user"] as! String
+                                            let userAvatar = message["avatar_mob"] as! String
+                                            let userText = message["text"] as! String
+                                            
+                                            let newMessage = Message(userName: "myName", userID: userID, userEmail: "myEmail", userAvatar: userAvatar, userText: userText)
+                                            
+                                            self?.messagesArray?.append(newMessage)
+                                            let insertionIndex = (self?.messagesArray!.count)! - 1
+                                            let indexPath = IndexPath(item: insertionIndex, section: 0)
+                                            var indexPathArray = [IndexPath]()
+                                            indexPathArray.append(indexPath)
+                                            self?.myCollectionView?.insertItems(at: indexPathArray)
+                                            self?.myCollectionView?.scrollToItem(at: indexPath, at: .bottom, animated: true)
+                                        }
+                                    })
                                 }
                             case .failure(let error):
                                 print("ОШИБКА ПОЛУЧЕНИЯ ЧАТОВ")
