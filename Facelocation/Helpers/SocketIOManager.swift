@@ -25,7 +25,7 @@ class SocketIOManager: NSObject {
     
     
     class func onConnected(chat: String, user: String){
-        print("\(socket.status) ++++ СТАТУС СОКЕТА")
+        print("\(socket.status) - СТАТУС СОКЕТА В СОКЕТ МЕНЕДЖЕРЕ")
         socket.on(clientEvent: .connect) { data, ack in
             print("СОКЕТ ПОДКЛЮЧЕН")
             connectToChatRoom(chat: chat, user: user)
@@ -35,7 +35,7 @@ class SocketIOManager: NSObject {
     
     
     class func connectToChat(chat: String, user: String){
-        print("\(socket.status) ++++ СТАТУС СОКЕТА ВНУТРІ КОННЕКТ ТУ ЧАТ")
+        print("\(socket.status) СТАТУС СОКЕТА ВНУТРИ КОННЕКТ ТУ ЧАТ")
             connectToChatRoom(chat: chat, user: user)
 
     }
@@ -52,6 +52,8 @@ class SocketIOManager: NSObject {
     class func removeListener(){
         print("СЛУШАТЕЛЬ СООБЩЕНИЙ УДАЛЕН")
         socket.off("new-message-mob")
+        socket.off("connect")
+        socket.removeAllHandlers()
     }
     
     

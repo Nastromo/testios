@@ -56,7 +56,11 @@ class RegSecondViewController: UIViewController {
 
                                     self.navigationController?.navigationBar.barTintColor = Colors.mainColor
                                     self.navigationController?.navigationBar.isTranslucent = false
-
+                                    
+                                    DataBaseHelper.insertUser(userID: userID, userFirstLogin: true, userEmail: userEmail, userToken: userToken, userAvatarURL: userAvatar)
+                                    
+                                    print("ДОБАВЛЕН?")
+                                    
                                     self.performSegue(withIdentifier: "toMainMapScreen", sender: self)
                                 }
                             case .failure(let error):

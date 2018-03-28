@@ -46,9 +46,10 @@ class LoginViewController: UIViewController {
                             let userID: String = userOBJ["_id"] as! String
                             let userAvatar: String = userOBJ["avatar_mob"] as! String
                             let userEmail: String = userOBJ["email"] as! String
-
-//                            self.navigationController?.navigationBar.setBackgroundImage(nil, for: .default)
-//                            self.navigationController?.navigationBar.shadowImage = nil
+                            
+                            print("ПОЛЬЗОВАТЕЛЬСКИЙ EMAIL - \(userEmail)")
+                            print("ПОЛЬЗОВАТЕЛЬСКИЙ ID - \(userID)")
+                            print("ПОЛЬЗОВАТЕЛЬСКИЙ ТОКЕН - \(userToken)")
                             
                             self.navigationController?.navigationBar.barTintColor = Colors.mainColor
                             self.navigationController?.navigationBar.isTranslucent = false

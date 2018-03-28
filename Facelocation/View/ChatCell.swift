@@ -143,8 +143,8 @@ class ChatCell: UICollectionViewCell, UICollectionViewDataSource, UICollectionVi
     }
     
     func setupSendButtonConstarints(){
-        let descHorizontal = "H:[sendButton(24)]-18-|"
-        let descVertical = "V:|-15-[sendButton(20)]"
+        let descHorizontal = "H:[sendButton(59)]-2-|"
+        let descVertical = "V:|-6-[sendButton(39)]"
         
         let viewDictionary = ["sendButton": sendButton]
         

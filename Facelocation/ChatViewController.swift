@@ -9,6 +9,7 @@
 import UIKit
 import Alamofire
 import SocketIO
+import SDWebImage
 
 class ChatViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
@@ -22,9 +23,7 @@ class ChatViewController: UIViewController, UICollectionViewDataSource, UICollec
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        SocketIOManager.connectSocket()
-        
+
         setUpChatLogCollection()
         setupMyCollectionConstarints()
         setupBottomMyCollectionConstaraint()
@@ -49,24 +48,30 @@ class ChatViewController: UIViewController, UICollectionViewDataSource, UICollec
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        print("МОЙ АЙДИ - \(myDBid)")
+        SocketIOManager.connectSocket()
         if self.userID != nil {
+            print("ВЫПОЛНЕНИЕ НАЧАЛОСЬ ОДИН НА ОДИН")
+            print("АЙДИ ЮЗЕРА НА КОТОРОГО НАЖАЛИ - \(self.userID!)")
             createChat()
-            print("ВЫПОЛНЕНИЕ НАЧАЛОСЬ ОДІН НА ОДІН")
+            
+            
         } else {
+            print("ВЫПОЛНЕНИЕ НАЧАЛОСЬ ГРУППОВОЙ ЧАТ")
+            print("АЙДИ ЧАТА НА КОТОРЫЙ НАЖАЛИ - \(self.groupChatID!)")
             getGroupChat()
-            print("ВЫПОЛНЕНИЕ НАЧАЛОСЬ ГРУППВОЙ ЧАТ")
             
             if ("\(SocketIOManager.socket.status)" == "connected"){
+                print("\(SocketIOManager.socket.status) - СТАТУС СОКЕТА НА ЭКРАНЕ ГРУППОВОГО ЧАТА")
                 SocketIOManager.connectToChat(chat: self.groupChatID!, user: self.myDBid)
             } else {
-                print("\(SocketIOManager.socket.status) - СТАТУС СОКЕТАААА")
+                print("\(SocketIOManager.socket.status) - СТАТУС СОКЕТА НА ЭКРАНЕ ГРУППОВОГО ЧАТА")
                 SocketIOManager.onConnected(chat: self.groupChatID!, user: self.myDBid)
             }
 
             SocketIOManager.socket.on("new-message-mob", callback: { [weak self] (dataArray, ack) in
                 print(dataArray)
                 print("ПОЛУЧИЛ ГРУППОВОЕ СООБЩЕНИЕ")
-                
                 for data in dataArray{
                     let messageObj = data as! Dictionary<String, Any>
                     let message = messageObj["message"] as! Dictionary<String, Any>
@@ -115,7 +120,6 @@ class ChatViewController: UIViewController, UICollectionViewDataSource, UICollec
                             
                             switch response.result {
                             case .success:
-                                print(response)
                                 if response.response?.statusCode == 200{
                                     let chatObj = response.result.value as! Dictionary<String, Any>
                                     self.chatID = chatObj["_id"] as! String
@@ -140,9 +144,10 @@ class ChatViewController: UIViewController, UICollectionViewDataSource, UICollec
                                     }
                                     
                                     if ("\(SocketIOManager.socket.status)" == "connected"){
+                                        print("\(SocketIOManager.socket.status) - СТАТУС СОКЕТА НА ЭКРАНЕ ЧАТА ОДИН НА ОДИН")
                                         SocketIOManager.connectToChat(chat: self.chatID!, user: self.myDBid)
                                     } else {
-                                        print("\(SocketIOManager.socket.status) - СТАТУС СОКЕТАААА")
+                                        print("\(SocketIOManager.socket.status) - СТАТУС СОКЕТА НА ЭКРАНЕ ЧАТА ОДИН НА ОДИН")
                                         SocketIOManager.onConnected(chat: self.chatID!, user: self.myDBid)
                                     }
                                     
@@ -192,7 +197,6 @@ class ChatViewController: UIViewController, UICollectionViewDataSource, UICollec
                             
                             switch response.result {
                             case .success:
-                                print(response)
                                 if response.response?.statusCode == 200{
                                     let groupChatObj = response.result.value as! Dictionary<String, Any>
                                     let messages = groupChatObj["messages"] as! Array<Any>
@@ -255,17 +259,31 @@ class ChatViewController: UIViewController, UICollectionViewDataSource, UICollec
             
             let newMessage = Message(userName: "myName", userID: myDBid, userEmail: "myEmail", userAvatar: "myAvatar", userText: chatMessage)
             
-            let messageData: [String: Any] = [
-                "chat": self.chatID!,
-                "user": myDBid,
-                "message": [
+            
+            var messageData = [String: Any]()
+            
+            
+            if self.userID != nil {
+                messageData = [
+                    "chat": self.chatID!,
                     "user": myDBid,
-                    "text": chatMessage
+                    "message": [
+                        "user": myDBid,
+                        "text": chatMessage
+                    ]
                 ]
-            ]
-            
+            } else {
+                messageData = [
+                    "chat": self.groupChatID!,
+                    "user": myDBid,
+                    "message": [
+                        "user": myDBid,
+                        "text": chatMessage
+                    ]
+                ]
+            }
+
             SocketIOManager.socket.emit("save-message", messageData);
-            
             
             messagesArray?.append(newMessage)
             let insertionIndex = messagesArray!.count - 1
@@ -276,11 +294,12 @@ class ChatViewController: UIViewController, UICollectionViewDataSource, UICollec
             
             self.myCollectionView?.scrollToItem(at: indexPath, at: .bottom, animated: true)
         }
+        messegeField.text = ""
     }
     
     func setupSendButtonConstarints(){
-        let descHorizontal = "H:[sendButton(24)]-18-|"
-        let descVertical = "V:|-15-[sendButton(20)]"
+        let descHorizontal = "H:[sendButton(59)]-2-|"
+        let descVertical = "V:|-6-[sendButton(39)]"
         
         let viewDictionary = ["sendButton": sendButton]
         
@@ -357,8 +376,9 @@ class ChatViewController: UIViewController, UICollectionViewDataSource, UICollec
                 
                 //Animate the last cell bottom edge to top backRectangl edge
                 let indexPath = IndexPath(item: self.messagesArray!.count - 1, section: 0)
-                self.myCollectionView?.scrollToItem(at: indexPath, at: .bottom, animated: true)
-            
+                if ((self.messagesArray!.count - 1) > 0){
+                   self.myCollectionView?.scrollToItem(at: indexPath, at: .bottom, animated: true)
+                }
             })
         }
     }
@@ -483,15 +503,12 @@ class ChatViewController: UIViewController, UICollectionViewDataSource, UICollec
         if messagesArray![indexPath.item].userID != myDBid {
             
             let imageURL = URL(string: messagesArray![indexPath.item].userAvatar)
-            Alamofire.download(imageURL!).responseData { response in
-                if let data = response.result.value {
-                    cell.userAvatar.image = UIImage(data: data)
-                }
-            }
-
+            cell.userAvatar.sd_setImage(with: imageURL, completed: nil)
+            
             cell.messageText.text = messagesArray![indexPath.item].userText
             cell.messageText.frame = CGRect(x: 60, y: 0, width: estimatedTextSize.width, height: estimatedTextSize.height + 20)
             cell.messageBubble.frame = CGRect(x: 48, y: 0, width: estimatedTextSize.width + 24, height: estimatedTextSize.height + 20)
+
         } else {
             cell.messageText.text = messagesArray![indexPath.item].userText
             cell.messageText.frame = CGRect(x: view.frame.width - estimatedTextSize.width - 14, y: 0, width: estimatedTextSize.width, height: estimatedTextSize.height + 20)
@@ -502,5 +519,9 @@ class ChatViewController: UIViewController, UICollectionViewDataSource, UICollec
         }
         
         return cell
+    }
+    
+    deinit {
+        print("ЭКРАН ЧАТА УДАЛЕН ИЗ ПАМЯТИ")
     }
 }

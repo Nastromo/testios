@@ -154,9 +154,7 @@ class EventViewController: UIViewController {
                             
                             switch response.result {
                             case .success:
-                                print(response)
                                 if response.response?.statusCode == 200{
-                                    print("ЛОКАЛИЗАЦИЯ ВЫПОЛНЕНА УСПЕШНО")
                                     self.performSegue(withIdentifier: "toLocalized", sender: self)
                                 } else {
                                     print("НУЖНО БЫТЬ В РАДИУСЕ ЛОКАЦИИ")
@@ -182,7 +180,6 @@ class EventViewController: UIViewController {
         
         GroupChatList.groupChatsList = [GroupChat]()
         GroupChatList.groupChatsListCopy = [GroupChat]()
-        print("ГРУПОВЫЕ ЧАТЫ ДЛЯ ИВЕНТА ID: \(Event.eventID!)")
         
         let parameters: Parameters = [
             "event": Event.eventID!,
@@ -208,8 +205,6 @@ class EventViewController: UIViewController {
                                             GroupChatList.groupChatsList.append(groupChat)
                                         }
                                     }
-                                    
-                                    print("ЧАТЫ ПОЛУЧЕНЫ УСПЕШНО! - EVENT ID \(Event.eventID!) + \(GroupChatList.groupChatsList.count)")
                                 }
                             case .failure(let error):
                                 print("ОШИБКА ПОЛУЧЕНИЯ ЧАТОВ")

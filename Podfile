@@ -11,5 +11,6 @@ target 'Facelocation' do
   pod 'Alamofire'
   pod 'SQLite.swift', '~> 0.11.4'
   pod 'Socket.IO-Client-Swift', '~> 13.1.0'
+  pod 'SDWebImage', '~> 4.0'
 
 end

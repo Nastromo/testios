@@ -45,9 +45,11 @@ class MainMapViewController: UIViewController, GMSMapViewDelegate, CLLocationMan
         menuView.layer.shadowOpacity = 0.5
         menuView.layer.shadowRadius = 6
         
-        setUserAvatar()
+        
 
     }
+    
+
     
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -57,18 +59,20 @@ class MainMapViewController: UIViewController, GMSMapViewDelegate, CLLocationMan
     
     //Downloading and Set User Avatar from URL
     func setUserAvatar(){
-        let imageURL = URL(string: DataBaseHelper.userDataArray[3])
-        let data = try? Data(contentsOf: imageURL!)
-        let userAvatarImage = UIImage(data: data!)
-        userAvatar.setImage(userAvatarImage, for: .normal)
-        userAvatar.layer.cornerRadius = 26;
-        userAvatar.layer.masksToBounds = true;
+            print("ФОТО - \(DataBaseHelper.userDataArray[3])")
+            let imageURL = URL(string: DataBaseHelper.userDataArray[3])
+            let data = try? Data(contentsOf: imageURL!)
+            let userAvatarImage = UIImage(data: data!)
+            userAvatar.setImage(userAvatarImage, for: .normal)
+            userAvatar.layer.cornerRadius = 26;
+            userAvatar.layer.masksToBounds = true;
+        
     }
 
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
+        setUserAvatar()
         if(!firstRun){
             print("ПОКАЗАТЬ БЛИЖАЙШИЕ ИВЕНТЫ: \(latitude!), \(longitude!)")
             Coordinates.latitude = latitude!
@@ -180,6 +184,9 @@ class MainMapViewController: UIViewController, GMSMapViewDelegate, CLLocationMan
         lastlocation = locations.last
         latitude = (lastlocation?.coordinate.latitude)!
         longitude = (lastlocation?.coordinate.longitude)!
+        
+        Coordinates.latitude = latitude
+        Coordinates.longitude = longitude
         
         currentLocationMarker?.position = CLLocationCoordinate2D(latitude: (lastlocation?.coordinate.latitude)!, longitude: (lastlocation?.coordinate.longitude)!)
         
