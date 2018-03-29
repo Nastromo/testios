@@ -12,5 +12,7 @@ target 'Facelocation' do
   pod 'SQLite.swift', '~> 0.11.4'
   pod 'Socket.IO-Client-Swift', '~> 13.1.0'
   pod 'SDWebImage', '~> 4.0'
+  pod 'Firebase/Core'
+  pod 'Firebase/Messaging'
 
 end
