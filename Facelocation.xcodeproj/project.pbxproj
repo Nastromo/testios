@@ -33,6 +33,7 @@
 		B22A6DBA205BC26100E0E779 /* ChatMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B22A6DB9205BC26100E0E779 /* ChatMessageCell.swift */; };
 		B22A6DBD205C324600E0E779 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B22A6DBC205C324600E0E779 /* User.swift */; };
 		B278AF19206D452E009364F1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B278AF18206D452D009364F1 /* GoogleService-Info.plist */; };
+		B278AF1C206D5DAD009364F1 /* DeviceToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = B278AF1B206D5DAD009364F1 /* DeviceToken.swift */; };
 		B284BC3B20568578002F998E /* MenuBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B284BC3A20568578002F998E /* MenuBar.swift */; };
 		B28730A9204C440200EF81E4 /* SupportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28730A8204C440200EF81E4 /* SupportViewController.swift */; };
 		B2B3EF0E205FCF64004E0A01 /* EventMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B3EF0D205FCF64004E0A01 /* EventMarker.swift */; };
@@ -109,6 +110,7 @@
 		B22A6DBC205C324600E0E779 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		B278AF18206D452D009364F1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B278AF1A206D46F1009364F1 /* Facelocation.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Facelocation.entitlements; sourceTree = "<group>"; };
+		B278AF1B206D5DAD009364F1 /* DeviceToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceToken.swift; sourceTree = "<group>"; };
 		B284BC3A20568578002F998E /* MenuBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBar.swift; sourceTree = "<group>"; };
 		B28730A8204C440200EF81E4 /* SupportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportViewController.swift; sourceTree = "<group>"; };
 		B2B3EF0D205FCF64004E0A01 /* EventMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventMarker.swift; sourceTree = "<group>"; };
@@ -273,6 +275,7 @@
 				B2B3EF3720653DDB004E0A01 /* GroupChatList.swift */,
 				B2B3EF3920668233004E0A01 /* Message.swift */,
 				B2B3EF3F20694C68004E0A01 /* ChatRoom.swift */,
+				B278AF1B206D5DAD009364F1 /* DeviceToken.swift */,
 			);
 			path = DataModel;
 			sourceTree = "<group>";
@@ -503,6 +506,7 @@
 				B2D20560205718A400E0D006 /* LocalizedUserCell.swift in Sources */,
 				B2D09B91205E7C580009211F /* RegSecondViewController.swift in Sources */,
 				B2EC688E205ED37E00C00C02 /* DataBaseHelper.swift in Sources */,
+				B278AF1C206D5DAD009364F1 /* DeviceToken.swift in Sources */,
 				B2B3EF1220602DD9004E0A01 /* LocationMapViewController.swift in Sources */,
 				B211403B20498C150098570E /* MainMapViewController.swift in Sources */,
 				B2D20566205949F900E0D006 /* GroupChatCell.swift in Sources */,

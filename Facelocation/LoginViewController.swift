@@ -8,6 +8,7 @@ class LoginViewController: UIViewController {
     
     
     let requestURL = URLlist.baseURL + URLlist.loginPOST
+    let requestURLDeviceToken = URLlist.baseURL + URLlist.sendDeviceTokenPOST
     let headers: HTTPHeaders = [
         "Content-Type": "application/json"
     ]
@@ -56,12 +57,37 @@ class LoginViewController: UIViewController {
                             
                             DataBaseHelper.insertUser(userID: userID, userFirstLogin: true, userEmail: userEmail, userToken: userToken, userAvatarURL: userAvatar)
                             
+                            self.sendDeviceToken()
+                            
                             self.performSegue(withIdentifier: "toMainMap", sender: self)
                         }
                     case .failure(let error):
                                 
                         print(error)
                     }
+        }
+    }
+    
+    func sendDeviceToken(){
+        let parameters: Parameters = [
+            "token": DeviceToken.deviceToken,
+        ]
+        Alamofire.request(requestURLDeviceToken,
+                          method: .post,
+                          parameters: parameters,
+                          encoding: JSONEncoding.default,
+                          headers: URLlist.headers).responseJSON {response in
+                            
+                            switch response.result {
+                            case .success:
+                                print(response)
+                                if response.response?.statusCode == 200{
+                                    print("ТОКЕН УСТРОЙСТВА ОТПРАВЛЕН УСПЕШНО")
+                                }
+                            case .failure(let error):
+                                
+                                print(error)
+                            }
         }
     }
     

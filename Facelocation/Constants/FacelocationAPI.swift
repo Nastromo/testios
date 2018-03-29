@@ -65,6 +65,9 @@ class URLlist{
     
     //Get chat by caht ID
     static let getChatGET = "api/chat/"
+    
+    //Post device token
+    static let sendDeviceTokenPOST = "api/profile/device-token"
 
    
 
